@@ -28,7 +28,7 @@
 }
 
 .link {
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .link:hover {
@@ -38,6 +38,7 @@
 
 .delivery {
   color: var(--accent-text-color);
+  transition: color 0.2s;
 }
 
 .delivery:hover {
@@ -47,6 +48,12 @@
 .basketBox {
   position: relative;
   cursor: pointer;
+  padding-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.basketBox:hover {
+  transform: scale(1.1);
 }
 
 .basket {
@@ -59,9 +66,9 @@
 
 .basketQuantity {
   position: absolute;
-  right: -0.5rem;
+  right: 0;
   bottom: -0.5rem;
-  color: var(--accent-text-color);
+  color: var(--semi-dark-color);
   font-weight: 600;
 }
 
