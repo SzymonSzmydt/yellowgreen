@@ -1,10 +1,79 @@
 .header {
+  color: var(--dark-color);
   font-weight: 500;
-  border: 1px solid red;
+  padding: 0.5rem 0;
+}
+
+.container {
+  composes: container from global;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.logo {
+  text-align: center;
+  padding: 1.5rem 0;
 }
 
 .nav {
-  width: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--semi-dark-color);
+  border-bottom: 1px solid var(--semi-dark-color);
+}
+
+.link {
+  transition: all 0.4s;
+}
+
+.link:hover {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.delivery {
+  color: var(--accent-text-color);
+}
+
+.delivery:hover {
+  color: var(--black-color);
+}
+
+.basketBox {
+  position: relative;
+  cursor: pointer;
+}
+
+.basket {
+  background-image: url("../../public/cart-shopping.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.basketQuantity {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  color: var(--accent-text-color);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1266px) {
+  .top {
+    padding: 0 0.75rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header,
+  .delivery {
+    font-size: 0.75rem;
+  }
 }
