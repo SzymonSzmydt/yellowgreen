@@ -6,7 +6,7 @@
   --dark-color: #4b4a54;
   --semi-dark-color: #677381;
 
-  --accent-text-color: #BDA5AB;
+  --accent-text-color: #bda5ab;
 }
 
 * {
@@ -19,6 +19,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #fff;
 }
 
 a {

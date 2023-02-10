@@ -9,6 +9,7 @@ function Intro() {
         src={introImg}
         alt='Odświeżone wnętrze meblami z naszej kolekcji'
         className={style.introImage}
+        placeholder='blur'
       />
     </div>
   );
