@@ -1,0 +1,9 @@
+.intro {
+  composes: container from global;
+}
+
+.introImage {
+  object-fit: cover;
+  width: 100%;
+  height: 80vh;
+}

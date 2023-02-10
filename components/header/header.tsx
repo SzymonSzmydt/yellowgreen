@@ -8,25 +8,23 @@ const orbitron = Orbitron({ subsets: ["latin"] });
 function Header() {
   return (
     <header className={style.header}>
-      <section className={style.container}>
         <div className={style.top}>
           <Link href='/delivery' className={style.delivery}>
             <em>Darmowa dostawa już od 300 zł</em>
           </Link>
-          <Link href='/basket'>
-            <section className={style.basketBox}>
+          <section className={style.basketBox}>
+            <Link href='/basket'>
               <div className={style.basket} />
               <span className={style.basketQuantity}>0</span>
-            </section>
-          </Link>
+            </Link>
+          </section>
         </div>
         <div className={style.logo}>
           <Link href='/'>
-            <h1 className={orbitron.className}>North Shape</h1>
+            <h1 className={orbitron.className}> North Shape </h1>
           </Link>
         </div>
         <Navigation />
-      </section>
     </header>
   );
 }
