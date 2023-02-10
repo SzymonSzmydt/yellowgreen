@@ -1,0 +1,10 @@
+.header {
+  font-weight: 500;
+  border: 1px solid red;
+}
+
+.nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
