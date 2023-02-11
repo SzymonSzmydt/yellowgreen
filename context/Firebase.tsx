@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "shop-c6e6a.appspot.com",
   messagingSenderId: process.env.FIREBASE_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
-  measurementId: FIREBASE_MEASEREMENT_ID,
+  measurementId: process.env.FIREBASE_MEASEREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
