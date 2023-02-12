@@ -7,7 +7,7 @@ function Commercial() {
     <main className={style.main}>
       <Link href='/product/1'>
         <Image
-          src={`/1.jpg`}
+          src={`/1.webp`}
           alt='first'
           className={style.img}
           width='240'
@@ -16,7 +16,7 @@ function Commercial() {
       </Link>
       <Link href='/product/2'>
         <Image
-          src={`/2.jpg`}
+          src={`/2.webp`}
           alt='second'
           className={style.img}
           width='240'
@@ -25,7 +25,7 @@ function Commercial() {
       </Link>
       <Link href='/product/3'>
         <Image
-          src={`/3.jpg`}
+          src={`/3.webp`}
           alt='first'
           className={style.img}
           width='240'

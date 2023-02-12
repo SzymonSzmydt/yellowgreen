@@ -1,24 +1,43 @@
+import prod from "./product.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import StandardButton from "../../components/button/Standard";
 
 type Album = {
-  params: { productId: string };
   id: number;
   title: string;
 };
 
-function Product({ id, title }: Album) {
+type ProductProps = {
+  params: { productId: string };
+  album: Album;
+};
+
+function Product({ album }: ProductProps) {
   const router = useRouter();
+  const [quantity, setQuantity] = useState(1);
 
   if (router.isFallback) {
     return <div> Loading... </div>;
   }
 
   return (
-    <div>
-      <h1> Product List</h1>
-      <p> ID: {id} </p>
-      <p> Title: {title} </p>
+    <div className='container'>
+      <section className={prod.box}>
+        <h1> Product List</h1>
+        <p> ID: {album.id} </p>
+        <p> Title: {album.title} </p>
+        <input type='number' defaultValue={1} />
+        <StandardButton
+          name='Kup'
+          handleClick={() => setQuantity(quantity + 1)}
+        />
+        <StandardButton
+          name='Dodaj do koszyka'
+          handleClick={() => setQuantity(quantity + 1)}
+        />
+      </section>
     </div>
   );
 }
@@ -31,7 +50,6 @@ export async function getStaticProps(context: Album) {
     `https://jsonplaceholder.typicode.com/photos/${params.productId}`
   );
   const data = await response.json();
-
   return {
     props: {
       album: data,
