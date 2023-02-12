@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import StandardButton from "../../components/button/Standard";
+import { Plus } from "./../../components/button/Plus";
+import { Minus } from "../../components/button/Minus";
 
 type Album = {
   id: number;
@@ -28,7 +30,14 @@ function Product({ album }: ProductProps) {
         <h1> Product List</h1>
         <p> ID: {album.id} </p>
         <p> Title: {album.title} </p>
-        <input type='number' defaultValue={1} />
+        <p> Cena: </p>
+
+        <div className={prod.btn}>
+          <input type='number' value={quantity} />
+          <Plus handleClick={() => setQuantity(quantity + 1)} />
+          <Minus handleClick={() => setQuantity(quantity - 1)} />
+        </div>
+
         <StandardButton
           name='Kup'
           handleClick={() => setQuantity(quantity + 1)}

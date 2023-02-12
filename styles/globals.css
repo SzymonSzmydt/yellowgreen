@@ -9,7 +9,6 @@
   --semi-color: #a8b1bb;
 
   --accent-text-color: #bda5ab;
-
 }
 
 * {
@@ -23,6 +22,26 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--background-color);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 3.5rem;
+  height: 2rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  text-align: center;
 }
 
 a {
