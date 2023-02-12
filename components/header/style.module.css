@@ -34,13 +34,13 @@
 
 .link {
   transition: all 0.2s;
-  padding: 0.2rem 0;
+  padding-bottom: 0.2rem;
 }
 
 .link:hover {
   color: var(--dark-color);
   font-weight: 600;
-  border-bottom: 1px solid var(--semi-dark-color);
+  border-bottom: 1px solid var(--semi-color);
 }
 
 .delivery {

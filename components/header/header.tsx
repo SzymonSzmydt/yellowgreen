@@ -18,7 +18,7 @@ function Header() {
           </Link>
           <Link href='/basket'>
             <div className={style.basket} />
-            <span className={style.basketQuantity}>0</span>
+            <span className={style.basketQuantity}>30</span>
           </Link>
         </section>
       </div>
