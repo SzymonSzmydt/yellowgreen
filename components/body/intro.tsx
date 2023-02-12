@@ -6,11 +6,13 @@ function Intro() {
     <div className={style.intro}>
       <div className={style.container}>
         <section className={style.box}>
-          <h1 className={style.title}> eCommerce </h1>
+          <h2 className={style.title}> Sklep internetowy dla Ciebie </h2>
           <p className={style.p}>
             Tworzymy sklepy internetowe dla Towjego biznesu.
           </p>
-          <p className={style.p}> Podpinamy szybkie płatności takie jak BLIK</p>
+          <p>
+
+          </p>
         </section>
       </div>
     </div>

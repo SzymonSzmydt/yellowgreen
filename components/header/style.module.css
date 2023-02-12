@@ -67,7 +67,7 @@
 }
 
 .user {
-  background-image: url("../../public/user.svg");
+  background-image: url("../../public/icons/user.svg");
   composes: img;
   margin: 0 1.5rem;
   width: 1rem;
@@ -79,7 +79,7 @@
 }
 
 .basket {
-  background-image: url("../../public/cart-shopping.svg");
+  background-image: url("../../public/icons/cart-shopping.svg");
   composes: img;
   width: 1.25rem;
 }

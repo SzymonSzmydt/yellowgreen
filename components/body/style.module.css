@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   height: 82vh;
-
-  border: 1px solid red;
 }
 
 .container {
@@ -13,26 +11,38 @@
 .box {
   width: 15rem;
   height: 20rem;
-  text-align: center;
   padding: 0.25rem 0.5rem;
+
   border-radius: 8px;
   border: 1px solid var(--semi-color);
 
-  background-image: url("../../public//keyboard.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: var(--primary-color);
+
+  position: relative;
+}
+
+.box::after {
+  position: absolute;
+  content: " eCommenrce ";
+  top: -0.2rem;
+  right: 50%;
+  transform: translate(50%, -50%);
 
   color: var(--primary-color);
+  background-color: var(--background-color);
+  padding: 0 0.5rem;
 }
 
 .title {
   padding: 0.5rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--semi-color);
+  font-weight: 400;
+  text-align: center;
+  color: var(--dark-color);
+
+  border-bottom: 1px solid var(--dark-color);
 }
 
 .p {
-  background-color: #00000028;
   font-weight: 500;
   padding: 0.25rem 0;
   border-radius: 8px;

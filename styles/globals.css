@@ -3,11 +3,13 @@
   --accent-color: #a3cfcd;
 
   --box-color: #ceebdf;
+  --background-color: #fff;
 
   --dark-color: #4b4a54;
   --semi-color: #a8b1bb;
 
   --accent-text-color: #bda5ab;
+
 }
 
 * {
@@ -20,7 +22,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: var(--background-color);
 }
 
 a {

@@ -14,7 +14,7 @@ export default function Home() {
           content='Meble od projektantów, nietuzinkowe kształty'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/icons/favicon.ico' />
       </Head>
       <Intro />
       <h1 className={style.center}> Fotele</h1>
@@ -24,11 +24,11 @@ export default function Home() {
 }
 
 export async function getStaticProps() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-    const data = await response.json();
-    return {
-        props: {
-            data: data.slice(0, 3)
-        }
-    }
+  const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+  const data = await response.json();
+  return {
+    props: {
+      data: data.slice(0, 3),
+    },
+  };
 }
