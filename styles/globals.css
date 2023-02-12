@@ -9,6 +9,10 @@
   --semi-color: #a8b1bb;
 
   --accent-text-color: #bda5ab;
+  --glass: rgba(255, 255, 255, 0.192);
+
+  --radius-small: 2px;
+  --radius-dash: 1rem;
 }
 
 * {
