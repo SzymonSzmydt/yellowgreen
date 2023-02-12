@@ -11,15 +11,17 @@ function Dashboard() {
       <Head>
         <title> Panel Administracyjny </title>
       </Head>
-
-      <main className={`${dash.main} ${inter.className}`}>
-        <Aside />
-      </main>
+      <main className={`${dash.main} ${inter.className}`}>sdfsdfsd</main>
     </>
   );
 }
 export default Dashboard;
 
 Dashboard.getLayout = function PageLayout(page) {
-  return <>{page}</>;
+  return (
+    <div className={dash.general}>
+      <Aside />
+      {page}
+    </div>
+  );
 };

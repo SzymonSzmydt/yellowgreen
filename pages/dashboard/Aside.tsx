@@ -3,13 +3,17 @@ import orders from "../../public/icons/orders.svg";
 import handshake from "../../public/icons/handshake.svg";
 import home from "../../public/icons/home.svg";
 import add from "../../public/icons/add.svg";
+import panel from "../../public/icons/panel.svg";
 import Image from "next/image";
 import Link from "next/link";
 
 function Aside() {
   return (
     <aside className={dash.aside}>
-      <h1 className={dash.h1}>Panel</h1>
+      <h1 className={dash.h1}>
+        <Image src={panel} alt='Home' className={dash.icon} />
+        Panel
+      </h1>
       <Link href='dashboard/' className={dash.link}>
         <Image src={home} alt='Home' className={dash.icon} />
         Home
