@@ -1,16 +1,4 @@
-.general {
-  composes: container from global;
-  margin: 2rem auto;
-}
-
-.main {
-  display: inline-block;
-  composes: container from global;
-  padding: 0.5rem;
-}
-
 .aside {
-  display: inline-block;
   width: 15.25rem;
   height: 90vh;
   border: 1px solid var(--semi-color);

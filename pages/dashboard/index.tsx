@@ -1,27 +1,20 @@
-import dash from "./dash.module.css";
+import dash from "./styles/dash.module.css";
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import Aside from "./Aside";
-
-const inter = Inter({ subsets: ["latin"] });
 
 function Dashboard() {
   return (
-    <>
+    <div className={dash.general}>
       <Head>
-        <title> Panel Administracyjny </title>
+        <title> Panel kontrolny </title>
       </Head>
-      <main className={`${dash.main} ${inter.className}`}>sdfsdfsd</main>
-    </>
+      <Aside />
+      <main className={dash.main}> Home Page</main>
+    </div>
   );
 }
 export default Dashboard;
 
 Dashboard.getLayout = function PageLayout(page) {
-  return (
-    <div className={dash.general}>
-      <Aside />
-      {page}
-    </div>
-  );
+  return <>{page}</>;
 };

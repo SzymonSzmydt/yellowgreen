@@ -1,4 +1,4 @@
-import dash from "./dash.module.css";
+import aside from "./styles/aside.module.css";
 import orders from "../../public/icons/orders.svg";
 import handshake from "../../public/icons/handshake.svg";
 import home from "../../public/icons/home.svg";
@@ -9,25 +9,25 @@ import Link from "next/link";
 
 function Aside() {
   return (
-    <aside className={dash.aside}>
-      <h1 className={dash.h1}>
-        <Image src={panel} alt='Home' className={dash.icon} />
+    <aside className={aside.aside}>
+      <h1 className={aside.h1}>
+        <Image src={panel} alt='Home' className={aside.icon} />
         Panel
       </h1>
-      <Link href='dashboard/' className={dash.link}>
-        <Image src={home} alt='Home' className={dash.icon} />
+      <Link href='/dashboard' className={aside.link}>
+        <Image src={home} alt='Home' className={aside.icon} />
         Home
       </Link>
-      <Link href='dashboard/new' className={dash.link}>
-        <Image src={add} alt='Add Product' className={dash.icon} />
+      <Link href='dashboard/add' className={aside.link}>
+        <Image src={add} alt='Add Product' className={aside.icon} />
         Dodaj Produkt
       </Link>
-      <Link href='dashboard/orders' className={dash.link}>
-        <Image src={orders} alt='Orders' className={dash.icon} />
+      <Link href='dashboard/orders' className={aside.link}>
+        <Image src={orders} alt='Orders' className={aside.icon} />
         Zam. oczekujące
       </Link>
-      <Link href='dashboard/new' className={dash.link}>
-        <Image src={handshake} alt='Handshake' className={dash.icon} />
+      <Link href='dashboard/new' className={aside.link}>
+        <Image src={handshake} alt='Handshake' className={aside.icon} />
         Zam. zrealizowane
       </Link>
     </aside>

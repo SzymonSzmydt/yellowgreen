@@ -38,6 +38,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
   width: 3.5rem;
   height: 2rem;
   border: 1px solid var(--primary-color);
