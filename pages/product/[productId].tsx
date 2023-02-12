@@ -18,12 +18,22 @@ type ProductProps = {
 
 function Product({ album }: ProductProps) {
   const router = useRouter();
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(1);
 
   if (router.isFallback) {
     return <div> Loading... </div>;
   }
 
+  const quantityMinusValidation = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
+    else return null;
+  };
+
+  const quantityHandleValidation = (e) => {
+    if (e >= 1) {
+      setQuantity(+e);
+    } else return null;
+  };
   return (
     <div className='container'>
       <section className={prod.box}>
@@ -33,9 +43,13 @@ function Product({ album }: ProductProps) {
         <p> Cena: </p>
 
         <div className={prod.btn}>
-          <input type='number' value={quantity} />
+          <input
+            type='number'
+            value={quantity}
+            onChange={(e) => quantityHandleValidation(e.target.value)}
+          />
           <Plus handleClick={() => setQuantity(quantity + 1)} />
-          <Minus handleClick={() => setQuantity(quantity - 1)} />
+          <Minus handleClick={quantityMinusValidation} />
         </div>
 
         <StandardButton
