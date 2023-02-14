@@ -30,7 +30,7 @@ function Aside() {
 
       <p className={aside.category}>ZARZĄDZANIE</p>
 
-      <Link href='dashboard/list' className={aside.link}>
+      <Link href='dashboard/product' className={aside.link}>
         <Image src={list} alt='list Product' className={aside.icon} />
         Lista produktów
       </Link>

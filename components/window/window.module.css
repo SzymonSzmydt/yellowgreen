@@ -1,10 +1,23 @@
-.general {
-  composes: container from global;
-  display: flex;
-}
-
 .main {
-  composes: container from global;
   width: 80%;
   height: 90vh;
+  padding: 0 1rem;
+}
+
+.box {
+  padding: 1rem 0;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  height: 5.5rem;
+}
+
+.body {
+  height: calc(90vh - 5rem);
+  border: 3px solid var(--box-color);
+  border-radius: 0 0 var(--radius-dash) 0;
+
+  padding: 0.5rem;
 }

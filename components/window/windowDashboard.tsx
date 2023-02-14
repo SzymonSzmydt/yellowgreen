@@ -1,4 +1,5 @@
 import wind from "./window.module.css";
+import WindowDashboardBar from "./windowDashboardBar";
 
 type WindowProps = {
   children: React.ReactNode;
@@ -6,8 +7,11 @@ type WindowProps = {
 
 function WindowDashboard({ children }: WindowProps) {
   return (
-    <div className={wind.general}>
-      <main className={wind.main}>{children}</main>
+    <div className={wind.main}>
+      <WindowDashboardBar>
+        <h1> USER</h1>
+      </WindowDashboardBar>
+      <main className={wind.box}>{children}</main>
     </div>
   );
 }

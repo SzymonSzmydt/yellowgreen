@@ -15,8 +15,10 @@ export default function App({ Component, pageProps }: AppProps) {
             font-family: ${inter.style.fontFamily};
           }
         `}</style>
-        <Aside />
-        <Component {...pageProps} />
+        <div className={"general"}>
+          <Aside />
+          <Component {...pageProps} />
+        </div>
       </>
     );
   }
