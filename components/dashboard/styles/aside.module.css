@@ -4,7 +4,7 @@
   border-right: 1px solid var(--semi-color);
   color: var(--dark-color);
   font-size: 0.85rem;
-
+  padding: 0 1rem;
   user-select: none;
 }
 
@@ -61,6 +61,7 @@
 
 .link:hover {
   background-color: var(--glass);
+  border-radius: 12px;
 }
 
 .icon {

@@ -1,14 +1,3 @@
-.general {
-  composes: container from global;
-  display: flex;
-}
-
-.main {
-  composes: container from global;
-  width: 80%;
-  height: 90vh;
-}
-
 .top {
   border: 3px solid var(--box-color);
   background-color: var(--box-color);

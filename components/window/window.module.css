@@ -1,0 +1,10 @@
+.general {
+  composes: container from global;
+  display: flex;
+}
+
+.main {
+  composes: container from global;
+  width: 80%;
+  height: 90vh;
+}
