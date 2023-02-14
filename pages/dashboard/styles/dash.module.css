@@ -1,6 +1,5 @@
 .general {
   composes: container from global;
-  margin: 2rem auto;
   display: flex;
 }
 

@@ -1,20 +1,20 @@
 :root {
-  --primary-color: #82a0aa;
-  --accent-color: #a3cfcd;
+  --primary-color: #5194dc;
+  --accent-color: #8ecaff;
 
-  --third-color: #ffffff;
+  --third-color: #143591;
 
-  --box-color: #506d76;
+  --box-color: #357a8f;
   --background-color: #fff;
 
   --dark-color: #4b4a54;
   --semi-color: #a8b1bb;
 
   --accent-text-color: #bda5ab;
-  --glass: rgba(255, 255, 255, 0.192);
+  --glass: #5194dc28;
 
   --radius-small: 2px;
-  --radius-dash: 1rem;
+  --radius-dash: 0.5rem;
 }
 
 * {

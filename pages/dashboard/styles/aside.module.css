@@ -1,47 +1,63 @@
 .aside {
-  width: 15.25rem;
-  height: 90vh;
-  border: 1px solid var(--semi-color);
-  border-radius: var(--radius-dash) 0 0 var(--radius-dash);
-  background-color: var(--primary-color);
+  width: 18rem;
+  height: 100vh;
+  border-right: 1px solid var(--semi-color);
+  color: var(--dark-color);
+  font-size: 0.85rem;
 
-  color: var(--background-color);
+  user-select: none;
 }
 
 .box {
-  text-align: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--background-color);
-  line-height: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1rem;
+  margin: 0 2rem 3rem;
+  padding: 2rem 0 1rem;
+
+  color: var(--primary-color);
+
+  border-bottom: 1px solid var(--semi-color);
 }
 
 .title {
   font-weight: 500;
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .small {
+  font-weight: 600;
   font-size: 0.75rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.09rem;
+  color: var(--third-color);
+}
+
+.panelIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.25rem;
+  filter: invert(67%) sepia(50%) saturate(4177%) hue-rotate(187deg)
+    brightness(91%) contrast(88%);
+}
+
+.category {
+  margin: 2.55rem 2.5rem 1rem;
+}
+
+.catefory:first-child {
+  margin: 1rem 2.5rem;
 }
 
 .link {
   display: flex;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2.5rem;
   width: 100%;
-  position: relative;
+  font-weight: 500;
+  font-size: 1rem;
+  user-select: none;
 }
-
-/* .line::before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0.25rem;
-  bottom: 0.25rem;
-  width: 0.25rem;
-  background-color: var(--background-color);
-} */
 
 .link:hover {
   background-color: var(--glass);
@@ -51,6 +67,6 @@
   width: 1.35rem;
   height: 1.35rem;
   margin-right: 0.5rem;
-  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(138deg)
-    brightness(102%) contrast(106%);
+  filter: invert(38%) sepia(41%) saturate(254%) hue-rotate(148deg)
+    brightness(95%) contrast(92%);
 }

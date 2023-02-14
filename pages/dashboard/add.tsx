@@ -1,6 +1,6 @@
 import dash from "./styles/dash.module.css";
 
-function dashNewProduct() {
+function AddNewProduct() {
   return (
     <>
       <form>
@@ -13,4 +13,4 @@ function dashNewProduct() {
   );
 }
 
-export default dashNewProduct;
+export default AddNewProduct;
