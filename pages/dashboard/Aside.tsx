@@ -10,10 +10,13 @@ import Link from "next/link";
 function Aside() {
   return (
     <aside className={aside.aside}>
-      <h1 className={aside.h1}>
-        <Image src={panel} alt='Home' className={aside.icon} />
-        Panel
-      </h1>
+      <section className={aside.box}>
+        <div className={aside.title}>
+          <Image src={panel} alt='Home' className={aside.icon} />
+          Panel
+        </div>
+        <span className={aside.small}>administracyjny</span>
+      </section>
       <Link href='/dashboard' className={aside.link}>
         <Image src={home} alt='Home' className={aside.icon} />
         Home

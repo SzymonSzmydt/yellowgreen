@@ -2,7 +2,9 @@
   --primary-color: #82a0aa;
   --accent-color: #a3cfcd;
 
-  --box-color: #ceebdf;
+  --third-color: #ffffff;
+
+  --box-color: #506d76;
   --background-color: #fff;
 
   --dark-color: #4b4a54;
@@ -57,5 +59,4 @@ a {
 .container {
   max-width: 1266px;
   margin: 0 auto;
-  padding: 0 0.5rem;
 }

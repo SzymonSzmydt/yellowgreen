@@ -1,16 +1,26 @@
 import dash from "./styles/dash.module.css";
 import Head from "next/head";
-import Aside from "./Aside";
+import Aside from "./aside";
+import dashNewProduct from "./add";
 
 function Dashboard() {
   return (
-    <div className={dash.general}>
+    <>
       <Head>
         <title> Panel kontrolny </title>
       </Head>
-      <Aside />
-      <main className={dash.main}> Home Page</main>
-    </div>
+      <div className={dash.general}>
+        <Aside />
+
+        <main className={dash.main}>
+          <section className={dash.top}></section>
+
+          <section className={dash.body}>
+            <dashNewProduct />
+          </section>
+        </main>
+      </div>
+    </>
   );
 }
 export default Dashboard;
