@@ -1,23 +1,16 @@
 .main {
   width: 80%;
   height: 90vh;
-  padding: 0 1rem;
+  padding: 0 2.5rem;
 }
 
-.box {
-  padding: 1rem 0;
-}
-
-.top {
+.bar {
   display: flex;
   align-items: center;
   height: 5.5rem;
+  border-bottom: 1px solid var(--semi-color);
 }
 
 .body {
-  height: calc(90vh - 5rem);
-  border: 3px solid var(--box-color);
-  border-radius: 0 0 var(--radius-dash) 0;
-
-  padding: 0.5rem;
+  padding: 1.5rem 0;
 }

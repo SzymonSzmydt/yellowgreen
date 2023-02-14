@@ -5,7 +5,7 @@ type WindowProps = {
 };
 
 function WindowDashboardBar({ children }: WindowProps) {
-  return <div className={wind.top}>{children}</div>;
+  return <div className={wind.bar}>{children}</div>;
 }
 
 export default WindowDashboardBar;

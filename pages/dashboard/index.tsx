@@ -1,12 +1,8 @@
-import Head from "next/head";
 import WindowDashboard from "../../components/window/windowDashboard";
 
 function Dashboard() {
   return (
     <>
-      <Head>
-        <title> Panel administracyjny </title>
-      </Head>
       <WindowDashboard>ddfg</WindowDashboard>
     </>
   );
@@ -14,9 +10,5 @@ function Dashboard() {
 export default Dashboard;
 
 Dashboard.getLayout = function PageLayout(page) {
-  return (
-    <>
-      {page}
-    </>
-  );
+  return <>{page}</>;
 };

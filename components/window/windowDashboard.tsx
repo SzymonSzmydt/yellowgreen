@@ -11,7 +11,7 @@ function WindowDashboard({ children }: WindowProps) {
       <WindowDashboardBar>
         <h1> USER</h1>
       </WindowDashboardBar>
-      <main className={wind.box}>{children}</main>
+      <main>{children}</main>
     </div>
   );
 }
