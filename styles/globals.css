@@ -15,6 +15,9 @@
 
   --radius-small: 2px;
   --radius-dash: 0.5rem;
+
+  --green: rgb(29, 161, 29);
+  --red: rgb(224, 0, 0);
 }
 
 * {
@@ -37,8 +40,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type="number"] {
+input {
   -moz-appearance: textfield;
   appearance: textfield;
   width: 3.5rem;
@@ -49,6 +51,11 @@ input[type="number"] {
   font-size: 1rem;
   margin-right: 0.25rem;
   text-align: center;
+}
+
+input:focus,
+textarea:focus {
+  outline: rgb(29, 161, 29);
 }
 
 a {
