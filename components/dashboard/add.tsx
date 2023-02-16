@@ -6,12 +6,12 @@ function AddNewProduct() {
     <>
       <h2> Formularz dodania produktu</h2>
       <br />
-      <form action="/api/dashboard/add"}>
+      <form action="/api/dashboard/add" method="post">
         <input
           type="text"
           name="namePL"
           required
-          minlength="3"
+          minLength={3}
           placeholder="Nazwa produktu - PL"
           className={add.input}
         />
@@ -20,7 +20,7 @@ function AddNewProduct() {
           type="text"
           name="nameEN"
           required
-          minlength="3"
+          minLength={3}
           placeholder="Nazwa produktu - EN"
           className={add.input}
         />
@@ -29,7 +29,7 @@ function AddNewProduct() {
           type="text"
           name="colorPL"
           required
-          minlength="3"
+          minLength={3}
           placeholder="Kolor - PLN"
           className={add.input}
         />
@@ -38,7 +38,7 @@ function AddNewProduct() {
           type="text"
           name="colorEN"
           required
-          minlength="3"
+          minLength={3}
           placeholder="Kolor - EN"
           className={add.input}
         />
@@ -49,7 +49,7 @@ function AddNewProduct() {
             type="number"
             name="cenaPL"
             required
-            minlength="1"
+            minLength={1}
             pattern="^\d+(\d{3})*(\.\d{1,2})?$"
           />
         </label>
@@ -60,24 +60,22 @@ function AddNewProduct() {
             type="number"
             name="cenaEN"
             required
-            minlength="1"
+            minLength={1}
             pattern="^\d+(\d{3})*(\.\d{1,2})?$"
           />
         </label>
 
         <textarea
-          type="text"
           name="descriptionPL"
           required
-          minlength="50"
+          minLength={30}
           placeholder="Opis produktu - PL"
           className={add.textarea}
         />
         <textarea
-          type="text"
           name="descriptionEN"
           required
-          minlength="50"
+          minLength={30}
           placeholder="Opis produktu -EN"
           className={add.textarea}
         />
