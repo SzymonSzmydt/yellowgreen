@@ -1,4 +1,5 @@
 import prod from './product.module.css';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Plus } from './../../components/button/Plus';
@@ -28,7 +29,7 @@ function Product({ album }: ProductProps) {
     else return null;
   };
 
-  const quantityHandleValidation = (e) => {
+  const quantityHandleValidation = (e: number) => {
     if (e >= 1) {
       setQuantity(+e);
     } else return null;
@@ -45,7 +46,7 @@ function Product({ album }: ProductProps) {
           <input
             type="number"
             value={quantity}
-            onChange={(e) => quantityHandleValidation(e.target.value)}
+            onChange={(e) => quantityHandleValidation(+e.target.value)}
           />
           <Plus handleClick={() => setQuantity(quantity + 1)} />
           <Minus handleClick={quantityMinusValidation} />
@@ -66,10 +67,10 @@ function Product({ album }: ProductProps) {
 
 export default Product;
 
-export async function getStaticProps(context: Album) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/photos/${params.productId}`
+    `https://jsonplaceholder.typicode.com/photos/${params?.productId}`
   );
   const data = await response.json();
   return {
@@ -77,11 +78,11 @@ export async function getStaticProps(context: Album) {
       album: data,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: [{ params: { productId: '1' } }],
     fallback: true,
   };
-}
+};

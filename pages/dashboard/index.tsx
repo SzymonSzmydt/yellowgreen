@@ -1,4 +1,6 @@
-import WindowDashboard from "../../components/window/windowDashboard";
+import type { ReactElement } from 'react';
+import WindowDashboard from '../../components/window/windowDashboard';
+import DashLayout from '../../components/layout/DashLayout';
 
 function Dashboard() {
   return (
@@ -9,6 +11,6 @@ function Dashboard() {
 }
 export default Dashboard;
 
-Dashboard.getLayout = function PageLayout(page) {
-  return <>{page}</>;
+Dashboard.getLayout = function getLayout(page: ReactElement) {
+  return <DashLayout>{page}</DashLayout>;
 };

@@ -1,13 +1,11 @@
 import '../styles/globals.css';
+import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
-import type { AppProps } from 'next/app';
 import { Inter } from '@next/font/google';
-import Header from './../components/header/header';
-import Aside from '../components/dashboard/aside';
-import Head from 'next/head';
+import Layout from '../components//layout/Layout';
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
@@ -18,33 +16,16 @@ type AppPropsWithLayout = AppProps & {
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
+  const getLayout =
+    Component.getLayout ?? ((page) => <Layout> {page} </Layout>);
 
-    return getLayout(
-      <>
-        <Head>
-          <title> Panel administracyjny </title>
-        </Head>
-        <style jsx global>{`
-          html {
-            font-family: ${inter.style.fontFamily};
-          }
-        `}</style>
-        <div className={'general'}>
-          <Aside />
-          <Component {...pageProps} />
-        </div>
-      </>
-    );
-
-  return (
+  return getLayout(
     <>
       <style jsx global>{`
         html {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Header />
       <Component {...pageProps} />
     </>
   );
