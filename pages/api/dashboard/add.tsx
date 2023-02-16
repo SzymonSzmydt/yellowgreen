@@ -1,4 +1,13 @@
-export default function handler(req, res) {
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+type Data = {
+  name: string;
+};
+
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
   const body = req.body;
 
   // OPTIONAL LOGGIN VALIDATION
