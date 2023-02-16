@@ -42,8 +42,7 @@
 
 .variantBox {
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  display: inline-block;
   font-size: 1rem;
   font-weight: 500;
   color: var(--background-color);

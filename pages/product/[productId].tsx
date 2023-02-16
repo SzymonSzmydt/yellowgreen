@@ -1,10 +1,9 @@
-import prod from "./product.module.css";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import StandardButton from "../../components/button/Standard";
-import { Plus } from "./../../components/button/Plus";
-import { Minus } from "../../components/button/Minus";
+import prod from './product.module.css';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { Plus } from './../../components/button/Plus';
+import { Minus } from '../../components/button/Minus';
+import StandardButton from '../../components/button/Standard';
 
 type Album = {
   id: number;
@@ -35,7 +34,7 @@ function Product({ album }: ProductProps) {
     } else return null;
   };
   return (
-    <div className='container'>
+    <div className="container">
       <section className={prod.box}>
         <h1> Product List</h1>
         <p> ID: {album.id} </p>
@@ -44,7 +43,7 @@ function Product({ album }: ProductProps) {
 
         <div className={prod.btn}>
           <input
-            type='number'
+            type="number"
             value={quantity}
             onChange={(e) => quantityHandleValidation(e.target.value)}
           />
@@ -53,11 +52,11 @@ function Product({ album }: ProductProps) {
         </div>
 
         <StandardButton
-          name='Kup'
+          name="Kup"
           handleClick={() => setQuantity(quantity + 1)}
         />
         <StandardButton
-          name='Dodaj do koszyka'
+          name="Dodaj do koszyka"
           handleClick={() => setQuantity(quantity + 1)}
         />
       </section>
@@ -82,7 +81,7 @@ export async function getStaticProps(context: Album) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { productId: "1" } }],
+    paths: [{ params: { productId: '1' } }],
     fallback: true,
   };
 }
