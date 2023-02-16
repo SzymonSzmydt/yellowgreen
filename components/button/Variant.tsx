@@ -1,7 +1,7 @@
-import btn from "./btn.module.css";
+import btn from './btn.module.css';
 
 type VariantProps = {
-  handleClick: () => void;
+  handleClick?: () => void;
   name: string;
 };
 

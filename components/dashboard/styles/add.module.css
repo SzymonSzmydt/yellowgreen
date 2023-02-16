@@ -1,6 +1,7 @@
 .input {
   display: block;
   width: 30rem;
+  margin: 0.75rem 0;
 }
 
 .textarea {
@@ -13,6 +14,7 @@
   font-family: inherit;
   font-size: 1rem;
   padding: 0 0.25rem;
+  margin: 0.75rem 0;
 }
 
 .label {
@@ -24,15 +26,9 @@
   font-weight: 600;
   width: 12rem;
   color: var(--primary-color);
+  margin: 0.75rem 0;
 }
 
-.label input[type="number"] {
+.label input[type='number'] {
   width: 6rem;
-}
-
-.error {
-  height: 1rem;
-  color: var(--red);
-  font-size: 0.75rem;
-  margin: 0 0 0.5rem;
 }
