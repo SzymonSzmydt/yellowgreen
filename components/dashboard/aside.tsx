@@ -6,14 +6,15 @@ import list from '../../public/icons/list.svg';
 import panel from '../../public/icons/panel.svg';
 import Image from 'next/image';
 import { LinkBox } from './LinkBox';
-import { useState } from 'react';
-import { Hamburger } from '../button/hamburger';
 
-function Aside() {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+type AsideProps = {
+  isClicked: boolean;
+};
 
+function Aside({ isClicked }: AsideProps) {
+  const asideBackMove = isClicked ? aside.asideOff : aside.asideOn;
   return (
-    <aside className={aside.aside}>
+    <aside className={`${aside.aside} ${asideBackMove}`}>
       <section className={aside.box}>
         <div className={aside.title}>
           <Image
@@ -24,10 +25,6 @@ function Aside() {
           Panel
         </div>
         <span className={aside.small}>administracyjny</span>
-        <Hamburger
-          handleClick={() => setIsClicked(!isClicked)}
-          isClicked={isClicked}
-        />
       </section>
       <p className={aside.category}>ANALITYKA</p>
       <LinkBox name="Home" path="/dashboard" image={home} />

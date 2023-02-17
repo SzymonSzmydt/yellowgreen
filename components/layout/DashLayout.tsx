@@ -1,11 +1,14 @@
 import Head from 'next/head';
 import Aside from '../dashboard/aside';
+import { Hamburger } from '../button/hamburger';
+import { useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
 };
 
 function DashLayout({ children }: Props) {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   return (
     <>
       <Head>
@@ -15,7 +18,11 @@ function DashLayout({ children }: Props) {
       </Head>
 
       <main className="general">
-        <Aside />
+        <Hamburger
+          handleClick={() => setIsClicked(!isClicked)}
+          isClicked={isClicked}
+        />
+        <Aside isClicked={isClicked} />
         {children}
       </main>
     </>

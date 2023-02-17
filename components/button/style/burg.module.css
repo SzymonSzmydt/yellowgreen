@@ -1,15 +1,21 @@
-.burgerOn {
+.burgerOn,
+.burger {
   display: none;
 }
 
 @media screen and (max-width: 800px) {
   .burger {
+    cursor: pointer;
+    display: block;
     height: 1rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 2;
   }
 
   .burgerOn {
-    cursor: pointer;
-    display: block;
+    composes: burger;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
