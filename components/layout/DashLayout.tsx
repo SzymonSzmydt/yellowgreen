@@ -1,4 +1,3 @@
-import ReactNode from 'react';
 import Head from 'next/head';
 import Aside from '../dashboard/aside';
 

@@ -1,4 +1,3 @@
-import ReactNode from 'react';
 import Header from '../header/header';
 import Head from 'next/head';
 
