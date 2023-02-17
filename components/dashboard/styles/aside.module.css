@@ -19,10 +19,10 @@
 
 .asideOff {
   composes: aside;
-  -webkit-transform: translateX(-22rem);
-  -ms-transform: translateX(-22rem);
-  -o-transform: translateX(-22rem);
-  transform: translateX(-22rem);
+  -webkit-transform: translateX(-28rem);
+  -ms-transform: translateX(-28rem);
+  -o-transform: translateX(-28rem);
+  transform: translateX(-28rem);
 }
 
 .box {
@@ -123,6 +123,7 @@
     left: 0;
     top: 0;
     bottom: 0;
+    right: 0;
     width: 100vw;
   }
 }
