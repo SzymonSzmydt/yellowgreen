@@ -1,7 +1,13 @@
+@keyframes burgerOn {
+  from {
+  }
+}
+
 .aside {
   width: 20rem;
   height: 100vh;
   border-right: 1px solid var(--semi-color);
+  background-color: var(--background-color);
   color: var(--dark-color);
   font-size: 0.85rem;
   padding: 0 1rem;
@@ -19,6 +25,10 @@
   color: var(--primary-color);
 
   border-bottom: 1px solid var(--semi-color);
+}
+
+.burgerOn {
+  display: none;
 }
 
 .title {
@@ -49,6 +59,7 @@
   margin: 1rem 2.5rem;
 }
 
+.basic-link,
 .link {
   display: flex;
   align-items: center;
@@ -65,15 +76,9 @@
 }
 
 .linkBox {
-  display: flex;
-  align-items: center;
-  padding: 1rem 2.5rem;
-  width: 100%;
-  font-weight: 500;
-  font-size: 1rem;
+  composes: basic-link;
   filter: invert(66%) sepia(60%) saturate(3694%) hue-rotate(187deg)
     brightness(92%) contrast(87%);
-  user-select: none;
   position: relative;
 }
 
@@ -94,4 +99,72 @@
   margin-right: 0.5rem;
   filter: invert(38%) sepia(41%) saturate(254%) hue-rotate(148deg)
     brightness(95%) contrast(92%);
+}
+
+@media screen and (max-width: 800px) {
+  .box {
+    height: 5.5rem;
+    align-items: flex-end;
+  }
+  .title,
+  .panelIcon,
+  .small {
+    display: none;
+  }
+
+  .burger {
+    height: 1rem;
+  }
+
+  .burgerOn {
+    cursor: pointer;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .line {
+    display: block;
+    width: 1.5rem;
+    height: 3px;
+    margin: 3px auto;
+    background-color: var(--primary-color);
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .burgerOn .line:nth-child(2) {
+    width: 0px;
+  }
+
+  .burgerOn .line:nth-child(1),
+  .burgerOn .line:nth-child(3) {
+    -webkit-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+  }
+
+  .burgerOn .line:nth-child(1) {
+    -webkit-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    -o-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+
+  .burgerOn .line:nth-child(3) {
+    -webkit-transform: translateY(-6px) rotate(90deg);
+    -ms-transform: translateY(-6px) rotate(90deg);
+    -o-transform: translateY(-6px) rotate(90deg);
+    transform: translateY(-6px) rotate(90deg);
+  }
 }
