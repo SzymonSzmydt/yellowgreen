@@ -64,6 +64,30 @@
   border-radius: 12px;
 }
 
+.linkBox {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  width: 100%;
+  font-weight: 500;
+  font-size: 1rem;
+  filter: invert(66%) sepia(60%) saturate(3694%) hue-rotate(187deg)
+    brightness(92%) contrast(87%);
+  user-select: none;
+  position: relative;
+}
+
+.linkBox::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0.5rem;
+  border-radius: var(--radius-dash) 0 0 var(--radius-dash);
+  background-color: var(--primary-color);
+}
+
 .icon {
   width: 1.35rem;
   height: 1.35rem;
