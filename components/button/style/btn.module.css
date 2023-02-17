@@ -32,12 +32,12 @@
 
 .plus {
   composes: icon;
-  background-image: url("../../public/icons/plus.png");
+  background-image: url('../../../public/icons/plus.png');
 }
 
 .minus {
   composes: icon;
-  background-image: url("../../public/icons/minus.png");
+  background-image: url('../../../public/icons/minus.png');
 }
 
 .variantBox {

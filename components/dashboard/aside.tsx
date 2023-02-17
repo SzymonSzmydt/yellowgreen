@@ -15,10 +15,6 @@ function Aside() {
   return (
     <aside className={aside.aside}>
       <section className={aside.box}>
-        <Hamburger
-          handleClick={() => setIsClicked(!isClicked)}
-          isClicked={isClicked}
-        />
         <div className={aside.title}>
           <Image
             src={panel}
@@ -28,6 +24,10 @@ function Aside() {
           Panel
         </div>
         <span className={aside.small}>administracyjny</span>
+        <Hamburger
+          handleClick={() => setIsClicked(!isClicked)}
+          isClicked={isClicked}
+        />
       </section>
       <p className={aside.category}>ANALITYKA</p>
       <LinkBox name="Home" path="/dashboard" image={home} />
