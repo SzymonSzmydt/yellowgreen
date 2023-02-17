@@ -1,4 +1,4 @@
-import btn from "./btn.module.css";
+import btn from './style/btn.module.css';
 
 type StandardProps = {
   handleClick: () => void;
