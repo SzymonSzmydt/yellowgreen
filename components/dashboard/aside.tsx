@@ -12,9 +12,9 @@ type AsideProps = {
 };
 
 function Aside({ isClicked }: AsideProps) {
-  const asideBackMove = isClicked ? aside.asideOff : aside.asideOn;
+  const asideBackMove = isClicked ? aside.asideOn : aside.aside;
   return (
-    <aside className={`${aside.aside} ${asideBackMove}`}>
+    <aside className={asideBackMove}>
       <section className={aside.box}>
         <div className={aside.title}>
           <Image

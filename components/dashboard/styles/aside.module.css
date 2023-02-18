@@ -11,18 +11,6 @@
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.asideOff {
-  composes: aside;
-  -webkit-transform: translateX(-28rem);
-  -ms-transform: translateX(-28rem);
-  -o-transform: translateX(-28rem);
-  transform: translateX(-28rem);
 }
 
 .box {
@@ -111,19 +99,24 @@
 @media screen and (max-width: 800px) {
   .aside {
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    inset: 0 0 0 0;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  .asideOn {
+    composes: aside;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
 @media screen and (max-width: 500px) {
   .aside {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
     width: 100vw;
   }
 }
