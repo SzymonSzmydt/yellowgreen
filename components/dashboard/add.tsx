@@ -43,27 +43,25 @@ function AddNewProduct() {
           className={add.input}
         />
 
-        <label className={add.label}>
-          Cena - PLN
-          <input
-            type="number"
-            name="cenaPL"
-            required
-            minLength={1}
-            pattern="^\d+(\d{3})*(\.\d{1,2})?$"
-          />
-        </label>
+        <input
+          type="number"
+          name="cenaPL"
+          required
+          minLength={1}
+          pattern="^\d+(\d{3})*(\.\d{1,2})?$"
+          placeholder="Cena PLN"
+          className={add.priceInput}
+        />
 
-        <label className={add.label}>
-          Cena - EURO
-          <input
-            type="number"
-            name="cenaEN"
-            required
-            minLength={1}
-            pattern="^\d+(\d{3})*(\.\d{1,2})?$"
-          />
-        </label>
+        <input
+          type="number"
+          name="cenaEN"
+          required
+          minLength={1}
+          pattern="^\d+(\d{3})*(\.\d{1,2})?$"
+          placeholder="Cena EURO"
+          className={add.priceInput}
+        />
 
         <textarea
           name="descriptionPL"
