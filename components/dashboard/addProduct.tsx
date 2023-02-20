@@ -2,9 +2,9 @@ import add from './styles/add.module.css';
 import { Variant } from '../button/Variant';
 import { useState } from 'react';
 
-type CorrectProductType = {
+export type CorrectProductType = {
   id: number;
-  priceEN: number;
+  priceEU: number;
   pricePL: number;
   colorEN: string;
   colorPL: string;
@@ -14,9 +14,9 @@ type CorrectProductType = {
   namePL: string;
 };
 
-const initialState = {
+const initialState: CorrectProductType = {
   id: 0,
-  priceEN: 0,
+  priceEU: 0,
   pricePL: 0,
   colorEN: '',
   colorPL: '',
@@ -33,14 +33,25 @@ function AddNewProduct() {
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputELement>
   ) => {
-    value.preventDefault();
     setProductData({ ...productData, [value.target.name]: value.target.value });
   };
-  console.log(productData);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) =>
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  console.log('Wysłane');
+
+    const corectPriceType = structuredClone(productData);
+    corectPriceType.pricePL = parseFloat(productData.pricePL);
+    corectPriceType.priceEU = parseFloat(productData.priceEU);
+
+    await fetch('/api/dashboard/postProduct', {
+      method: 'POST',
+      body: JSON.stringify(corectPriceType),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    setProductData(initialState);
+  };
 
   return (
     <>
@@ -118,7 +129,7 @@ function AddNewProduct() {
 
         <input
           type="number"
-          name="priceEN"
+          name="priceEU"
           required
           minLength={1}
           step="0.01"
@@ -127,7 +138,7 @@ function AddNewProduct() {
           pattern="^\d+(\.\d{1,2})?$"
           placeholder="Cena EURO"
           className={add.priceInput}
-          value={productData.priceEN}
+          value={productData.priceEU}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleChangeInputValue(e)
           }

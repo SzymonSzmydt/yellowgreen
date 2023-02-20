@@ -2,18 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
 
-type CorrectReferenceType = {
-  id: number;
-  priceEN: number;
-  pricePL: number;
-  colorEN: string;
-  colorPL: string;
-  descriptionEN: string;
-  descriptionPL: string;
-  nameEN: string;
-  namePL: string;
-};
-
 type Body = {
   [key: number]: CorrectReferenceType;
 };
@@ -39,7 +27,7 @@ export default async function handler(
     body.colorPL &&
     body.colorEN &&
     body.pricePL &&
-    body.priceEN &&
+    body.priceEU &&
     body.descriptionPL &&
     body.descriptionEN
   ) {
