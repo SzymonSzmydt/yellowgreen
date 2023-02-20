@@ -2,7 +2,7 @@ import burg from './style/burg.module.css';
 
 type BurgProps = {
   handleClick: () => void;
-  isBurgerClicked: boolean;
+  isClicked: boolean;
 };
 
 export function Hamburger({ handleClick, isClicked }: BurgProps) {

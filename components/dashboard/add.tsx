@@ -45,7 +45,7 @@ function AddNewProduct() {
 
         <input
           type="number"
-          name="cenaPL"
+          name="pricePL"
           required
           minLength={1}
           pattern="^\d+(\d{3})*(\.\d{1,2})?$"
@@ -55,7 +55,7 @@ function AddNewProduct() {
 
         <input
           type="number"
-          name="cenaEN"
+          name="priceEN"
           required
           minLength={1}
           pattern="^\d+(\d{3})*(\.\d{1,2})?$"
