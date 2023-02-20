@@ -2,18 +2,20 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
 
+type CorrectReferenceType = {
+  id: number;
+  priceEN: number;
+  pricePL: number;
+  colorEN: string;
+  colorPL: string;
+  descriptionEN: string;
+  descriptionPL: string;
+  nameEN: string;
+  namePL: string;
+};
+
 type Body = {
-  [key: number]: {
-    id: string;
-    priceEN: number;
-    pricePL: number;
-    colorEN: string;
-    colorPL: string;
-    descriptionEN: string;
-    descriptionPL: string;
-    nameEN: string;
-    namePL: string;
-  };
+  [key: number]: CorrectReferenceType;
 };
 
 export default async function handler(
@@ -23,9 +25,10 @@ export default async function handler(
   const date = Date.now();
   const body = req.body;
   body.id = date;
+  const correctData: CorrectReferenceType = structuredClone(body);
 
   const data: Body = {
-    [date]: body,
+    [date]: correctData,
   };
 
   // OPTIONAL LOGGIN VALIDATION
