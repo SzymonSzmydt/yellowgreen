@@ -29,7 +29,11 @@ export function ListOfProducts() {
         {productList.length > 0
           ? searchValue.length > 0
             ? productList
-                .filter((filtr) => filtr['namePL'].includes(searchValue))
+                .filter((filtr) =>
+                  filtr['namePL']
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
+                )
                 .map((product) => (
                   <div key={product.id} className={style.product}>
                     <div className={style.id}> {product.id} </div>

@@ -1,13 +1,7 @@
-@media screen and(max-width: 690px) {
-  .id {
-    display: none;
-  }
-}
-
 .table {
   width: 100%;
   margin: 0.5rem 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .row {
@@ -19,12 +13,12 @@
 }
 .row div,
 .product div {
+  display: inline-block;
   padding: 0.75rem 0.25rem 0.75rem 0;
-  font-weight: 500;
 }
 
 .id {
-  min-width: 7.5rem;
+  min-width: 7.75rem;
 }
 
 .name {
@@ -57,4 +51,37 @@
 
 .product .id {
   font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.product .color {
+  color: var(--third-color);
+  font-size: 0.85rem;
+}
+
+.product .sales {
+  color: var(--dark-color);
+  font-size: 0.85rem;
+}
+
+@media screen and (max-width: 690px) {
+  .row .id,
+  .row .sales,
+  .product .id,
+  .product .sales {
+    display: none;
+  }
+
+  .row .name,
+  .product .name {
+    width: 45%;
+  }
+  .row .color,
+  .product .color {
+    width: 35%;
+  }
+  .row .option,
+  .product .option {
+    width: 20%;
+  }
 }
