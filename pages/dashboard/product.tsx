@@ -6,6 +6,7 @@ import { useState } from 'react';
 import WindowDashboardBody from '../../components/window/windowDashboardBody';
 import AddNewProduct from '../../components/dashboard/addProduct';
 import DashLayout from '../../components/layout/DashLayout';
+import { ListOfProducts } from './../../components/dashboard/products';
 
 function ProductList() {
   const [isAddProductClicked, setIsAddProductClicked] = useState(false);
@@ -26,7 +27,7 @@ function ProductList() {
           )}
         </WindowDashboardBar>
         <WindowDashboardBody>
-          {isAddProductClicked ? <AddNewProduct /> : <h1> Lista Porduktów</h1>}
+          {isAddProductClicked ? <AddNewProduct /> : <ListOfProducts />}
         </WindowDashboardBody>
       </WindowDashboard>
     </>

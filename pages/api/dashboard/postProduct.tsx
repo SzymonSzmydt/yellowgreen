@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
-import { CorrectProductType } from '../../../components/dashboard/addProduct';
-
-type Body = {
-  [key: number]: CorrectProductType;
-};
+import {
+  Body,
+  CorrectReferenceType,
+} from '../../../components/dashboard/types/type';
 
 export default async function handler(
   req: NextApiRequest,

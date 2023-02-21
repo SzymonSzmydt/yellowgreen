@@ -1,18 +1,7 @@
 import add from './styles/add.module.css';
 import { Variant } from '../button/Variant';
 import { useState } from 'react';
-
-export interface CorrectProductType {
-  id: number;
-  priceEU: number;
-  pricePL: number;
-  colorEN: string;
-  colorPL: string;
-  descriptionEN: string;
-  descriptionPL: string;
-  nameEN: string;
-  namePL: string;
-}
+import { CorrectProductType } from './types/type';
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -24,6 +13,7 @@ const initialState: CorrectProductType = {
   descriptionPL: '',
   nameEN: '',
   namePL: '',
+  sales: 0,
 };
 
 function AddNewProduct() {

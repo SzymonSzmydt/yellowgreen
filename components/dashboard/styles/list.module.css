@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  margin: 1.25rem 0;
+  font-size: 1rem;
+  color: black;
+}
+
+.thead {
+  color: var(--dark-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 0.25rem 0.5rem 0;
+  border: 2px solid var(--dark-color);
+}
+
+.thead td:nth-child(1) {
+  width: 20%;
+}
+.thead td:nth-child(2) {
+  width: 30%;
+}
+.thead td:nth-child(3) {
+  width: 20%;
+}
+.thead td:nth-child(4) {
+  width: 15%;
+}
+.thead td:nth-child(5) {
+  width: 15%;
+}
