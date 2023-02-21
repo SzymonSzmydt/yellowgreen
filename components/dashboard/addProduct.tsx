@@ -2,7 +2,7 @@ import add from './styles/add.module.css';
 import { Variant } from '../button/Variant';
 import { useState } from 'react';
 
-export type CorrectProductType = {
+export interface CorrectProductType {
   id: number;
   priceEU: number;
   pricePL: number;
@@ -12,7 +12,7 @@ export type CorrectProductType = {
   descriptionPL: string;
   nameEN: string;
   namePL: string;
-};
+}
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -27,30 +27,31 @@ const initialState: CorrectProductType = {
 };
 
 function AddNewProduct() {
-  const [productData, setProductData] =
-    useState<CorrectProductType>(initialState);
+  const [productData, setProductData] = useState(initialState);
 
   const handleChangeInputValue = (
-    value: React.ChangeEvent<HTMLInputELement>
+    value: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setProductData({ ...productData, [value.target.name]: value.target.value });
+    setProductData({
+      ...productData,
+      [value.target.name]: value.target.value,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const corectPriceType = structuredClone(productData);
-    corectPriceType.pricePL = parseFloat(productData.pricePL);
-    corectPriceType.priceEU = parseFloat(productData.priceEU);
-
-    await fetch('/api/dashboard/postProduct', {
-      method: 'POST',
-      body: JSON.stringify(corectPriceType),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    setProductData(initialState);
+    try {
+      await fetch('/api/dashboard/postProduct', {
+        method: 'POST',
+        body: JSON.stringify(productData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      setProductData(initialState);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -123,7 +124,10 @@ function AddNewProduct() {
           className={add.priceInput}
           value={productData.pricePL}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeInputValue(e)
+            setProductData({
+              ...productData,
+              pricePL: parseFloat(e.target.value),
+            })
           }
         />
 
@@ -140,7 +144,10 @@ function AddNewProduct() {
           className={add.priceInput}
           value={productData.priceEU}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeInputValue(e)
+            setProductData({
+              ...productData,
+              priceEU: parseFloat(e.target.value),
+            })
           }
         />
 
@@ -151,8 +158,11 @@ function AddNewProduct() {
           placeholder="Opis produktu - PL"
           className={add.textarea}
           value={productData.descriptionPL}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeInputValue(e)
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setProductData({
+              ...productData,
+              descriptionPL: e.target.value,
+            })
           }
         />
         <textarea
@@ -162,8 +172,11 @@ function AddNewProduct() {
           placeholder="Opis produktu -EN"
           className={add.textarea}
           value={productData.descriptionEN}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeInputValue(e)
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setProductData({
+              ...productData,
+              descriptionEN: e.target.value,
+            })
           }
         />
         <Variant name={'Zapisz'} />
