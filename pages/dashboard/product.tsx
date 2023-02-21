@@ -6,7 +6,7 @@ import { useState } from 'react';
 import WindowDashboardBody from '../../components/window/windowDashboardBody';
 import AddNewProduct from '../../components/dashboard/page/addProduct';
 import DashLayout from '../../components/layout/DashLayout';
-import { ListOfProducts } from './../../components/dashboard/products';
+import { ListOfProducts } from './../../components/dashboard/page/products';
 
 function ProductList() {
   const [isAddProductClicked, setIsAddProductClicked] = useState(false);

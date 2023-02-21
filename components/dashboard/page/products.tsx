@@ -1,7 +1,7 @@
 import style from './styles/list.module.css';
 import { useState } from 'react';
-import { CorrectProductType } from './types/type';
-import { Search } from './search';
+import { CorrectProductType } from '../types/type';
+import { Search } from '../search';
 
 export function ListOfProducts() {
   const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
