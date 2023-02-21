@@ -7,7 +7,6 @@ import panel from '../../../public/icons/panel.svg';
 import Image from 'next/image';
 import { LinkBox } from '../ui/LinkBox';
 
-
 type AsideProps = {
   isClicked: boolean;
 };

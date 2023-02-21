@@ -15,7 +15,6 @@
 .product div {
   display: inline-block;
   padding: 1rem 0.5rem 1rem 0;
-  overflow-wrap: break-word;
 }
 
 .id {
@@ -29,22 +28,20 @@
 
 .price {
   min-width: 5.5rem;
-  font-size: 0.9rem;
   width: 20%;
 }
 
 .color {
   min-width: 6rem;
   width: 20%;
-  border: 1px solid red;
 }
 
 .sales {
-  min-width: 5.5rem;
+  min-width: 6rem;
 }
 
 .option {
-  min-width: 3rem;
+  min-width: 1rem;
 }
 
 .product {
@@ -68,6 +65,7 @@
 .product .price {
   text-align: left;
   color: var(--third-color);
+  font-size: 0.9rem;
 }
 
 .product .color {
@@ -81,7 +79,7 @@
   font-size: 0.85rem;
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 870px) {
   .row .id,
   .row .sales,
   .product .id,
@@ -91,14 +89,21 @@
 
   .row .name,
   .product .name {
-    width: 45%;
+    width: 50%;
   }
   .row .color,
   .product .color {
-    width: 35%;
+    width: 25%;
   }
-  .row .option,
-  .product .option {
+  .row .price,
+  .product .price {
     width: 20%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .row .color,
+  .product .color {
+    display: none;
   }
 }

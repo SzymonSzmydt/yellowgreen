@@ -25,7 +25,7 @@ export function ListOfProducts() {
           <div className={style.price}>CENA</div>
           <div className={style.color}>COLOR</div>
           <div className={style.sales}>SPRZEDANO</div>
-          <div className={style.option}>OPCJE</div>
+          <div className={style.option}></div>
         </section>
         {productList.length > 0
           ? searchValue.length > 0

@@ -11,7 +11,7 @@ type ImgProp = {
 
 type Props = {
   image: ImgProp;
-  name: string;
+  name?: string;
   path: string;
 };
 
