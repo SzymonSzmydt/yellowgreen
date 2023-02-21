@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Aside from '../dashboard/aside';
+import Aside from '../dashboard/page/aside';
 import { Hamburger } from '../button/hamburger';
 import { useState } from 'react';
 

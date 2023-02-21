@@ -1,4 +1,4 @@
-import aside from './styles/aside.module.css';
+import link from './styles/link.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -19,13 +19,13 @@ export function LinkBox({ name, path, image }: Props) {
   const { pathname } = useRouter();
 
   return pathname !== path ? (
-    <Link href={path} className={aside.link}>
-      <Image src={image} alt={name} className={aside.icon} />
+    <Link href={path} className={link.link}>
+      <Image src={image} alt={name} className={link.icon} />
       {name}
     </Link>
   ) : (
-    <div className={aside.linkBox}>
-      <Image src={image} alt={name} className={aside.icon} />
+    <div className={link.linkBox}>
+      <Image src={image} alt={name} className={link.icon} />
       {name}
     </div>
   );
