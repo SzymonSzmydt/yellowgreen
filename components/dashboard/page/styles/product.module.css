@@ -15,25 +15,28 @@
 .product div {
   display: inline-block;
   padding: 1rem 0.5rem 1rem 0;
+  overflow-wrap: break-word;
 }
 
 .id {
-  min-width: 7.75rem;
+  min-width: 7rem;
 }
 
 .name {
-  min-width: 15rem;
-  width: 40%;
+  min-width: 8rem;
+  width: 35%;
 }
 
 .price {
-  min-width: 8rem;
-  width: 25%;
+  min-width: 5.5rem;
+  font-size: 0.9rem;
+  width: 20%;
 }
 
 .color {
-  min-width: 10rem;
+  min-width: 6rem;
   width: 20%;
+  border: 1px solid red;
 }
 
 .sales {
@@ -41,8 +44,7 @@
 }
 
 .option {
-  min-width: 5.5rem;
-  width: 15%;
+  min-width: 3rem;
 }
 
 .product {

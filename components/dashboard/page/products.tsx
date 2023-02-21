@@ -1,4 +1,4 @@
-import style from './styles/list.module.css';
+import style from './styles/product.module.css';
 import { useState } from 'react';
 import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
@@ -39,7 +39,7 @@ export function ListOfProducts() {
                   <div key={product.id} className={style.product}>
                     <div className={style.id}> {product.id} </div>
                     <div className={style.name}> {product?.namePL} </div>
-                    <div className={style.price}> {product.pricePL} zł</div>
+                    <div className={style.price}> {product?.pricePL} zł</div>
                     <div className={style.color}> {product?.colorPL} </div>
                     <div className={style.sales}>
                       {product?.sales ?? 0} szt.
