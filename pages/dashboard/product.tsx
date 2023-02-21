@@ -4,7 +4,7 @@ import WindowDashboardBar from '../../components/window/windowDashboardBar';
 import { Variant } from '../../components/button/Variant';
 import { useState } from 'react';
 import WindowDashboardBody from '../../components/window/windowDashboardBody';
-import AddNewProduct from '../../components/dashboard/addProduct';
+import AddNewProduct from '../../components/dashboard/page/addProduct';
 import DashLayout from '../../components/layout/DashLayout';
 import { ListOfProducts } from './../../components/dashboard/products';
 

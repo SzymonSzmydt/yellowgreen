@@ -1,7 +1,7 @@
 import add from './styles/add.module.css';
-import { Variant } from '../button/Variant';
+import { Variant } from '../../button/Variant';
 import { useState } from 'react';
-import { CorrectProductType } from './types/type';
+import { CorrectProductType } from '../types/type';
 
 const initialState: CorrectProductType = {
   id: 0,

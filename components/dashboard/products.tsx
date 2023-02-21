@@ -22,6 +22,7 @@ export function ListOfProducts() {
         <section className={style.row}>
           <div className={style.id}>ID</div>
           <div className={style.name}>NAZWA</div>
+          <div className={style.price}>CENA</div>
           <div className={style.color}>COLOR</div>
           <div className={style.sales}>SPRZEDANO</div>
           <div className={style.option}>OPCJE</div>
@@ -38,6 +39,7 @@ export function ListOfProducts() {
                   <div key={product.id} className={style.product}>
                     <div className={style.id}> {product.id} </div>
                     <div className={style.name}> {product?.namePL} </div>
+                    <div className={style.price}> {product.pricePL} zł</div>
                     <div className={style.color}> {product?.colorPL} </div>
                     <div className={style.sales}>
                       {product?.sales ?? 0} szt.
@@ -49,6 +51,7 @@ export function ListOfProducts() {
                 <div key={product.id} className={style.product}>
                   <div className={style.id}> {product.id} </div>
                   <div className={style.name}> {product?.namePL} </div>
+                  <div className={style.price}> {product.pricePL} zł</div>
                   <div className={style.color}> {product?.colorPL} </div>
                   <div className={style.sales}> {product?.sales ?? 0} szt.</div>
                   <div className={style.option}> </div>
