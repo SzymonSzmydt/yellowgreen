@@ -1,4 +1,5 @@
 import style from './styles/search.module.css';
+import { Dispatch, SetStateAction } from 'react';
 
 type SearchProps = {
   setSearchValue: Dispatch<SetStateAction<string>>;

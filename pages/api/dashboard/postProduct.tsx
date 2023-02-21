@@ -3,7 +3,7 @@ import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import {
   Body,
-  CorrectReferenceType,
+  CorrectProductType,
 } from '../../../components/dashboard/types/type';
 
 export default async function handler(
@@ -13,7 +13,7 @@ export default async function handler(
   const date = Date.now();
   const body = req.body;
   body.id = date;
-  const correctData: CorrectReferenceType = structuredClone(body);
+  const correctData: CorrectProductType = structuredClone(body);
 
   const data: Body = {
     [date]: correctData,
