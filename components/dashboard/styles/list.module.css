@@ -1,44 +1,60 @@
+@media screen and(max-width: 690px) {
+  .id {
+    display: none !important;
+  }
+}
+
 .table {
   width: 100%;
-  margin: 1rem 0;
-  font-size: 1rem;
-  color: black;
+  margin: 0.5rem 0;
   font-weight: 500;
-  border-collapse: collapse;
 }
 
-.thead {
+.row {
+  display: flex;
   border-bottom: 1px solid var(--semi-color);
   color: var(--dark-color);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+  padding: 1rem 0;
 }
-
-.thead td,
-.product td {
+.row div,
+.product div {
   padding: 0.75rem 0.25rem 0.75rem 0;
+  font-weight: 500;
 }
 
-.thead td:nth-child(1) {
-  width: 20%;
+.id {
+  min-width: 7.5rem;
 }
-.thead td:nth-child(2) {
-  width: 35%;
+
+.name {
+  min-width: 10rem;
+  width: 40%;
 }
-.thead td:nth-child(3) {
-  width: 15%;
+.color {
+  min-width: 10rem;
+  width: 25%;
 }
-.thead td:nth-child(4) {
-  width: 15%;
+
+.sales {
+  min-width: 5.5rem;
 }
-.thead td:nth-child(5) {
-  width: 15%;
+
+.option {
+  min-width: 5.5rem;
 }
 
 .product {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.product td:first-child {
+.product:hover {
+  background-color: var(--glass);
+}
+
+.product .id {
   font-size: 0.75rem;
-  font-weight: 600;
 }

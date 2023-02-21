@@ -1,9 +1,11 @@
 import style from './styles/list.module.css';
 import { useState } from 'react';
 import { Body } from './types/type';
+import { Search } from './search';
 
 export function ListOfProducts() {
   const [productList, setProductList] = useState<Array<Body>>({});
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const fetchProducts = async () => {
     const response = await fetch('/api/dashboard/getProduct');
@@ -11,35 +13,31 @@ export function ListOfProducts() {
     setProductList(Object.values(data));
   };
 
-  console.log('productList ', productList);
   return (
     <>
       <button onClick={fetchProducts}> Refresh </button>
       <h1> Lista Produktów</h1>
-      <table className={style.table}>
-        <thead>
-          <tr className={style.thead}>
-            <td>ID</td>
-            <td>NAZWA</td>
-            <td>COLOR</td>
-            <td>SPRZEDANO</td>
-            <td>OPCJE</td>
-          </tr>
-        </thead>
-        <tbody>
-          {productList.length > 0
-            ? productList.map((product) => (
-                <tr key={product.id} className={style.product}>
-                  <td> {product?.id} </td>
-                  <td> {product?.namePL} </td>
-                  <td> {product?.colorPL} </td>
-                  <td> {product?.sales} </td>
-                  <td> </td>
-                </tr>
-              ))
-            : null}
-        </tbody>
-      </table>
+      <Search setSearchValue={setSearchValue} />
+      <div className={style.table}>
+        <div className={style.row}>
+          <div className={style.id}>ID</div>
+          <div className={style.name}>NAZWA</div>
+          <div className={style.color}>COLOR</div>
+          <div className={style.sales}>SPRZEDANO</div>
+          <div className={style.option}>OPCJE</div>
+        </div>
+        {productList.length > 0
+          ? productList.map((product) => (
+              <div key={product.id} className={style.product}>
+                <div className={style.id}> {product.id} </div>
+                <div className={style.name}> {product?.namePL} </div>
+                <div className={style.color}> {product?.colorPL} </div>
+                <div className={style.sales}> {product?.sales ?? 0} szt.</div>
+                <div className={style.option}> </div>
+              </div>
+            ))
+          : null}
+      </div>
     </>
   );
 }

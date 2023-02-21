@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: var(--dark-color);
+}
+
+.input {
+  width: 15rem;
+  border: 1px solid var(--semi-color);
+  margin: 1rem 0;
+}
+
+@media screen and(max-width: 300px) {
+  .input {
+    width: 100%;
+  }
+}
