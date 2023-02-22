@@ -1,16 +1,17 @@
 .label {
-  font-size: 0.85rem;
-  color: var(--dark-color);
+    font-size: 0.85rem;
+    color: var(--dark-color);
 }
 
 .input {
-  width: 15rem;
-  border: 1px solid var(--semi-color);
-  margin: 1rem 0;
+    min-width: 8rem;
+    width: 15rem;
+    border: 1px solid var(--semi-color);
+    margin: 1rem 0;
 }
 
 @media screen and(max-width: 300px) {
-  .input {
-    width: 100%;
-  }
+    .input {
+        width: 100%;
+    }
 }

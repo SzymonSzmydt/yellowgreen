@@ -1,53 +1,59 @@
 @media screen and (max-width: 522px) {
-  .confirm {
-    left: 0;
-    width: 100%;
-  }
+    .confirm {
+        left: 0;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 250px) {
-  .id,
-  .name {
-    font-size: 0.75rem;
-    text-overflow: ellipsis;
-  }
+
+    .id,
+    .name {
+        font-size: 0.75rem;
+        text-overflow: ellipsis;
+    }
 }
 
 .confirm {
-  cursor: default;
-  position: absolute;
-  top: -3rem;
-  right: 20%;
-  display: inline-block;
-  background-color: var(--dropdown-body);
-  color: var(--background-color);
-  border-radius: var(--radius-dash);
-  z-index: 1;
+    cursor: default;
+    position: absolute;
+    display: inline-block;
+
+    top: -3rem;
+    right: 20%;
+
+    background-color: var(--dropdown-body);
+    border-radius: var(--radius-dash);
+    box-shadow: var(--shadow);
+    color: var(--background-color);
+
+    z-index: 1;
 }
 
 .confirm p {
-  padding: 0 1rem 1rem;
+    padding: 0 1rem 1rem;
 }
 
 .id,
 .name {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .id {
-  color: var(--dropdown-text-a);
-  text-transform: capitalize;
-  font-size: 0.85rem;
+    color: var(--dropdown-text-a);
+    text-transform: capitalize;
+    font-size: 0.85rem;
 }
+
 .name {
-  color: var(--dropdown-text-b);
-  text-transform: capitalize;
+    color: var(--dropdown-text-b);
+    text-transform: capitalize;
 }
 
 .box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-evenly;
-  padding: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 1rem 0 0;
 }

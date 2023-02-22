@@ -20,6 +20,8 @@
 
   --light-green: rgba(117, 160, 117, 0.158);
 
+  --shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+
   --radius-small: 2px;
   --radius-dash: 0.5rem;
 
