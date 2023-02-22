@@ -9,7 +9,7 @@ export function ListOfProducts() {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdown, setIsDropdown] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<CorrectProductType>(
-    {}
+    {} as CorrectProductType
   );
 
   const fetchProducts = async () => {
