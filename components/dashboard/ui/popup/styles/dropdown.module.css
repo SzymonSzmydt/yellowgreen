@@ -2,7 +2,7 @@
   position: absolute;
   display: block;
   top: 0;
-  left: -7rem;
+  right: 1.25rem;
   background-color: var(--dropdown-body);
   color: var(--background-color);
   border-radius: var(--radius-dash) 0 var(--radius-dash) var(--radius-dash);

@@ -1,12 +1,28 @@
+@media screen and (max-width: 522px) {
+  .confirm {
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .id,
+  .name {
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+  }
+}
+
 .confirm {
   cursor: default;
   position: absolute;
   top: -3rem;
-  left: -30rem;
+  right: 20%;
   display: inline-block;
   background-color: var(--dropdown-body);
   color: var(--background-color);
   border-radius: var(--radius-dash);
+  z-index: 1;
 }
 
 .confirm p {
@@ -30,6 +46,7 @@
 
 .box {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
   padding: 1rem 0 0;

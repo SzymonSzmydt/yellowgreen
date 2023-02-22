@@ -7,7 +7,7 @@ type VariantProps = {
 
 export function Variant({ name, handleClick }: VariantProps) {
   return (
-    <button className={btn.variantBox} onClick={handleClick}>
+    <button className={btn.variant} onClick={handleClick}>
       {name}
     </button>
   );
