@@ -1,150 +1,167 @@
 .wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .table {
-  width: 100%;
-  font-weight: 500;
+    width: 100%;
+    font-weight: 500;
 }
 
 .row {
-  display: flex;
-  border-bottom: 1px solid var(--semi-color);
-  color: var(--dark-color);
-  font-size: 0.75rem;
-  padding: 1rem 0;
+    display: flex;
+    border-bottom: 1px solid var(--semi-color);
+    color: var(--dark-color);
+    font-size: 0.75rem;
+    padding: 1rem 0;
 }
+
 .row div,
 .product div {
-  display: inline-block;
-  padding: 1rem 0.5rem 1rem 0;
+    display: inline-block;
+    padding: 1rem 0.5rem 1rem 0;
 }
 
 .id {
-  min-width: 7rem;
-  width: 15%;
+    min-width: 7rem;
+    width: 15%;
 }
 
 .name {
-  min-width: 8rem;
-  width: 40%;
+    min-width: 8rem;
+    width: 40%;
 }
 
 .price {
-  min-width: 5.5rem;
-  width: 20%;
+    min-width: 5.5rem;
+    width: 20%;
 }
 
 .color {
-  min-width: 6rem;
-  width: 20%;
+    min-width: 6rem;
+    width: 20%;
 }
 
 .sales {
-  min-width: 6rem;
+    min-width: 6rem;
 }
 
 .option {
-  width: 1rem;
+    width: 1rem;
 }
 
 .product {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.position {
+    composes: product;
+    position: relative;
 }
 
 .product:nth-child(2n + 1) {
-  background-color: var(--light-green);
+    background-color: var(--light-green);
 }
 
 .product:hover {
-  background-color: var(--glass);
-  border-radius: var(--radius-dash);
-  color: var(--primary-color);
+    background-color: var(--glass);
+    border-radius: var(--radius-dash);
+    color: var(--primary-color);
 }
 
 .product .id {
-  font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .product .name {
-  color: rgb(2, 113, 177);
+    color: var(--third-color);
+    font-weight: 600;
 }
 
 .product .price {
-  text-align: left;
-  color: var(--third-color);
-  font-size: 0.8rem;
+    text-align: left;
+    color: var(--third-color);
+    font-size: 0.8rem;
 }
 
 .product .color {
-  color: var(--third-color);
-  font-size: 0.85rem;
-  font-weight: 400;
+    color: var(--third-color);
+    font-size: 0.85rem;
+    font-weight: 400;
 }
 
 .product .sales {
-  color: var(--dark-color);
-  font-size: 0.85rem;
-}
-
-.product .option {
-  display: flex;
-  flex-direction: column;
+    color: var(--dark-color);
+    font-size: 0.85rem;
 }
 
 .product .option span:active {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .product .option span {
-  width: 0.25rem;
-  height: 0.25rem;
-  margin: 2px 0;
-  border-radius: 50%;
-  background-color: var(--third-color);
+    display: block;
+    margin: 0 5px;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: var(--third-color);
+}
+
+.product .option:hover {
+    background-color: var(--light-green);
+    border-radius: 15px;
+}
+
+.product .option span:first-child {
+    margin-bottom: 0.25rem;
 }
 
 @media screen and (max-width: 870px) {
-  .row .id,
-  .row .sales,
-  .product .id,
-  .product .sales {
-    display: none;
-  }
 
-  .row .name,
-  .product .name {
-    width: 50%;
-  }
-  .row .color,
-  .product .color {
-    width: 25%;
-  }
-  .row .price,
-  .product .price {
-    width: 20%;
-  }
+    .row .id,
+    .row .sales,
+    .product .id,
+    .product .sales {
+        display: none;
+    }
+
+    .row .name,
+    .product .name {
+        width: 50%;
+    }
+
+    .row .color,
+    .product .color {
+        width: 25%;
+    }
+
+    .row .price,
+    .product .price {
+        width: 20%;
+    }
 }
 
 @media screen and (max-width: 500px) {
-  .row .name,
-  .product .name {
-    width: 65%;
-  }
-  .row .color,
-  .product .color {
-    display: none;
-  }
-  .row .price,
-  .product .price {
-    width: 30%;
-  }
+
+    .row .name,
+    .product .name {
+        width: 65%;
+    }
+
+    .row .color,
+    .product .color {
+        display: none;
+    }
+
+    .row .price,
+    .product .price {
+        width: 30%;
+    }
 }

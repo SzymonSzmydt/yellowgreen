@@ -7,11 +7,20 @@ import { Dropdown } from '../ui/popup/dropdown';
 export function ListOfProducts() {
   const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
   const [searchValue, setSearchValue] = useState<string>('');
+  const [isDropdown, setIsDropdown] = useState<boolean>(false);
+  const [selectedProduct, setSelectedProduct] = useState<CorrectProductType>(
+    {}
+  );
 
   const fetchProducts = async () => {
     const response = await fetch('/api/dashboard/getProduct');
     const data = await response.json();
     setProductList(Object.values(data));
+  };
+
+  const triggerDropdown = (product: CorrectProductType) => {
+    setIsDropdown(!isDropdown);
+    setSelectedProduct(product);
   };
 
   return (
@@ -39,7 +48,17 @@ export function ListOfProducts() {
                     .includes(searchValue.toLowerCase())
                 )
                 .map((product) => (
-                  <div key={product.id} className={style.product}>
+                  <div
+                    key={product.id}
+                    className={
+                      selectedProduct.id === product.id
+                        ? style.position
+                        : style.product
+                    }
+                  >
+                    {isDropdown && product.id === selectedProduct.id ? (
+                      <Dropdown {...selectedProduct} />
+                    ) : null}
                     <div className={style.id}> {product.id} </div>
                     <div className={style.name}> {product?.namePL} </div>
                     <div className={style.price}> {product?.pricePL} zł</div>
@@ -47,25 +66,39 @@ export function ListOfProducts() {
                     <div className={style.sales}>
                       {product?.sales ?? 0} szt.
                     </div>
-                    <div className={style.option}>
+                    <div
+                      className={style.option}
+                      onClick={() => triggerDropdown({ ...product })}
+                    >
                       <span />
                       <span />
                     </div>
-                    <Dropdown {...product} />
                   </div>
                 ))
             : productList.map((product) => (
-                <div key={product.id} className={style.product}>
+                <div
+                  key={product.id}
+                  className={
+                    selectedProduct.id === product.id
+                      ? style.position
+                      : style.product
+                  }
+                >
+                  {isDropdown && product.id === selectedProduct.id ? (
+                    <Dropdown {...selectedProduct} />
+                  ) : null}
                   <div className={style.id}> {product.id} </div>
                   <div className={style.name}> {product?.namePL} </div>
                   <div className={style.price}> {product.pricePL} zł</div>
                   <div className={style.color}> {product?.colorPL} </div>
                   <div className={style.sales}> {product?.sales ?? 0} szt.</div>
-                  <div className={style.option}>
+                  <div
+                    className={style.option}
+                    onClick={() => triggerDropdown({ ...product })}
+                  >
                     <span />
                     <span />
                   </div>
-                  <Dropdown {...product} />
                 </div>
               ))
           : null}
