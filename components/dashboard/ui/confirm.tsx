@@ -21,11 +21,13 @@ export function Confirm({ setIsDeleting, id, namePL }: ConfirmProps) {
   return (
     <div className={style.confirm}>
       <p>Czy na pewno usunąć product ?</p>
-      <p className={style.product}> {namePL} </p>
-      <div className={style.box}>
+      <span className={style.id}> {id} </span>
+      <span className={style.name}> {namePL} </span>
+      <br />
+      <section className={style.box}>
         <Variant name="TAK" handleClick={handleDeleteProduct} />
         <Variant name="NIE" handleClick={() => setIsDeleting(false)} />
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,23 +1,40 @@
 .confirm {
   cursor: default;
   position: absolute;
-  left: -20rem;
+  top: -3rem;
+  left: -30rem;
   display: inline-block;
   background-color: var(--dropdown-body);
   color: var(--background-color);
-  padding: 1rem;
   border-radius: var(--radius-dash);
 }
 
-.product {
-  color: var(--red);
+.confirm p {
+  padding: 0 1rem 1rem;
+}
+
+.id,
+.name {
+  padding: 1rem;
+  display: block;
+}
+
+.id {
+  color: var(--dropdown-text-a);
   text-transform: capitalize;
-  font-style: italic;
-  text-align: center;
-  padding: 0 0 1rem;
+  font-size: 0.85rem;
+  margin-right: 2rem;
+  display: inline;
+}
+.name {
+  color: var(--dropdown-text-b);
+  text-transform: capitalize;
+  display: inline;
 }
 
 .box {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 1rem 0 0;
 }
