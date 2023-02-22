@@ -48,7 +48,7 @@ export function ListOfProducts() {
                       {product?.sales ?? 0} szt.
                     </div>
                     <div className={style.option}>
-                      <Dropdown />
+                      <Dropdown {...product} />
                     </div>
                   </div>
                 ))
@@ -60,7 +60,7 @@ export function ListOfProducts() {
                   <div className={style.color}> {product?.colorPL} </div>
                   <div className={style.sales}> {product?.sales ?? 0} szt.</div>
                   <div className={style.option}>
-                    <Dropdown />
+                    <Dropdown {...product} />
                   </div>
                 </div>
               ))

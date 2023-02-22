@@ -1,0 +1,23 @@
+.confirm {
+  cursor: default;
+  position: absolute;
+  left: -20rem;
+  display: inline-block;
+  background-color: var(--dropdown-body);
+  color: var(--background-color);
+  padding: 1rem;
+  border-radius: var(--radius-dash);
+}
+
+.product {
+  color: var(--red);
+  text-transform: capitalize;
+  font-style: italic;
+  text-align: center;
+  padding: 0 0 1rem;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
