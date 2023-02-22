@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .table {
@@ -25,11 +26,12 @@
 
 .id {
   min-width: 7rem;
+  width: 15%;
 }
 
 .name {
   min-width: 8rem;
-  width: 35%;
+  width: 40%;
 }
 
 .price {
@@ -47,7 +49,7 @@
 }
 
 .option {
-  min-width: 1rem;
+  width: 1rem;
 }
 
 .product {
@@ -141,8 +143,16 @@
 }
 
 @media screen and (max-width: 500px) {
+  .row .name,
+  .product .name {
+    width: 65%;
+  }
   .row .color,
   .product .color {
     display: none;
+  }
+  .row .price,
+  .product .price {
+    width: 30%;
   }
 }

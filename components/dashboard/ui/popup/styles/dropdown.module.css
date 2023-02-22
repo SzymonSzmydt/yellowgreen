@@ -6,15 +6,16 @@
   background-color: var(--dropdown-body);
   color: var(--background-color);
   border-radius: var(--radius-dash) 0 var(--radius-dash) var(--radius-dash);
+  font-size: 0.85rem;
 }
 
 .dropdown ul {
-  padding: 0.25rem 1.5rem;
+  padding: 0 1.5rem;
   list-style-type: none;
 }
 
 .dropdown li {
-  padding: 0.25rem 0;
+  padding: 0.2rem 0;
 }
 
 .dropdown li:hover {
