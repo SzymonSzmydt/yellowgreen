@@ -1,0 +1,22 @@
+.dropdown {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -7rem;
+  background-color: var(--dropdown-body);
+  color: var(--background-color);
+  border-radius: var(--radius-dash) 0 var(--radius-dash) var(--radius-dash);
+}
+
+.dropdown ul {
+  padding: 0.25rem 1.5rem;
+  list-style-type: none;
+}
+
+.dropdown li {
+  padding: 0.25rem 0;
+}
+
+.dropdown li:hover {
+  color: var(--primary-color);
+}

@@ -2,6 +2,7 @@ import style from './styles/product.module.css';
 import { useState } from 'react';
 import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
+import { Dropdown } from '../ui/popup/dropdown';
 
 export function ListOfProducts() {
   const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
@@ -46,7 +47,9 @@ export function ListOfProducts() {
                     <div className={style.sales}>
                       {product?.sales ?? 0} szt.
                     </div>
-                    <div className={style.option} />
+                    <div className={style.option}>
+                      <Dropdown />
+                    </div>
                   </div>
                 ))
             : productList.map((product) => (
@@ -56,7 +59,9 @@ export function ListOfProducts() {
                   <div className={style.price}> {product.pricePL} zł</div>
                   <div className={style.color}> {product?.colorPL} </div>
                   <div className={style.sales}> {product?.sales ?? 0} szt.</div>
-                  <div className={style.option} />
+                  <div className={style.option}>
+                    <Dropdown />
+                  </div>
                 </div>
               ))
           : null}
