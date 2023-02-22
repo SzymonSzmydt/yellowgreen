@@ -57,7 +57,10 @@ export function ListOfProducts() {
                     }
                   >
                     {isDropdown && product.id === selectedProduct.id ? (
-                      <Dropdown {...selectedProduct} />
+                      <Dropdown
+                        setIsDropdown={setIsDropdown}
+                        {...selectedProduct}
+                      />
                     ) : null}
                     <div className={style.id}> {product.id} </div>
                     <div className={style.name}> {product?.namePL} </div>
@@ -85,7 +88,10 @@ export function ListOfProducts() {
                   }
                 >
                   {isDropdown && product.id === selectedProduct.id ? (
-                    <Dropdown {...selectedProduct} />
+                    <Dropdown
+                      setIsDropdown={setIsDropdown}
+                      {...selectedProduct}
+                    />
                   ) : null}
                   <div className={style.id}> {product.id} </div>
                   <div className={style.name}> {product?.namePL} </div>

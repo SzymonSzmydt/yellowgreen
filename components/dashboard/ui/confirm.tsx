@@ -6,16 +6,28 @@ import { db } from '../../../context/Firebase';
 
 type ConfirmProps = {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;
+  setIsDropdown: Dispatch<SetStateAction<boolean>>;
   id: number;
   namePL: string;
 };
 
-export function Confirm({ setIsDeleting, id, namePL }: ConfirmProps) {
+export function Confirm({
+  setIsDeleting,
+  setIsDropdown,
+  id,
+  namePL,
+}: ConfirmProps) {
   const handleDeleteProduct = async () => {
     const productRef = doc(db, 'dashboard', 'products');
     await updateDoc(productRef, {
       [id]: deleteField(),
     });
+    setIsDropdown(false);
+  };
+
+  const handleCancel = () => {
+    setIsDeleting(false);
+    setIsDropdown(false);
   };
 
   return (
@@ -26,7 +38,7 @@ export function Confirm({ setIsDeleting, id, namePL }: ConfirmProps) {
       <br />
       <section className={style.box}>
         <Variant name="TAK" handleClick={handleDeleteProduct} />
-        <Variant name="NIE" handleClick={() => setIsDeleting(false)} />
+        <Variant name="NIE" handleClick={handleCancel} />
       </section>
     </div>
   );
