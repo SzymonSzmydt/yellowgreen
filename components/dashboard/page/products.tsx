@@ -16,8 +16,10 @@ export function ListOfProducts() {
   return (
     <>
       <button onClick={fetchProducts}> Refresh </button>
-      <h1> Lista Produktów</h1>
-      <Search setSearchValue={setSearchValue} />
+      <div className={style.wrapper}>
+        <h1> Lista Produktów</h1>
+        <Search setSearchValue={setSearchValue} />
+      </div>
       <div className={style.table}>
         <section className={style.row}>
           <div className={style.id}>ID</div>
@@ -25,7 +27,7 @@ export function ListOfProducts() {
           <div className={style.price}>CENA</div>
           <div className={style.color}>COLOR</div>
           <div className={style.sales}>SPRZEDANO</div>
-          <div className={style.option}></div>
+          <div className={style.option} />
         </section>
         {productList.length > 0
           ? searchValue.length > 0
@@ -44,7 +46,7 @@ export function ListOfProducts() {
                     <div className={style.sales}>
                       {product?.sales ?? 0} szt.
                     </div>
-                    <div className={style.option}> </div>
+                    <div className={style.option} />
                   </div>
                 ))
             : productList.map((product) => (
@@ -54,7 +56,7 @@ export function ListOfProducts() {
                   <div className={style.price}> {product.pricePL} zł</div>
                   <div className={style.color}> {product?.colorPL} </div>
                   <div className={style.sales}> {product?.sales ?? 0} szt.</div>
-                  <div className={style.option}> </div>
+                  <div className={style.option} />
                 </div>
               ))
           : null}

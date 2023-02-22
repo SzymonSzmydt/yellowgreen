@@ -1,7 +1,13 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .table {
   width: 100%;
-  margin: 0.5rem 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .row {
@@ -51,6 +57,10 @@
   transition: background-color 0.2s;
 }
 
+.product:nth-child(2n + 1) {
+  background-color: var(--light-green);
+}
+
 .product:hover {
   background-color: var(--glass);
   border-radius: var(--radius-dash);
@@ -59,13 +69,16 @@
 
 .product .id {
   font-size: 0.75rem;
-  font-weight: 500;
+}
+
+.product .name {
+  color: rgb(2, 113, 177);
 }
 
 .product .price {
   text-align: left;
   color: var(--third-color);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .product .color {
@@ -77,6 +90,32 @@
 .product .sales {
   color: var(--dark-color);
   font-size: 0.85rem;
+}
+
+.product .option {
+  position: relative;
+}
+
+.product .option:active {
+  transform: scale(1.1);
+}
+
+.product .option::after,
+.product .option::before {
+  position: absolute;
+  content: '';
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background-color: var(--third-color);
+}
+
+.product .option::after {
+  top: 0.5rem;
+}
+
+.product .option::before {
+  bottom: 0.5rem;
 }
 
 @media screen and (max-width: 870px) {
