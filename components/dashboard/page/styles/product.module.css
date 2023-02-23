@@ -81,6 +81,8 @@
     text-align: left;
     color: var(--third-color);
     font-size: 0.9rem;
+    position: relative;
+    user-select: none;
 }
 
 .product .color {
