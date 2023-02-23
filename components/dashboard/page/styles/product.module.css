@@ -100,6 +100,10 @@
     transform: scale(1.1);
 }
 
+.product .option {
+    cursor: pointer;
+}
+
 .product .option span {
     display: block;
     margin: 0 5px;
