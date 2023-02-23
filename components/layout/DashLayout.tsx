@@ -1,3 +1,4 @@
+import dash from './dash.module.css';
 import Head from 'next/head';
 import Aside from '../dashboard/page/aside';
 import { Hamburger } from '../button/hamburger';
@@ -17,7 +18,7 @@ function DashLayout({ children }: Props) {
         <link rel="icon" href="/icons/favicon.ico" />
       </Head>
 
-      <main className="general">
+      <main className={dash.general}>
         <Hamburger
           handleClick={() => setIsClicked(!isClicked)}
           isClicked={isClicked}
