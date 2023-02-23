@@ -2,6 +2,11 @@ import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
 import { useState, useEffect } from 'react';
 import { CorrectProductType } from '../types/type';
+import { useAppDispatch } from '../../../context/redux/hooks';
+import {
+  deleteProduct,
+  addProduct,
+} from '../../../context/redux/productsSlice';
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -28,6 +33,7 @@ function AddNewProduct({
   setProduct,
 }: AddProps) {
   const [productData, setProductData] = useState(initialState);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (product.id > 0) {
@@ -55,6 +61,9 @@ function AddNewProduct({
         },
       });
       setProductData(initialState);
+      dispatch(deleteProduct(product.id));
+      dispatch(addProduct(productData));
+
       setProduct({} as CorrectProductType);
       setIsAddProductClicked(false);
     } catch (error) {

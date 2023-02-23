@@ -15,7 +15,10 @@
 
 .dropdown li {
     cursor: pointer;
-    padding: 0.2rem 0;
+}
+
+.dropdown li:first-child {
+    margin-bottom: 0.5rem;
 }
 
 .dropdown li:hover {

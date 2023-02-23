@@ -24,10 +24,13 @@ export const productsSlice = createSlice({
       );
       state.value = newProductList;
     },
+    addProduct(state, action: PayloadAction<CorrectProductType>) {
+      state.value.push(action.payload);
+    },
   },
 });
 
-export const { getProducts, deleteProduct } = productsSlice.actions;
+export const { getProducts, deleteProduct, addProduct } = productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products.value;
 export default productsSlice.reducer;
