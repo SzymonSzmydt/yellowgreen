@@ -4,19 +4,16 @@ import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
 import { Dropdown } from '../ui/popup/dropdown';
 
-export function ListOfProducts() {
-  const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
+type ListProps = {
+  productList: CorrectProductType[];
+};
+
+export function ListOfProducts({ productList }: ListProps) {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdown, setIsDropdown] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<CorrectProductType>(
     {} as CorrectProductType
   );
-
-  const fetchProducts = async () => {
-    const response = await fetch('/api/dashboard/getProduct');
-    const data = await response.json();
-    setProductList(Object.values(data));
-  };
 
   const triggerDropdown = (product: CorrectProductType) => {
     setIsDropdown(!isDropdown);
@@ -25,7 +22,6 @@ export function ListOfProducts() {
 
   return (
     <>
-      <button onClick={fetchProducts}> Refresh </button>
       <div className={style.wrapper}>
         <h1> Lista Produktów</h1>
         <Search setSearchValue={setSearchValue} />

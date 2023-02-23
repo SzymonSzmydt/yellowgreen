@@ -9,7 +9,16 @@ import DashLayout from '../../components/layout/DashLayout';
 import { ListOfProducts } from './../../components/dashboard/page/products';
 
 function ProductList() {
-  const [isAddProductClicked, setIsAddProductClicked] = useState(false);
+  const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
+  const [isAddProductClicked, setIsAddProductClicked] =
+    useState<boolean>(false);
+
+  const fetchProducts = async () => {
+    const response = await fetch('/api/dashboard/getProduct');
+    const data = await response.json();
+    setProductList(Object.values(data));
+  };
+
   return (
     <>
       <WindowDashboard>
@@ -25,9 +34,14 @@ function ProductList() {
               handleClick={() => setIsAddProductClicked(true)}
             />
           )}
+          <button onClick={fetchProducts}> Refresh </button>
         </WindowDashboardBar>
         <WindowDashboardBody>
-          {isAddProductClicked ? <AddNewProduct /> : <ListOfProducts />}
+          {isAddProductClicked ? (
+            <AddNewProduct />
+          ) : (
+            <ListOfProducts productList={productList} />
+          )}
         </WindowDashboardBody>
       </WindowDashboard>
     </>
