@@ -87,7 +87,10 @@ export function ListOfProducts() {
                       {...selectedProduct}
                     />
                   ) : null}
-                  <div className={style.id}> {product.id} </div>
+                  <div className={style.id}>
+                    <strong>#</strong>
+                    {product.id}
+                  </div>
                   <div className={style.name}> {product?.namePL} </div>
                   <div className={style.price}> {product.pricePL} zł</div>
                   <div className={style.color}> {product?.colorPL} </div>
