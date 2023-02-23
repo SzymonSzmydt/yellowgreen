@@ -18,9 +18,15 @@ const initialState: CorrectProductType = {
 
 type AddProps = {
   product: CorrectProductType;
+  setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
+  setProduct: Dispatch<SetStateAction<CorrectProductType>>;
 };
 
-function AddNewProduct({ product }: AddProps) {
+function AddNewProduct({
+  product,
+  setIsAddProductClicked,
+  setProduct,
+}: AddProps) {
   const [productData, setProductData] = useState(initialState);
 
   useEffect(() => {
@@ -49,6 +55,8 @@ function AddNewProduct({ product }: AddProps) {
         },
       });
       setProductData(initialState);
+      setProduct({} as CorrectProductType);
+      setIsAddProductClicked(false);
     } catch (error) {
       console.error(error);
     }

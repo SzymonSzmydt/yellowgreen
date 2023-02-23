@@ -1,27 +1,27 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
-import {
-  Body,
-  CorrectProductType,
-} from '../../../components/dashboard/types/type';
+import { Body } from '../../../components/dashboard/types/type';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const date = Date.now();
   const body = req.body;
-  body.id = date;
-  const correctData: CorrectProductType = structuredClone(body);
 
-  const data: Body = {
-    [date]: correctData,
+  const sendProductsToFirebase = async (data) => {
+    try {
+      const productData = await setDoc(doc(db, 'dashboard', 'products'), data, {
+        merge: true,
+      });
+      res.status(200).send(productData);
+    } catch (err) {
+      res.status(500).send({ error: 'failed to fetch data' });
+    }
   };
 
-  // OPTIONAL LOGGIN VALIDATION
-
   if (
+    !body.id &&
     body.namePL &&
     body.nameEN &&
     body.colorPL &&
@@ -31,13 +31,18 @@ export default async function handler(
     body.descriptionPL &&
     body.descriptionEN
   ) {
-    try {
-      const productData = await setDoc(doc(db, 'dashboard', 'products'), data, {
-        merge: true,
-      });
-      res.status(200).send(productData);
-    } catch (err) {
-      res.status(500).send({ error: 'failed to fetch data' });
-    }
+    const date = Date.now();
+    body.id = date;
+
+    const data: Body = {
+      [date]: body,
+    };
+    sendProductsToFirebase(data);
+  }
+  if (body?.id > 0) {
+    const data: Body = {
+      [body.id]: body,
+    };
+    sendProductsToFirebase(data);
   } else res.status(400).json({ data: 'Pola nie uzupełnione' });
 }

@@ -45,7 +45,11 @@ function ProductList() {
         </WindowDashboardBar>
         <WindowDashboardBody>
           {isAddProductClicked ? (
-            <AddNewProduct product={product} />
+            <AddNewProduct
+              product={product}
+              setProduct={setProduct}
+              setIsAddProductClicked={setIsAddProductClicked}
+            />
           ) : (
             <ListOfProducts
               setProduct={setProduct}
