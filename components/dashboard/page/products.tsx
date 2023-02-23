@@ -18,8 +18,6 @@ export function ListOfProducts() {
     setSelectedProduct(product);
   };
 
-  console.log('ProductList ', productList);
-
   return (
     <>
       <div className={style.wrapper}>

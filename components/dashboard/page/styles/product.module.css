@@ -56,7 +56,6 @@
 .product {
     display: flex;
     align-items: center;
-    cursor: pointer;
     transition: background-color 0.2s;
 }
 
@@ -69,14 +68,8 @@
     background-color: var(--light-green);
 }
 
-.product:hover {
-    background-color: var(--glass);
-    border-radius: var(--radius-dash);
-    color: var(--primary-color);
-}
-
 .product .id {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .product .name {
