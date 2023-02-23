@@ -1,6 +1,6 @@
 import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CorrectProductType } from '../types/type';
 
 const initialState: CorrectProductType = {
@@ -16,8 +16,18 @@ const initialState: CorrectProductType = {
   sales: 0,
 };
 
-function AddNewProduct() {
+type AddProps = {
+  product: CorrectProductType;
+};
+
+function AddNewProduct({ product }: AddProps) {
   const [productData, setProductData] = useState(initialState);
+
+  useEffect(() => {
+    if (product.id > 0) {
+      setProductData(product);
+    }
+  }, [product]);
 
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>

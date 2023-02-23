@@ -1,11 +1,19 @@
 import style from './styles/product.module.css';
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
 import { Dropdown } from '../ui/popup/dropdown';
 import { useAppSelector } from '../../../context/redux/hooks';
 
-export function ListOfProducts() {
+type ListProps = {
+  setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
+  setProduct: Dispatch<SetStateAction<CorrectProductType>>;
+};
+
+export function ListOfProducts({
+  setIsAddProductClicked,
+  setProduct,
+}: ListProps) {
   const productList = useAppSelector((state) => state.products.value);
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdown, setIsDropdown] = useState<boolean>(false);
@@ -53,6 +61,8 @@ export function ListOfProducts() {
                     {isDropdown && product.id === selectedProduct.id ? (
                       <Dropdown
                         setIsDropdown={setIsDropdown}
+                        setIsAddProductClicked={setIsAddProductClicked}
+                        setProduct={setProduct}
                         {...selectedProduct}
                       />
                     ) : null}
@@ -84,6 +94,8 @@ export function ListOfProducts() {
                   {isDropdown && product.id === selectedProduct.id ? (
                     <Dropdown
                       setIsDropdown={setIsDropdown}
+                      setIsAddProductClicked={setIsAddProductClicked}
+                      setProduct={setProduct}
                       {...selectedProduct}
                     />
                   ) : null}
