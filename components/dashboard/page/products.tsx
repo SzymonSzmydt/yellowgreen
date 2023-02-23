@@ -3,12 +3,10 @@ import { useState } from 'react';
 import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
 import { Dropdown } from '../ui/popup/dropdown';
+import { useAppSelector } from '../../../context/redux/hooks';
 
-type ListProps = {
-  productList: CorrectProductType[];
-};
-
-export function ListOfProducts({ productList }: ListProps) {
+export function ListOfProducts() {
+  const productList = useAppSelector((state) => state.products.value);
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdown, setIsDropdown] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<CorrectProductType>(
@@ -19,6 +17,8 @@ export function ListOfProducts({ productList }: ListProps) {
     setIsDropdown(!isDropdown);
     setSelectedProduct(product);
   };
+
+  console.log('ProductList ', productList);
 
   return (
     <>
@@ -35,7 +35,7 @@ export function ListOfProducts({ productList }: ListProps) {
           <div className={style.sales}>SPRZEDANO</div>
           <div className={style.option} />
         </section>
-        {productList.length > 0
+        {productList?.length > 0
           ? searchValue.length > 0
             ? productList
                 .filter((filtr) =>

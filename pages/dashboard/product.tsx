@@ -7,16 +7,19 @@ import WindowDashboardBody from '../../components/window/windowDashboardBody';
 import AddNewProduct from '../../components/dashboard/page/addProduct';
 import DashLayout from '../../components/layout/DashLayout';
 import { ListOfProducts } from './../../components/dashboard/page/products';
+import { useAppDispatch } from '../../context/redux/hooks';
+import { getProducts } from '../../context/redux/productsSlice';
 
 function ProductList() {
-  const [productList, setProductList] = useState<Array<CorrectProductType>>([]);
+  const dispatch = useAppDispatch();
   const [isAddProductClicked, setIsAddProductClicked] =
     useState<boolean>(false);
 
   const fetchProducts = async () => {
     const response = await fetch('/api/dashboard/getProduct');
     const data = await response.json();
-    setProductList(Object.values(data));
+
+    dispatch(getProducts(Object.values(data)));
   };
 
   return (
@@ -37,11 +40,7 @@ function ProductList() {
           <button onClick={fetchProducts}> Refresh </button>
         </WindowDashboardBar>
         <WindowDashboardBody>
-          {isAddProductClicked ? (
-            <AddNewProduct />
-          ) : (
-            <ListOfProducts productList={productList} />
-          )}
+          {isAddProductClicked ? <AddNewProduct /> : <ListOfProducts />}
         </WindowDashboardBody>
       </WindowDashboard>
     </>
