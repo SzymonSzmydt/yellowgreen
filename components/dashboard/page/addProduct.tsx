@@ -78,6 +78,8 @@ function AddNewProduct({
     }
   };
 
+  console.log('productData: ', productData);
+
   return isCategoryClicked ? (
     <Category setIsCategoryClicked={setIsCategoryClicked} />
   ) : (
@@ -138,10 +140,19 @@ function AddNewProduct({
           }
         />
         <label>Kategoria produktu</label>
-        <select name="category" className={add.select} required>
+        <select
+          name="category"
+          className={add.select}
+          required
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChangeInputValue(e)
+          }
+        >
           <option value="">Wybierz</option>
-          {category.map((e) => (
-            <option value="">Wybierz</option>
+          {category.map((e, i) => (
+            <option key={i} value={e}>
+              {e}
+            </option>
           ))}
         </select>
         <label>Cena - PLN</label>

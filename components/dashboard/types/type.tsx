@@ -9,7 +9,6 @@ export interface CorrectProductType {
   descriptionPL: string;
   nameEN: string;
   namePL: string;
-  sales: number;
 }
 
 export interface Body {

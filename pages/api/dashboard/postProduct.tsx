@@ -21,7 +21,7 @@ export default async function handler(
   };
 
   if (
-    !body.id &&
+    body.id === 0 &&
     body.namePL &&
     body.nameEN &&
     body.category &&
@@ -32,15 +32,14 @@ export default async function handler(
     body.descriptionPL &&
     body.descriptionEN
   ) {
-    const date = Date.now();
-    body.id = date;
-
+    body.id = Date.now();
     const data: Body = {
       [date]: body,
     };
     sendProductsToFirebase(data);
+    res.status(200).json({ data: body.id });
   }
-  if (body?.id > 0) {
+  if (body.id > 0) {
     const data: Body = {
       [body.id]: body,
     };

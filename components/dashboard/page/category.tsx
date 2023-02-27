@@ -1,6 +1,8 @@
 import style from './styles/category.module.css';
 import { useState } from 'react';
 import { Variant } from './../../button/Variant';
+import { useAppDispatch } from './../../../context/redux/hooks';
+import { addCategory } from './../../../context/redux/categorySlice';
 
 type CategoryProps = {
   setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
@@ -10,6 +12,7 @@ const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
 
 export function Category({ setIsCategoryClicked }: CategoryProps) {
   const [newCategory, setNewCategory] = useState<string>('');
+  const dispatch = useAppDispatch();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +26,7 @@ export function Category({ setIsCategoryClicked }: CategoryProps) {
           'Content-Type': 'application/json',
         },
       });
+      dispatch(addCategory(data));
       setIsCategoryClicked(false);
     } catch (error) {
       console.error(error);
