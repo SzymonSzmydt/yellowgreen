@@ -24,7 +24,7 @@ function ProductList() {
     const response = await fetch('/api/dashboard/getProduct');
     const data = await response.json();
 
-    dispatch(getProducts(Object.values(data)));
+    dispatch(getProducts(data));
   };
 
   const backButton = () => {

@@ -2,7 +2,7 @@ import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
 import { useState, useEffect } from 'react';
 import { CorrectProductType } from '../types/type';
-import { useAppDispatch } from '../../../context/redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
 import {
   deleteProduct,
   addProduct,
@@ -40,6 +40,7 @@ function AddNewProduct({
 }: AddProps) {
   const [productData, setProductData] = useState(initialState);
   const dispatch = useAppDispatch();
+  const category = useAppSelector((state) => state.category.value);
 
   useEffect(() => {
     if (product.id > 0) {
@@ -139,6 +140,9 @@ function AddNewProduct({
         <label>Kategoria produktu</label>
         <select name="category" className={add.select} required>
           <option value="">Wybierz</option>
+          {category.map((e) => (
+            <option value="">Wybierz</option>
+          ))}
         </select>
         <label>Cena - PLN</label>
         <input

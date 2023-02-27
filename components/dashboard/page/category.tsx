@@ -6,15 +6,19 @@ type CategoryProps = {
   setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
 };
 
+const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
+
 export function Category({ setIsCategoryClicked }: CategoryProps) {
   const [newCategory, setNewCategory] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const validation = newCategory.toLowerCase();
+    const data = capitalize(validation);
     try {
       await fetch('/api/dashboard/postCategory', {
         method: 'POST',
-        body: JSON.stringify(newCategory),
+        body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
         },

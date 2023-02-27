@@ -11,7 +11,8 @@ export default async function handler(
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      res.status(200).json(docSnap.data());
+      const data = docSnap.data();
+      res.status(200).json(Object.values(data));
     } else {
       res.status(400).json({ namePL: 'Coś poszło nie tak!' });
     }
