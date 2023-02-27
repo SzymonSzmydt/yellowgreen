@@ -63,7 +63,6 @@ function ProductList() {
               setProduct={setProduct}
               setIsAddProductClicked={setIsAddProductClicked}
               isCategoryClicked={isCategoryClicked}
-              setIsCategoryClicked={setIsCategoryClicked}
             />
           ) : (
             <ListOfProducts

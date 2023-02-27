@@ -26,7 +26,6 @@ type AddProps = {
   product: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProduct: Dispatch<SetStateAction<CorrectProductType>>;
-  setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
   isCategoryClicked: boolean;
 };
 
@@ -35,7 +34,6 @@ function AddNewProduct({
   setIsAddProductClicked,
   setProduct,
   isCategoryClicked,
-  setIsCategoryClicked,
 }: AddProps) {
   const [productData, setProductData] = useState(initialState);
   const dispatch = useAppDispatch();
