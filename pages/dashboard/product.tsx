@@ -38,7 +38,6 @@ function ProductList() {
     <>
       <WindowDashboard>
         <WindowDashboardBar>
-          <button onClick={fetchProducts}> Refresh </button>
           {isAddProductClicked ? (
             <>
               <Variant name="Wróć do listy" handleClick={backButton} />
@@ -55,6 +54,7 @@ function ProductList() {
               handleClick={() => setIsAddProductClicked(true)}
             />
           )}
+          <button onClick={fetchProducts}> Refresh </button>
         </WindowDashboardBar>
         <WindowDashboardBody>
           {isAddProductClicked ? (
@@ -63,6 +63,7 @@ function ProductList() {
               setProduct={setProduct}
               setIsAddProductClicked={setIsAddProductClicked}
               isCategoryClicked={isCategoryClicked}
+              setIsCategoryClicked={setIsCategoryClicked}
             />
           ) : (
             <ListOfProducts

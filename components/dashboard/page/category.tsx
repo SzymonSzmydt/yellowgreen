@@ -2,7 +2,11 @@ import style from './styles/category.module.css';
 import { useState } from 'react';
 import { Variant } from './../../button/Variant';
 
-export function Category() {
+type CategoryProps = {
+  setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
+};
+
+export function Category({ setIsCategoryClicked }: CategoryProps) {
   const [newCategory, setNewCategory] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,6 +19,7 @@ export function Category() {
           'Content-Type': 'application/json',
         },
       });
+      setIsCategoryClicked(false);
     } catch (error) {
       console.error(error);
     }
