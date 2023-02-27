@@ -80,7 +80,8 @@ function AddNewProduct({
     <>
       <h2> Informacje o produkcie</h2>
       <br />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={add.form}>
+        <label>Nazwa produktu - Polska</label>
         <input
           type="text"
           name="namePL"
@@ -93,6 +94,7 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
+        <label>Nazwa produktu - Angielska</label>
         <input
           type="text"
           name="nameEN"
@@ -105,6 +107,7 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
+        <label>Kolor produktu - Polska</label>
         <input
           type="text"
           name="colorPL"
@@ -117,6 +120,7 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
+        <label>Kolor produktu - Angielski</label>
         <input
           type="text"
           name="colorEN"
@@ -129,6 +133,7 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
+        <label>Cena - PLN</label>
         <input
           type="number"
           name="pricePL"
@@ -148,6 +153,7 @@ function AddNewProduct({
             })
           }
         />
+        <label>Cena - EURO</label>
         <input
           type="number"
           name="priceEU"
@@ -167,6 +173,7 @@ function AddNewProduct({
             })
           }
         />
+        <label>Opis produktu - Polski</label>
         <textarea
           name="descriptionPL"
           required
@@ -181,6 +188,7 @@ function AddNewProduct({
             })
           }
         />
+        <label>Opis produktu - Angielski</label>
         <textarea
           name="descriptionEN"
           required

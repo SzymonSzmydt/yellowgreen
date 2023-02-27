@@ -1,51 +1,57 @@
+.form label {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 .input {
-  display: block;
-  width: 30rem;
-  margin: 0.75rem 0;
+    display: block;
+    width: 30rem;
+    margin-bottom: 0.75rem;
 }
 
 .textarea {
-  display: block;
-  appearance: none;
-  width: 30rem;
-  height: 10rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 2px;
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0 0.25rem;
-  margin: 0.75rem 0;
+    display: block;
+    appearance: none;
+    width: 30rem;
+    height: 10rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin-bottom: 0.75rem;
 }
 
 .priceInput {
-  display: block;
-  width: 10rem;
-  margin: 0.75rem 0;
+    display: block;
+    width: 10rem;
+    margin-bottom: 0.75rem;
 }
 
 @media screen and (max-width: 560px) {
-  .input {
-    width: 100%;
-  }
+    .input {
+        width: 100%;
+    }
 
-  .textarea {
-    width: 100%;
-    padding: 0.25rem;
-  }
+    .textarea {
+        width: 100%;
+        padding: 0.25rem;
+    }
 }
 
 @media screen and (max-width: 280px) {
-  .input,
-  .priceInput {
-    font-size: 0.85rem;
-  }
 
-  .priceInput {
-    width: 100%;
-  }
+    .input,
+    .priceInput {
+        font-size: 0.85rem;
+    }
 
-  .textarea {
-    font-size: 0.85rem;
-    padding: 0.25rem;
-  }
+    .priceInput {
+        width: 100%;
+    }
+
+    .textarea {
+        font-size: 0.85rem;
+        padding: 0.25rem;
+    }
 }
