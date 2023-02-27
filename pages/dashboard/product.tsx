@@ -30,18 +30,21 @@ function ProductList() {
     <>
       <WindowDashboard>
         <WindowDashboardBar>
+          <button onClick={fetchProducts}> Refresh </button>
           {isAddProductClicked ? (
             <Variant
               name="Wróć do listy"
               handleClick={() => setIsAddProductClicked(false)}
             />
           ) : (
-            <Variant
-              name={'Dodaj produkt'}
-              handleClick={() => setIsAddProductClicked(true)}
-            />
+            <>
+              <Variant
+                name={'Dodaj produkt'}
+                handleClick={() => setIsAddProductClicked(true)}
+              />
+              <Variant name={'Dodaj kategorię'} />
+            </>
           )}
-          <button onClick={fetchProducts}> Refresh </button>
         </WindowDashboardBar>
         <WindowDashboardBody>
           {isAddProductClicked ? (
