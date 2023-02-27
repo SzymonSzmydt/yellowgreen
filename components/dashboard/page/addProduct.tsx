@@ -7,6 +7,7 @@ import {
   deleteProduct,
   addProduct,
 } from '../../../context/redux/productsSlice';
+import { Category } from './category';
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -25,12 +26,16 @@ type AddProps = {
   product: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProduct: Dispatch<SetStateAction<CorrectProductType>>;
+  setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
+  isCategoryClicked: boolean;
 };
 
 function AddNewProduct({
   product,
   setIsAddProductClicked,
   setProduct,
+  isCategoryClicked,
+  setIsCategoryClicked,
 }: AddProps) {
   const [productData, setProductData] = useState(initialState);
   const dispatch = useAppDispatch();
@@ -71,7 +76,9 @@ function AddNewProduct({
     }
   };
 
-  return (
+  return isCategoryClicked ? (
+    <Category />
+  ) : (
     <>
       <h2> Informacje o produkcie</h2>
       <br />
@@ -88,7 +95,6 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
-
         <input
           type="text"
           name="nameEN"
@@ -101,7 +107,6 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
-
         <input
           type="text"
           name="colorPL"
@@ -114,7 +119,6 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
-
         <input
           type="text"
           name="colorEN"
@@ -127,7 +131,6 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
-
         <input
           type="number"
           name="pricePL"
@@ -147,7 +150,6 @@ function AddNewProduct({
             })
           }
         />
-
         <input
           type="number"
           name="priceEU"
@@ -167,7 +169,6 @@ function AddNewProduct({
             })
           }
         />
-
         <textarea
           name="descriptionPL"
           required

@@ -18,6 +18,7 @@ function ProductList() {
   const [product, setProduct] = useState<CorrectProductType>(
     {} as CorrectProductType
   );
+  const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
 
   const fetchProducts = async () => {
     const response = await fetch('/api/dashboard/getProduct');
@@ -26,24 +27,33 @@ function ProductList() {
     dispatch(getProducts(Object.values(data)));
   };
 
+  const backButton = () => {
+    if (isAddProductClicked && isCategoryClicked) {
+      return setIsCategoryClicked(false);
+    }
+    return setIsAddProductClicked(false);
+  };
+
   return (
     <>
       <WindowDashboard>
         <WindowDashboardBar>
           <button onClick={fetchProducts}> Refresh </button>
           {isAddProductClicked ? (
-            <Variant
-              name="Wróć do listy"
-              handleClick={() => setIsAddProductClicked(false)}
-            />
-          ) : (
             <>
-              <Variant
-                name={'Dodaj produkt'}
-                handleClick={() => setIsAddProductClicked(true)}
-              />
-              <Variant name={'Dodaj kategorię'} />
+              <Variant name="Wróć do listy" handleClick={backButton} />
+              {!isCategoryClicked ? (
+                <Variant
+                  name={'Dodaj kategorię'}
+                  handleClick={() => setIsCategoryClicked(true)}
+                />
+              ) : null}
             </>
+          ) : (
+            <Variant
+              name={'Dodaj produkt'}
+              handleClick={() => setIsAddProductClicked(true)}
+            />
           )}
         </WindowDashboardBar>
         <WindowDashboardBody>
@@ -52,6 +62,8 @@ function ProductList() {
               product={product}
               setProduct={setProduct}
               setIsAddProductClicked={setIsAddProductClicked}
+              isCategoryClicked={isCategoryClicked}
+              setIsCategoryClicked={setIsCategoryClicked}
             />
           ) : (
             <ListOfProducts
