@@ -24,6 +24,7 @@ export default async function handler(
     !body.id &&
     body.namePL &&
     body.nameEN &&
+    body.category &&
     body.colorPL &&
     body.colorEN &&
     body.pricePL &&

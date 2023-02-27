@@ -13,6 +13,7 @@ const initialState: CorrectProductType = {
   id: 0,
   priceEU: 0,
   pricePL: 0,
+  category: '',
   colorEN: '',
   colorPL: '',
   descriptionEN: '',
@@ -133,6 +134,10 @@ function AddNewProduct({
             handleChangeInputValue(e)
           }
         />
+        <label>Kategoria produktu</label>
+        <select name="category" className={add.select} required>
+          <option value="">Wybierz</option>
+        </select>
         <label>Cena - PLN</label>
         <input
           type="number"

@@ -22,7 +22,8 @@
     margin-bottom: 0.75rem;
 }
 
-.priceInput {
+.priceInput,
+.select {
     display: block;
     width: 10rem;
     margin-bottom: 0.75rem;

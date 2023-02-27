@@ -51,7 +51,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input {
+input,
+select {
     -moz-appearance: textfield;
     appearance: textfield;
     width: 3.5rem;
@@ -65,6 +66,7 @@ input {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
     outline: rgb(29, 161, 29);
 }
