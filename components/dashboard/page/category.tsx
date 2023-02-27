@@ -8,7 +8,7 @@ export function Category() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await fetch('/api/dashboard/postProduct', {
+      await fetch('/api/dashboard/postCategory', {
         method: 'POST',
         body: JSON.stringify(newCategory),
         headers: {
