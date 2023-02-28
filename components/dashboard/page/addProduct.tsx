@@ -45,7 +45,9 @@ function AddNewProduct({
   useEffect(() => {
     if (productSelectedToEdit.id > 0) {
       setProductData(productSelectedToEdit);
+      setProductSelectedToEdit({} as CorrectProductType);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSelectedToEdit]);
 
   const handleChangeInputValue = (
@@ -71,14 +73,11 @@ function AddNewProduct({
       dispatch(deleteProduct(productSelectedToEdit.id));
       dispatch(addProduct(productData));
 
-      setProductSelectedToEdit({} as CorrectProductType);
       setIsAddProductClicked(false);
     } catch (error) {
       console.error(error);
     }
   };
-
-  console.log('productData: ', productData);
 
   return isCategoryClicked ? (
     <Category setIsCategoryClicked={setIsCategoryClicked} />

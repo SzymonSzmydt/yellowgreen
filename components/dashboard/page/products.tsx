@@ -24,8 +24,14 @@ export function ListOfProducts({
 
   const triggerDropdown = (product: CorrectProductType) => {
     setIsDropdown(!isDropdown);
-    setProductSelectedToEdit(product);
+    if (!isDropdown) {
+      setProductSelectedToEdit(product);
+    } else if (isDropdown) {
+      setProductSelectedToEdit({} as CorrectProductType);
+    }
   };
+
+  console.log('productSelectedToEdit: ', productSelectedToEdit);
 
   return (
     <>
