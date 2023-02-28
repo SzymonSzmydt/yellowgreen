@@ -21,7 +21,6 @@ export default async function handler(
   };
 
   if (
-    body.id === 0 &&
     body.namePL &&
     body.nameEN &&
     body.category &&
@@ -32,14 +31,6 @@ export default async function handler(
     body.descriptionPL &&
     body.descriptionEN
   ) {
-    
-    const data: Body = {
-      [body.id]: body,
-    };
-    sendProductsToFirebase(data);
-    res.status(201).json({ data: 'FAIL' });
-  }
-  if (body.id > 0) {
     const data: Body = {
       [body.id]: body,
     };
