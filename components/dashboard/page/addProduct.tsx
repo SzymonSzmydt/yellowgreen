@@ -24,17 +24,17 @@ const initialState: CorrectProductType = {
 };
 
 type AddProps = {
-  product: CorrectProductType;
+  productSelectedToEdit: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
-  setProduct: Dispatch<SetStateAction<CorrectProductType>>;
+  setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
   isCategoryClicked: boolean;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
 };
 
 function AddNewProduct({
-  product,
+  productSelectedToEdit,
   setIsAddProductClicked,
-  setProduct,
+  setProductSelectedToEdit,
   isCategoryClicked,
   setIsCategoryClicked,
 }: AddProps) {
@@ -43,10 +43,10 @@ function AddNewProduct({
   const category = useAppSelector((state) => state.category.value);
 
   useEffect(() => {
-    if (product.id > 0) {
-      setProductData(product);
+    if (productSelectedToEdit.id > 0) {
+      setProductData(productSelectedToEdit);
     }
-  }, [product]);
+  }, [productSelectedToEdit]);
 
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
@@ -68,10 +68,10 @@ function AddNewProduct({
         },
       });
       setProductData(initialState);
-      dispatch(deleteProduct(product.id));
+      dispatch(deleteProduct(productSelectedToEdit.id));
       dispatch(addProduct(productData));
 
-      setProduct({} as CorrectProductType);
+      setProductSelectedToEdit({} as CorrectProductType);
       setIsAddProductClicked(false);
     } catch (error) {
       console.error(error);

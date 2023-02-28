@@ -15,9 +15,8 @@ function ProductList() {
   const dispatch = useAppDispatch();
   const [isAddProductClicked, setIsAddProductClicked] =
     useState<boolean>(false);
-  const [product, setProduct] = useState<CorrectProductType>(
-    {} as CorrectProductType
-  );
+  const [productSelectedToEdit, setProductSelectedToEdit] =
+    useState<CorrectProductType>({} as CorrectProductType);
   const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
 
   const fetchProducts = async () => {
@@ -59,15 +58,15 @@ function ProductList() {
         <WindowDashboardBody>
           {isAddProductClicked ? (
             <AddNewProduct
-              product={product}
-              setProduct={setProduct}
+              productSelectedToEdit={productSelectedToEdit}
+              setProductSelectedToEdit={setProductSelectedToEdit}
               setIsAddProductClicked={setIsAddProductClicked}
               isCategoryClicked={isCategoryClicked}
               setIsCategoryClicked={setIsCategoryClicked}
             />
           ) : (
             <ListOfProducts
-              setProduct={setProduct}
+              setProductSelectedToEdit={setProductSelectedToEdit}
               setIsAddProductClicked={setIsAddProductClicked}
             />
           )}

@@ -8,19 +8,19 @@ type DropProps = {
   namePL: string;
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
-  setProduct: Dispatch<SetStateAction<CorrectProductType>>;
+  setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
 };
 
 export function Dropdown({
   setIsDropdown,
   setIsAddProductClicked,
-  setProduct,
+  setProductSelectedToEdit,
   ...product
 }: DropProps) {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const editHandleClick = () => {
-    setProduct(product);
+    setProductSelectedToEdit(product);
     setIsAddProductClicked(true);
   };
 

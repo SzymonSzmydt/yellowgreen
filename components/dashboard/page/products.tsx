@@ -8,12 +8,12 @@ import { useAppSelector } from '../../../context/redux/hooks';
 
 type ListProps = {
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
-  setProduct: Dispatch<SetStateAction<CorrectProductType>>;
+  setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
 };
 
 export function ListOfProducts({
   setIsAddProductClicked,
-  setProduct,
+  setProductSelectedToEdit,
 }: ListProps) {
   const productList = useAppSelector((state) => state.products.value);
   const [searchValue, setSearchValue] = useState<string>('');
@@ -64,7 +64,7 @@ export function ListOfProducts({
                       <Dropdown
                         setIsDropdown={setIsDropdown}
                         setIsAddProductClicked={setIsAddProductClicked}
-                        setProduct={setProduct}
+                        setProductSelectedToEdit={setProductSelectedToEdit}
                         {...selectedProduct}
                       />
                     ) : null}
@@ -97,7 +97,7 @@ export function ListOfProducts({
                     <Dropdown
                       setIsDropdown={setIsDropdown}
                       setIsAddProductClicked={setIsAddProductClicked}
-                      setProduct={setProduct}
+                      setProductSelectedToEdit={setProductSelectedToEdit}
                       {...selectedProduct}
                     />
                   ) : null}

@@ -32,12 +32,12 @@ export default async function handler(
     body.descriptionPL &&
     body.descriptionEN
   ) {
-    body.id = Date.now();
+    
     const data: Body = {
-      [date]: body,
+      [body.id]: body,
     };
     sendProductsToFirebase(data);
-    res.status(200).json({ data: body.id });
+    res.status(201).json({ data: 'FAIL' });
   }
   if (body.id > 0) {
     const data: Body = {
