@@ -20,13 +20,14 @@
     background-color: var(--dropdown-body);
     border-radius: var(--radius-dash);
     color: var(--background-color);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 .title {
     background-color: var(--dropdown-title);
     border-radius: var(--radius-dash) var(--radius-dash) 0 0;
     padding: 0.5rem;
+    font-size: 0.75rem;
 }
 
 .text,
@@ -40,6 +41,6 @@
     margin-left: 1.5rem;
 }
 
-.text li:nth-child(1) {
+.text li:nth-child(2n+1) {
     color: var(--dropdown-text-a);
 }

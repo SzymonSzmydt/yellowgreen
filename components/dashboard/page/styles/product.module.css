@@ -16,7 +16,6 @@
     border-bottom: 1px solid var(--semi-color);
     color: var(--dark-color);
     font-size: 0.85rem;
-    font-weight: 600;
 }
 
 .row div,
@@ -70,11 +69,13 @@
 
 .product .id {
     font-size: 0.8rem;
+    font-weight: 400;
 }
 
 .product .name {
     color: var(--third-color);
-    font-weight: 600;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .product .price {
@@ -87,7 +88,7 @@
 
 .product .color {
     color: var(--third-color);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 400;
 }
 

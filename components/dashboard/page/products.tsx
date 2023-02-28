@@ -31,8 +31,6 @@ export function ListOfProducts({
     }
   };
 
-  console.log('productSelectedToEdit: ', productSelectedToEdit);
-
   return (
     <>
       <div className={style.wrapper}>
