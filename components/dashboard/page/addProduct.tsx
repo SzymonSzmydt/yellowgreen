@@ -7,6 +7,7 @@ import {
   deleteProduct,
   addProduct,
 } from '../../../context/redux/productsSlice';
+import { getCategory } from '../../../context/redux/categorySlice';
 import { Category } from './category';
 
 const initialState: CorrectProductType = {
@@ -42,10 +43,19 @@ function AddNewProduct({
   const dispatch = useAppDispatch();
   const category = useAppSelector((state) => state.category.value);
 
+  const fetchCategory = async () => {
+    const response = await fetch('/api/dashboard/getCategory');
+    const data = await response.json();
+    dispatch(getCategory(data));
+  };
+
   useEffect(() => {
-    if (productSelectedToEdit.id > 0) {
+    if (productSelectedToEdit.namePL?.length > 2) {
       setProductData(productSelectedToEdit);
       setProductSelectedToEdit({} as CorrectProductType);
+    }
+    if (category.length === 0) {
+      fetchCategory();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSelectedToEdit]);

@@ -17,7 +17,7 @@ function Dashboard() {
 
   useEffect(() => {
     fetchCategory();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log('Category array: ', category);

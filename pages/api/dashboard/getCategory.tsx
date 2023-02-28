@@ -12,7 +12,7 @@ export default async function handler(
 
     if (docSnap.exists()) {
       const data = docSnap.data();
-      res.status(200).json(Object.values(data));
+      res.status(200).json(data.category);
     } else {
       res.status(400).json({ namePL: 'Coś poszło nie tak!' });
     }
