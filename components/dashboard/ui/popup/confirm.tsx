@@ -1,10 +1,10 @@
 import style from './styles/confirm.module.css';
 import { doc, updateDoc, deleteField } from 'firebase/firestore';
-import { Variant } from '../../button/Variant';
+import { Variant } from '../../../button/Variant';
 import { Dispatch, SetStateAction } from 'react';
-import { db } from '../../../context/Firebase';
-import { useAppDispatch } from '../../../context/redux/hooks';
-import { deleteProduct } from '../../../context/redux/productsSlice';
+import { db } from '../../../../context/Firebase';
+import { useAppDispatch } from '../../../../context/redux/hooks';
+import { deleteProduct } from '../../../../context/redux/productsSlice';
 
 type ConfirmProps = {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;

@@ -1,5 +1,5 @@
 import style from './styles/dropdown.module.css';
-import { Confirm } from '../confirm';
+import { Confirm } from './confirm';
 import { useState, Dispatch, SetStateAction } from 'react';
 import { CorrectProductType } from './../../types/type';
 
