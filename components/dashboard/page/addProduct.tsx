@@ -1,6 +1,6 @@
 import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { CorrectProductType } from '../types/type';
 import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
 import {
@@ -28,7 +28,7 @@ type AddProps = {
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
   isCategoryClicked: boolean;
-  setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
+  setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
 };
 
 function AddNewProduct({
@@ -144,8 +144,11 @@ function AddNewProduct({
           name="category"
           className={add.select}
           required
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeInputValue(e)
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setProductData({
+              ...productData,
+              category: e.target.value,
+            })
           }
         >
           <option value="">Wybierz</option>

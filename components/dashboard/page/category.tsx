@@ -1,5 +1,5 @@
 import style from './styles/category.module.css';
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { Variant } from './../../button/Variant';
 import { useAppDispatch } from './../../../context/redux/hooks';
 import { addCategory } from './../../../context/redux/categorySlice';

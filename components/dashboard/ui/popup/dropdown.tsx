@@ -1,18 +1,18 @@
 import style from './styles/dropdown.module.css';
 import { Confirm } from '../confirm';
 import { useState, Dispatch, SetStateAction } from 'react';
+import { CorrectProductType } from './../../types/type';
 
 type DropProps = {
-  id: number;
-  namePL: string;
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
+  productSelectedToEdit: CorrectProductType;
 };
 
 export function Dropdown({
   setIsDropdown,
   setIsAddProductClicked,
-  ...product
+  productSelectedToEdit,
 }: DropProps) {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
@@ -22,7 +22,7 @@ export function Dropdown({
         <Confirm
           setIsDeleting={setIsDeleting}
           setIsDropdown={setIsDropdown}
-          {...product}
+          {...productSelectedToEdit}
         />
       ) : (
         <div className={style.dropdown}>

@@ -1,4 +1,5 @@
 import style from './styles/productInfo.module.css';
+import { CorrectProductType } from './../../types/type';
 
 export function ProductInfo({ ...product }: CorrectProductType) {
   return (

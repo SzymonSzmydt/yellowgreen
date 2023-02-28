@@ -63,7 +63,7 @@ export function ListOfProducts({
                       <Dropdown
                         setIsDropdown={setIsDropdown}
                         setIsAddProductClicked={setIsAddProductClicked}
-                        {...productSelectedToEdit}
+                        productSelectedToEdit={productSelectedToEdit}
                       />
                     ) : null}
                     <div className={style.id}> {product.id} </div>
@@ -95,8 +95,7 @@ export function ListOfProducts({
                     <Dropdown
                       setIsDropdown={setIsDropdown}
                       setIsAddProductClicked={setIsAddProductClicked}
-                      setProductSelectedToEdit={setProductSelectedToEdit}
-                      {...productSelectedToEdit}
+                      productSelectedToEdit={productSelectedToEdit}
                     />
                   ) : null}
                   <div className={style.id}>
