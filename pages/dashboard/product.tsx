@@ -68,6 +68,7 @@ function ProductList() {
             <ListOfProducts
               setProductSelectedToEdit={setProductSelectedToEdit}
               setIsAddProductClicked={setIsAddProductClicked}
+              productSelectedToEdit={productSelectedToEdit}
             />
           )}
         </WindowDashboardBody>

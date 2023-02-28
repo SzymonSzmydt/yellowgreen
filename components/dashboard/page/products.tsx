@@ -9,23 +9,22 @@ import { useAppSelector } from '../../../context/redux/hooks';
 type ListProps = {
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
+  productSelectedToEdit: CorrectProductType;
 };
 
 export function ListOfProducts({
   setIsAddProductClicked,
   setProductSelectedToEdit,
+  productSelectedToEdit,
 }: ListProps) {
   const productList = useAppSelector((state) => state.products.value);
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdown, setIsDropdown] = useState<boolean>(false);
   const [info, setInfo] = useState({ id: 0, active: false });
-  const [selectedProduct, setSelectedProduct] = useState<CorrectProductType>(
-    {} as CorrectProductType
-  );
 
   const triggerDropdown = (product: CorrectProductType) => {
     setIsDropdown(!isDropdown);
-    setSelectedProduct(product);
+    setProductSelectedToEdit(product);
   };
 
   return (
@@ -55,17 +54,16 @@ export function ListOfProducts({
                   <div
                     key={product.id}
                     className={
-                      selectedProduct.id === product.id
+                      productSelectedToEdit.id === product.id
                         ? style.position
                         : style.product
                     }
                   >
-                    {isDropdown && product.id === selectedProduct.id ? (
+                    {isDropdown && product.id === productSelectedToEdit.id ? (
                       <Dropdown
                         setIsDropdown={setIsDropdown}
                         setIsAddProductClicked={setIsAddProductClicked}
-                        setProductSelectedToEdit={setProductSelectedToEdit}
-                        {...selectedProduct}
+                        {...productSelectedToEdit}
                       />
                     ) : null}
                     <div className={style.id}> {product.id} </div>
@@ -88,17 +86,17 @@ export function ListOfProducts({
                 <div
                   key={product.id}
                   className={
-                    selectedProduct.id === product.id
+                    productSelectedToEdit.id === product.id
                       ? style.position
                       : style.product
                   }
                 >
-                  {isDropdown && product.id === selectedProduct.id ? (
+                  {isDropdown && product.id === productSelectedToEdit.id ? (
                     <Dropdown
                       setIsDropdown={setIsDropdown}
                       setIsAddProductClicked={setIsAddProductClicked}
                       setProductSelectedToEdit={setProductSelectedToEdit}
-                      {...selectedProduct}
+                      {...productSelectedToEdit}
                     />
                   ) : null}
                   <div className={style.id}>

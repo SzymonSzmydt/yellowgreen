@@ -10,7 +10,7 @@ import {
 import { Category } from './category';
 
 const initialState: CorrectProductType = {
-  id: 0,
+  id: Date.now(),
   priceEU: 0,
   pricePL: 0,
   category: '',
