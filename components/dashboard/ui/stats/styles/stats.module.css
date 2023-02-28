@@ -1,0 +1,8 @@
+.title,
+.foot {
+    margin: 0.25rem 0;
+}
+
+.foot {
+    color: var(--dark-color);
+}

@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
-import { Inter } from '@next/font/google';
+import { Arimo } from '@next/font/google';
 import Layout from '../components//layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from '../context/redux/store';
@@ -15,7 +15,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Arimo({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
