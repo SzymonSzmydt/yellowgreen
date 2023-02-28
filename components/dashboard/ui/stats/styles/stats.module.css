@@ -1,8 +1,15 @@
-.title,
-.foot {
-    margin: 0.25rem 0;
+.box {
+    margin: 0.75rem 1rem 0.75rem 0;
 }
 
-.foot {
+.title {
+    margin: 0.25rem 0;
+    font-weight: 500;
+    font-size: 0.9rem;
     color: var(--dark-color);
+}
+
+.box h2 {
+    text-align: center;
+    color: var(--third-color);
 }

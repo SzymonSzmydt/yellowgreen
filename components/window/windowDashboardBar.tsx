@@ -1,11 +1,13 @@
-import wind from "./window.module.css";
+import wind from './window.module.css';
 
 type WindowProps = {
   children: React.ReactNode;
+  strech?: boolean;
 };
 
-function WindowDashboardBar({ children }: WindowProps) {
-  return <div className={wind.bar}>{children}</div>;
+function WindowDashboardBar({ streach, children }: WindowProps) {
+  const style = streach ? wind.streach : wind.bar;
+  return <div className={style}>{children}</div>;
 }
 
 export default WindowDashboardBar;

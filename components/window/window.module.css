@@ -7,8 +7,15 @@
 .bar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     height: 5.5rem;
     border-bottom: 1px solid var(--semi-color);
+}
+
+.streach {
+    composes: bar;
+    justify-content: space-between;
+    height: min-content;
 }
 
 .body {

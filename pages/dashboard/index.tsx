@@ -9,6 +9,7 @@ import { Stats } from './../../components/dashboard/ui/stats/stats';
 
 function Dashboard() {
   const category = useAppSelector((state) => state.category.value);
+  const products = useAppSelector((state) => state.products.value);
   const dispatch = useAppDispatch();
 
   const fetchCategory = async () => {
@@ -22,13 +23,14 @@ function Dashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log('Category array: ', category);
-
   return (
     <>
       <WindowDashboard>
-        <WindowDashboardBar>
-          <Stats title={'Ilość produktów'} stats={152} foot={'Views'} />
+        <WindowDashboardBar streach={true}>
+          <Stats title={'Produkty'} stats={products.length} />
+          <Stats title={'Kategorie'} stats={category.length} />
+          <Stats title={'Zam. oczekujące'} stats={0} />
+          <Stats title={'Zam. zrealiz.'} stats={0} />
         </WindowDashboardBar>
       </WindowDashboard>
     </>
