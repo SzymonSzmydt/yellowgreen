@@ -14,6 +14,7 @@ const initialState: CorrectProductType = {
   id: Date.now(),
   priceEU: 0,
   pricePL: 0,
+  picture: '',
   category: '',
   colorEN: '',
   colorPL: '',

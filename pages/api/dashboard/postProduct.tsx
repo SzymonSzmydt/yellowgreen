@@ -28,6 +28,7 @@ export default async function handler(
     body.colorEN &&
     body.pricePL &&
     body.priceEU &&
+    body.picture &&
     body.descriptionPL &&
     body.descriptionEN
   ) {
