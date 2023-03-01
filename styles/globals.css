@@ -53,6 +53,7 @@ input::-webkit-inner-spin-button {
 
 input,
 select {
+    display: block;
     -moz-appearance: textfield;
     appearance: textfield;
     width: 3.5rem;
@@ -62,7 +63,12 @@ select {
 
     font-size: 1rem;
     margin-right: 0.25rem;
+    margin-bottom: 0.75rem;
     text-align: center;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 input:focus,

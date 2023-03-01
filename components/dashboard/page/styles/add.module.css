@@ -1,12 +1,39 @@
 .form label {
     font-size: 0.75rem;
     font-weight: 600;
+    width: fit-content;
 }
 
 .input {
     display: block;
     width: 30rem;
-    margin-bottom: 0.75rem;
+
+}
+
+.picture {
+    display: block;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.picture::before {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: "Wybierz plik";
+    bottom: -2.25rem;
+    left: 0;
+    width: 7rem;
+    height: 2rem;
+    color: var(--background-color);
+    border-radius: var(--radius-dash);
+    background-color: var(--box-color);
+}
+
+.picture:hover::before {
+    background-color: var(--dropdown-title);
 }
 
 .textarea {
@@ -26,7 +53,6 @@
 .select {
     display: block;
     width: 10rem;
-    margin-bottom: 0.75rem;
 }
 
 @media screen and (max-width: 560px) {

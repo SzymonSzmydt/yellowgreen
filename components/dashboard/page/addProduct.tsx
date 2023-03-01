@@ -168,8 +168,11 @@ function AddNewProduct({
             </option>
           ))}
         </select>
-        <label>Zdjęcie produktu</label>
-        <input type="file" name="picture" required className={add.picture} />
+        <label className={add.picture}>
+          Zdjęcie produktu
+          <input type="file" name="picture" required />
+        </label>
+
         <label>Cena - PLN</label>
         <input
           type="number"
