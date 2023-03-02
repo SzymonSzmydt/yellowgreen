@@ -17,27 +17,44 @@
     color: var(--primary-color);
 }
 
-.icon {
+.plus,
+.minus {
     display: inline-block;
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 2rem;
     height: 2rem;
     border: 1px solid var(--accent-color);
     border-radius: var(--radius-small);
     margin: 0 0.25rem;
     transition: all 0.4s;
+    position: relative;
 }
 
-.plus {
-    composes: icon;
-    background-image: url('../../../public/icons/plus.png');
+.plus::after,
+.minus::before {
+    position: absolute;
+    content: "";
+    top: calc(50% - 0.1rem);
+    left: 0.2rem;
+    right: 0.2rem;
+    height: 0.2rem;
+    background-color: var(--primary-color);
 }
 
-.minus {
-    composes: icon;
-    background-image: url('../../../public/icons/minus.png');
+.plus:hover::after,
+.plus:hover::before,
+.minus:hover::before {
+    background-color: var(--green);
+}
+
+.plus::before {
+    position: absolute;
+    content: "";
+    top: 0.2rem;
+    bottom: 0.2rem;
+    left: calc(50% - 0.1rem);
+    width: 0.2rem;
+    background-color: var(--primary-color);
 }
 
 .variant {
