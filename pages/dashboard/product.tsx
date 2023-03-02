@@ -20,7 +20,7 @@ function ProductList() {
   const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
 
   const fetchProducts = async () => {
-    const response = await fetch('/api/dashboard/getProduct');
+    const response = await fetch('/api/products/getProduct');
     const data = await response.json();
 
     dispatch(getProducts(data));
