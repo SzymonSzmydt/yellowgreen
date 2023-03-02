@@ -1,37 +1,28 @@
 import style from './style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { CorrectProductType } from './../dashboard/types/type';
 
-function Commercial() {
+type CommercialProps = {
+  products: CorrectProductType[];
+};
+
+function Commercial({ products }: CommercialProps) {
   return (
     <main className={style.main}>
-      <Link href="/products/1">
-        <Image
-          src={`/1.webp`}
-          alt="first"
-          className={style.img}
-          width="240"
-          height="320"
-        />
-      </Link>
-      <Link href="/products/2">
-        <Image
-          src={`/2.webp`}
-          alt="second"
-          className={style.img}
-          width="240"
-          height="320"
-        />
-      </Link>
-      <Link href="/products/3">
-        <Image
-          src={`/3.webp`}
-          alt="first"
-          className={style.img}
-          width="240"
-          height="320"
-        />
-      </Link>
+      {products
+        ? products.map((product) => (
+            <Link href={`/products/${product.id}`} key={product.id}>
+              <Image
+                src={`/1.webp`}
+                alt={`${product.namePL}`}
+                className={style.img}
+                width="240"
+                height="320"
+              />
+            </Link>
+          ))
+        : null}
     </main>
   );
 }

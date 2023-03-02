@@ -1,0 +1,15 @@
+.box {
+    width: 18rem;
+    margin: 0.5rem;
+    padding: 1rem 0;
+}
+
+.btn {
+    display: flex;
+    height: 2.1rem;
+    margin: 0.5rem 0;
+}
+
+.box h1 {
+    margin-bottom: 1rem;
+}

@@ -1,88 +1,36 @@
 import prod from './product.module.css';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { Plus } from './../../components/button/Plus';
-import { Minus } from '../../components/button/Minus';
-import StandardButton from '../../components/button/Standard';
-
-type Album = {
-  id: number;
-  title: string;
-};
+import type { CorrectProductType } from './../../components/dashboard/types/type';
+import { BasketCalc } from './../../components/products/basketCalc';
 
 type ProductProps = {
-  params: { productId: string };
-  album: Album;
+  product: CorrectProductType;
 };
 
-function Product({ album }: ProductProps) {
-  const router = useRouter();
-  const [quantity, setQuantity] = useState<number>(1);
-
-  if (router.isFallback) {
-    return <div> Loading... </div>;
-  }
-
-  const quantityMinusValidation = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
-    else return null;
-  };
-
-  const quantityHandleValidation = (e: number) => {
-    if (e >= 1) {
-      setQuantity(+e);
-    } else return null;
-  };
+function Product({ product }: ProductProps) {
   return (
     <div className="container">
-      <section className={prod.box}>
-        <h1> Product List</h1>
-        <p> ID: {album.id} </p>
-        <p> Title: {album.title} </p>
-        <p> Cena: </p>
-
-        <div className={prod.btn}>
-          <input
-            type="number"
-            value={quantity}
-            onChange={(e) => quantityHandleValidation(+e.target.value)}
-          />
-          <Plus handleClick={() => setQuantity(quantity + 1)} />
-          <Minus handleClick={quantityMinusValidation} />
-        </div>
-
-        <StandardButton
-          name="Kup"
-          handleClick={() => setQuantity(quantity + 1)}
-        />
-        <StandardButton
-          name="Dodaj do koszyka"
-          handleClick={() => setQuantity(quantity + 1)}
-        />
-      </section>
+      <BasketCalc product={product} />
     </div>
   );
 }
 
 export default Product;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetStaticProps = async (context) => {
   const { params } = context;
+  const { productId } = params;
+
+  const id: number = +productId;
+
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/photos/${params?.productId}`
+    `http://localhost:3000/api/products/getProducts/`
   );
   const data = await response.json();
+  const product = data.find((e) => e.id === id);
+
   return {
     props: {
-      album: data,
+      product: product,
     },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = () => {
-  return {
-    paths: [{ params: { productId: '1' } }],
-    fallback: true,
   };
 };

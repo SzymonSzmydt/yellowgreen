@@ -2,8 +2,13 @@ import Head from 'next/head';
 import style from '../styles/Home.module.css';
 import Intro from './../components/body/intro';
 import Commercial from '../components/body/commercial';
+import { CorrectProductType } from './../components/dashboard/types/type';
 
-export default function Home() {
+type HomeProps = {
+  products: CorrectProductType[];
+};
+
+export default function Home({ products }: HomeProps) {
   return (
     <>
       <Head>
@@ -15,19 +20,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icons/favicon.ico" />
       </Head>
-      <Intro />
+      {/* <Intro /> */}
       <h1 className={style.center}> Fotele</h1>
-      <Commercial />
+      <Commercial products={products} />
     </>
   );
 }
 
 export async function getStaticProps() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+  const response = await fetch(
+    'http://localhost:3000/api/products/getProducts'
+  );
   const data = await response.json();
   return {
     props: {
-      data: data.slice(0, 3),
+      products: data,
     },
   };
 }
