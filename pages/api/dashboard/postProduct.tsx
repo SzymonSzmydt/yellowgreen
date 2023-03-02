@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
-import { Body } from '../../../components/dashboard/types/type';
+import type { Body, Data } from '../../../components/dashboard/types/type';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<Data>
 ) {
   const body = req.body;
 
@@ -16,7 +16,7 @@ export default async function handler(
       });
       res.status(200).send(productData);
     } catch (err) {
-      res.status(500).send({ error: 'failed to fetch data' });
+      res.status(500).send({ message: 'failed to fetch data' });
     }
   };
 

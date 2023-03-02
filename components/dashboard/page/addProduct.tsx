@@ -1,7 +1,7 @@
 import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { CorrectProductType } from '../types/type';
+import type { CorrectProductType } from '../types/type';
 import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
 import {
   deleteProduct,

@@ -16,3 +16,7 @@ export interface CorrectProductType {
 export interface Body {
   [key: number]: CorrectProductType;
 }
+
+export interface Data {
+  message: string;
+}
