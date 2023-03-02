@@ -1,7 +1,12 @@
 .box {
-    width: 18rem;
+    width: 20rem;
     margin: 0.5rem;
     padding: 1rem 0;
+}
+
+.box h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
 }
 
 .btn {
@@ -10,6 +15,21 @@
     margin: 0.5rem 0;
 }
 
-.box h1 {
-    margin-bottom: 1rem;
+.box p {
+    color: var(--dark-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.id {
+    font-weight: 500;
+    margin-left: 1rem;
+    color: var(--dark-color);
+}
+
+.price {
+    font-size: 1.25rem;
+    color: var(--green);
+    margin-left: 1rem;
+    font-weight: 500;
 }
