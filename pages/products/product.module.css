@@ -1,0 +1,10 @@
+.product {
+    composes: container from global;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imageBox {
+    width: 100%;
+    border: 2px solid yellowgreen;
+}

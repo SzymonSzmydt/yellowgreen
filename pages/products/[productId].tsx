@@ -1,6 +1,7 @@
-import prod from './product.module.css';
+import style from './product.module.css';
 import type { CorrectProductType } from './../../components/dashboard/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
+import { Image } from 'next/image';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -8,8 +9,9 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   return (
-    <div className="container">
+    <div className={style.product}>
       <BasketCalc product={product} />
+      <div className={style.imageBox}></div>
     </div>
   );
 }

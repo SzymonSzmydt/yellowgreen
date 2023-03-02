@@ -24,13 +24,11 @@ export function BasketCalc({ product }: BasketProps) {
   return (
     <section className={style.box}>
       <h1> {product.namePL} </h1>
-      <p>
-        Kod: <span className={style.id}> {product.id} </span>
+      <p className={style.price}>
+        {product.pricePL.toFixed(2)} zł
+        <span className={style.small}>zawiera VAT</span>
       </p>
-      <p>
-        Cena: <span className={style.price}> {product.pricePL} </span> zł
-      </p>
-
+      <p className={style.id}>Kod: {product.id}</p>
       <div className={style.btn}>
         <input
           type="number"
