@@ -2,6 +2,7 @@
     composes: container from global;
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem 0;
 }
 
 .basket {
@@ -9,10 +10,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 2rem 0;
 }
 
 .imageBox {
+    margin: 2rem 0;
     width: 32rem;
     height: 32rem;
     border: 2px solid yellowgreen;
+}
+
+.article h2,
+.article h3 {
+    margin: 1rem 0;
+}
+
+.article p {
+    font-size: 1rem;
 }

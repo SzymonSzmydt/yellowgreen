@@ -2,20 +2,26 @@ import style from './product.module.css';
 import type { CorrectProductType } from './../../components/dashboard/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
 import { Image } from 'next/image';
-import { Head } from 'next/document';
+// import { Head } from 'next/head';
+import { useRouter } from 'next/router';
 
 type ProductProps = {
   product: CorrectProductType;
 };
 
 function Product({ product }: ProductProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta name="description" content={`${product.namePL}`} />
         <meta name="description" content={`${product.descriptionPL}`} />
-        <title> {product.namePL}</title>
-      </Head>
+        <title> `${product.namePL}`</title>
+      </Head> */}
       <div className={style.product}>
         <section className={style.basket}>
           <BasketCalc product={product} />
@@ -23,11 +29,13 @@ function Product({ product }: ProductProps) {
             <em>Zdjęcie produktu</em>
           </div>
         </section>
-        <section>
-          <p>Kategoria</p>
+        <article className={style.article}>
+          <h2>Informacje o produkcie</h2>
+          <h3>Kategoria</h3>
           <p>{product.category}</p>
+          <h3>Opis produktu</h3>
           <p> {product.descriptionPL}</p>
-        </section>
+        </article>
       </div>
     </>
   );
@@ -35,7 +43,23 @@ function Product({ product }: ProductProps) {
 
 export default Product;
 
-export const getServerSideProps: GetStaticProps = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await fetch(
+    `http://localhost:3000/api/products/getProducts/`
+  );
+  const data = await response.json();
+  const products = data.map((product) => {
+    return {
+      params: { productId: `${product.id}` },
+    };
+  });
+  return {
+    paths: products,
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const { productId } = params;
 
@@ -51,5 +75,6 @@ export const getServerSideProps: GetStaticProps = async (context) => {
     props: {
       product: product,
     },
+    revalidate: 20,
   };
 };
