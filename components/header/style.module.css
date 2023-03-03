@@ -44,6 +44,34 @@
     border-bottom: 1px solid var(--semi-color);
 }
 
+.smallNav {
+    composes: container from global;
+    margin-top: 1rem;
+}
+
+.smallLink {
+    text-transform: capitalize;
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.smallLink:first-child {
+    padding-left: 0;
+}
+
+.smallLink::after {
+    position: absolute;
+    content: "/";
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.smallLink:last-child::after {
+    display: none;
+}
+
 .delivery {
     color: var(--accent-text-color);
     transition: color 0.2s;
