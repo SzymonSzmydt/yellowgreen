@@ -12,9 +12,14 @@
     transition: all 0.4s;
 }
 
-.standard:hover {
+.standardWhite {
+    composes: standard;
     background-color: var(--background-color);
     color: var(--primary-color);
+}
+
+.standard:hover {
+    background-color: var(--accent-color);
 }
 
 .plus,

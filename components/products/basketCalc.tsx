@@ -43,8 +43,9 @@ export function BasketCalc({ product }: BasketProps) {
         handleClick={() => setQuantity(quantity + 1)}
       />
       <StandardButton
-        name="DODAJ DO KOSZYKA"
+        name="DO KOSZYKA"
         handleClick={() => setQuantity(quantity + 1)}
+        white={true}
       />
     </section>
   );
