@@ -24,26 +24,38 @@ function Product({ product }: ProductProps) {
       </Head> */}
       <div className={style.product}>
         <section className={style.box}>
-
           <div className={style.basket}>
-
             <BasketCalc product={product} />
             <details className={style.details}>
-              <summary>Wysyłka i Zwrot</summary>
-              <strong>Czas dostawy</strong>
+              <summary>Sposoby Płatności</summary>
+              <br />
+              <h4>Obsługujemy wygodne płatności</h4>
               <p>
-                Epcot is a theme park at Walt Disney World Resort featuring
-                exciting attractions, international pavilions, award-winning
-                fireworks and seasonal special events.
+                Za wszystkie produkty zapłacisz wygodnie, BLIK'iem, Kartą
+                płatniczą, Kartą debetową.
               </p>
             </details>
-            
+            <details className={style.details}>
+              <summary>Wysyłka i Zwrot</summary>
+              <p>Czas dostawy: 3 - 5 dni roboczych</p>
+              <h4>Wysyłka</h4>
+              <p>
+                Wszystkie artykuły zostaną dostarczone&nbsp;do Twojego domu lub
+                paczkomatu, który wybierzesz.
+              </p>
+              <h4>Zwrot</h4>
+              <p>
+                Jeśli produkt nie spełni Twoich oczekiwań, możesz odesłać
+                nam&nbsp;go spowrotem. Przykładamy wielką wagę do jakości
+                obsługi naszych klientów&nbsp;i pragniemy, aby doświadczenia
+                zakupowe były na najwyższym poziomie!
+              </p>
+            </details>
           </div>
 
           <div className={style.imageBox}>
             <em>Zdjęcie produktu</em>
           </div>
-
         </section>
 
         <article className={style.article}>

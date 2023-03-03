@@ -3,7 +3,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 20rem;
-    border: 3px solid black;
+    margin-bottom: 3rem;
 }
 
 .box h1 {
