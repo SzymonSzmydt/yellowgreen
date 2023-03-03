@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 
 function Navigation() {
   const router = useRouter();
-  console.log(router);
-
   const paths: string[] = router?.asPath.split('/').filter((e) => e);
   return (
     <>
