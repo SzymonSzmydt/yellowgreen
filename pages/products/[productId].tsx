@@ -31,10 +31,14 @@ function Product({ product }: ProductProps) {
         </section>
         <article className={style.article}>
           <h2>Informacje o produkcie</h2>
-          <h3>Kategoria</h3>
-          <p>{product.category}</p>
           <h3>Opis produktu</h3>
           <p> {product.descriptionPL}</p>
+          <h3>Kolor</h3>
+          <p>{product.colorPL}</p>
+          <h3>Kategoria</h3>
+          <p>{product.category}</p>
+          <h3>Numer produktu</h3>
+          <p>{product.id}</p>
         </article>
       </div>
     </>
