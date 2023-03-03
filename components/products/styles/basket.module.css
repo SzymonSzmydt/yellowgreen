@@ -3,6 +3,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 20rem;
+    border: 3px solid black;
 }
 
 .box h1 {
@@ -11,7 +12,7 @@
     margin-bottom: 1rem;
 }
 
-.btn {
+.form {
     display: flex;
     flex-wrap: wrap;
     height: 2.1rem;
@@ -35,8 +36,12 @@
     margin-left: 0.5rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 860px) {
     .box {
         width: 100%;
+    }
+
+    .box h1 {
+        font-size: 1.75rem;
     }
 }

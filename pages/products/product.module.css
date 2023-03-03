@@ -3,20 +3,31 @@
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 0;
+    border: 1px solid red;
 }
 
-.basket {
+.box {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 2rem 0;
+    border: 1px solid blue;
+}
+
+.details {
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--dark-color);
+}
+
+.basket {
+    width: 40%;
 }
 
 .imageBox {
-    margin: 2rem 0;
-    width: 32rem;
-    height: 32rem;
+    width: 60%;
+    height: 100%;
     border: 2px solid yellowgreen;
 }
 
@@ -37,4 +48,20 @@
 .article p {
     font-size: 1rem;
     margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1265px) {
+    .product {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .basket {
+        width: 100%;
+    }
+
+    .imageBox {
+        width: 100%;
+    }
 }

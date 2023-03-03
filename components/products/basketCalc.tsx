@@ -29,7 +29,7 @@ export function BasketCalc({ product }: BasketProps) {
         <span className={style.small}>zawiera VAT</span>
       </p>
       <p className={style.id}>Kod: {product.id}</p>
-      <div className={style.btn}>
+      <div className={style.form}>
         <input
           type="number"
           value={quantity}
@@ -38,7 +38,6 @@ export function BasketCalc({ product }: BasketProps) {
         <Plus handleClick={() => setQuantity(quantity + 1)} />
         <Minus handleClick={quantityMinusValidation} />
       </div>
-
       <StandardButton
         name="KUP"
         handleClick={() => setQuantity(quantity + 1)}

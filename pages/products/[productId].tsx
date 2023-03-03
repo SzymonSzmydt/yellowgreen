@@ -23,22 +23,39 @@ function Product({ product }: ProductProps) {
         <title> `${product.namePL}`</title>
       </Head> */}
       <div className={style.product}>
-        <section className={style.basket}>
-          <BasketCalc product={product} />
+        <section className={style.box}>
+
+          <div className={style.basket}>
+
+            <BasketCalc product={product} />
+            <details className={style.details}>
+              <summary>Wysyłka i Zwrot</summary>
+              <strong>Czas dostawy</strong>
+              <p>
+                Epcot is a theme park at Walt Disney World Resort featuring
+                exciting attractions, international pavilions, award-winning
+                fireworks and seasonal special events.
+              </p>
+            </details>
+            
+          </div>
+
           <div className={style.imageBox}>
             <em>Zdjęcie produktu</em>
           </div>
+
         </section>
+
         <article className={style.article}>
-          <h2>Informacje o produkcie</h2>
-          <h3>Opis produktu</h3>
-          <p> {product.descriptionPL}</p>
-          <h3>Kolor</h3>
-          <p>{product.colorPL}</p>
-          <h3>Kategoria</h3>
-          <p>{product.category}</p>
-          <h3>Numer produktu</h3>
-          <p>{product.id}</p>
+          <h2> Informacje o produkcie </h2>
+          <h3> Opis produktu </h3>
+          <p> {product.descriptionPL} </p>
+          <h3> Kolor </h3>
+          <p> {product.colorPL} </p>
+          <h3> Kategoria </h3>
+          <p> {product.category} </p>
+          <h3> Numer produktu </h3>
+          <p> {product.id} </p>
         </article>
       </div>
     </>
