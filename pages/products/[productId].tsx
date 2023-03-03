@@ -52,12 +52,10 @@ function Product({ product }: ProductProps) {
               </p>
             </details>
           </div>
-
           <div className={style.imageBox}>
             <em>Zdjęcie produktu</em>
           </div>
         </section>
-
         <article className={style.article}>
           <h2> Informacje o produkcie </h2>
           <h3> Opis produktu </h3>

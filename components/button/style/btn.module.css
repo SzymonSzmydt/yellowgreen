@@ -39,10 +39,10 @@
 .minus::before {
     position: absolute;
     content: "";
-    top: calc(50% - 0.1rem);
-    left: 0.2rem;
-    right: 0.2rem;
-    height: 0.2rem;
+    top: calc(50% - 0.08rem);
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 0.15rem;
     background-color: var(--primary-color);
 }
 
@@ -55,10 +55,10 @@
 .plus::before {
     position: absolute;
     content: "";
-    top: 0.2rem;
-    bottom: 0.2rem;
-    left: calc(50% - 0.1rem);
-    width: 0.2rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: calc(50% - 0.08rem);
+    width: 0.15rem;
     background-color: var(--primary-color);
 }
 
