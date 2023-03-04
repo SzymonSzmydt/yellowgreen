@@ -5,15 +5,18 @@ import { Dispatch, SetStateAction } from 'react';
 import { db } from '../../../../context/Firebase';
 import { useAppDispatch } from '../../../../context/redux/hooks';
 import { deleteProduct } from '../../../../context/redux/productsSlice';
+import { CorrectProductType } from './../../types/type';
 
 type ConfirmProps = {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
+  setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
   id: number;
   namePL: string;
 };
 
 export function Confirm({
+  setProductSelectedToEdit,
   setIsDeleting,
   setIsDropdown,
   id,
@@ -28,9 +31,11 @@ export function Confirm({
     });
     dispatch(deleteProduct(id));
     setIsDropdown(false);
+    setProductSelectedToEdit({} as CorrectProductType);
   };
 
   const handleCancel = () => {
+    setProductSelectedToEdit({} as CorrectProductType);
     setIsDeleting(false);
     setIsDropdown(false);
   };

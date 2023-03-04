@@ -65,22 +65,25 @@ function AddNewProduct({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await fetch('/api/dashboard/postProduct', {
-        method: 'POST',
-        body: JSON.stringify(productData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      setProductData(initialState);
-      dispatch(deleteProduct(productSelectedToEdit.id));
-      dispatch(addProduct(productData));
+    const response = await fetch('/api/dashboard/postProduct', {
+      method: 'POST',
+      body: JSON.stringify(productData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = response.json();
+    console.log(data);
 
-      setIsAddProductClicked(false);
-    } catch (error) {
-      console.error(error);
+    if (productData.id > 0) {
+      dispatch(deleteProduct(productSelectedToEdit.id));
     }
+    if (data.id) {
+      setProductData({ ...productData, id: data.id });
+    }
+    dispatch(addProduct(productData));
+    setProductData(initialState);
+    setIsAddProductClicked(false);
   };
 
   return isCategoryClicked ? (

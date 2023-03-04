@@ -100,6 +100,7 @@ export function ListOfProducts({
                       setIsDropdown={setIsDropdown}
                       setIsAddProductClicked={setIsAddProductClicked}
                       productSelectedToEdit={productSelectedToEdit}
+                      setProductSelectedToEdit={setProductSelectedToEdit}
                     />
                   ) : null}
                   <div className={style.id}>

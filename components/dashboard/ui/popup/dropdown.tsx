@@ -7,6 +7,7 @@ type DropProps = {
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   productSelectedToEdit: CorrectProductType;
+  setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
 };
 
 export function Dropdown({
@@ -22,6 +23,7 @@ export function Dropdown({
         <Confirm
           setIsDeleting={setIsDeleting}
           setIsDropdown={setIsDropdown}
+          setProductSelectedToEdit={setProductSelectedToEdit}
           {...productSelectedToEdit}
         />
       ) : (

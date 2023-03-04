@@ -21,6 +21,7 @@ export default async function handler(
   };
 
   if (
+    body.id === 0 &&
     body.namePL &&
     body.nameEN &&
     body.category &&
@@ -28,20 +29,20 @@ export default async function handler(
     body.colorEN &&
     body.pricePL &&
     body.priceEU &&
-    body.picture &&
     body.descriptionPL &&
     body.descriptionEN
   ) {
-    if (body.id === 0) {
-      body.id = Date.now();
-      const data: Body = {
-        [body.id]: body,
-      };
-      return sendProductsToFirebase(data);
-    }
+    body.id = Date.now();
     const data: Body = {
       [body.id]: body,
     };
-    sendProductsToFirebase(data);
-  } else res.status(400).json({ data: 'Pola nie uzupełnione' });
+    res.status(201).json({ id: body.id });
+    return sendProductsToFirebase(data);
+  }
+  if (body.id > 0) {
+    const data: Body = {
+      [body.id]: body,
+    };
+    return sendProductsToFirebase(data);
+  } else res.status(400).json({ message: 'Pola nie uzupełnione' });
 }
