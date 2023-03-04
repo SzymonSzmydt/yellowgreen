@@ -7,7 +7,12 @@
 .input {
     display: block;
     width: 30rem;
+}
 
+.input::placeholder,
+.textarea::placeholder,
+.priceInput::placeholder {
+    font-size: 0.75rem;
 }
 
 .picture {

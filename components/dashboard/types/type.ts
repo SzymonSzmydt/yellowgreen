@@ -1,7 +1,7 @@
 export interface CorrectProductType {
   id: number;
-  priceEU: number;
-  pricePL: number;
+  priceEU: string;
+  pricePL: string;
   picture: string;
   category: string;
   colorEN: string;

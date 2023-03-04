@@ -8,24 +8,18 @@ type FormProps = {
   category: string[];
 };
 
-export function ProductForm({ productData, setProductData, category }: FormProps) {
+export function ProductForm({
+  productData,
+  setProductData,
+  category,
+}: FormProps) {
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
   ) => {
+    value.preventDefault();
     setProductData({
       ...productData,
       [value.target.name]: value.target.value,
-    });
-  };
-
-  const convertToStringToNumberWithDecimals = (
-    value: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const fieldValue: string = value.targed.value.toFixed(2);
-    const convertedPrice: number = parseFloat(fieldValue);
-    setProductData({
-      ...productData,
-      [value.target.name]: convertedPrice,
     });
   };
 
@@ -37,7 +31,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="namePL"
         required
         minLength={3}
-        placeholder="Nazwa produktu - PL"
+        placeholder="np. Krem"
         className={add.input}
         value={productData.namePL}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -50,7 +44,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="nameEN"
         required
         minLength={3}
-        placeholder="Nazwa produktu - EN"
+        placeholder="np. Cream"
         className={add.input}
         value={productData.nameEN}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -63,7 +57,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="colorPL"
         required
         minLength={3}
-        placeholder="Kolor - PLN"
+        placeholder="np. Jasno-niebieski"
         className={add.input}
         value={productData.colorPL}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -76,7 +70,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="colorEN"
         required
         minLength={3}
-        placeholder="Kolor - EN"
+        placeholder="np. Light-blue"
         className={add.input}
         value={productData.colorEN}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -116,12 +110,15 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         step="0.01"
         min="0.01"
         max="10000.00"
-        pattern="^\d+(\.\d{1,2})?$"
-        placeholder="Cena PLN"
+        pattern="^\d+(\.\d{1,2})|(?![e])?$"
+        placeholder="np. 25.49"
         className={add.priceInput}
         value={productData.pricePL}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          convertToStringToNumberWithDecimals(e)
+          setProductData({
+            ...productData,
+            pricePL: e.target.value,
+          })
         }
       />
       <label className={add.label}>Cena - EURO</label>
@@ -134,11 +131,14 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         min="0.01"
         max="10000.00"
         pattern="^\d+(\.\d{1,2})?$"
-        placeholder="Cena EURO"
+        placeholder="np. 25.49"
         className={add.priceInput}
         value={productData.priceEU}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          convertToStringToNumberWithDecimals(e)
+          setProductData({
+            ...productData,
+            priceEU: e.target.value,
+          })
         }
       />
       <label className={add.label}>Opis produktu - Polski</label>
@@ -146,7 +146,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="descriptionPL"
         required
         minLength={30}
-        placeholder="Opis produktu - PL"
+        placeholder="Opis"
         className={add.textarea}
         value={productData.descriptionPL}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -161,7 +161,7 @@ export function ProductForm({ productData, setProductData, category }: FormProps
         name="descriptionEN"
         required
         minLength={30}
-        placeholder="Opis produktu -EN"
+        placeholder="Description"
         className={add.textarea}
         value={productData.descriptionEN}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
