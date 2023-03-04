@@ -32,6 +32,13 @@ export default async function handler(
     body.descriptionPL &&
     body.descriptionEN
   ) {
+    if (body.id === 0) {
+      body.id = Date.now();
+      const data: Body = {
+        [body.id]: body,
+      };
+      return sendProductsToFirebase(data);
+    }
     const data: Body = {
       [body.id]: body,
     };

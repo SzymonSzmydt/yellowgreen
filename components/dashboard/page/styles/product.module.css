@@ -75,7 +75,7 @@
 .product .name {
     color: var(--third-color);
     font-weight: 500;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Georgia, serif
 }
 
 .product .price {

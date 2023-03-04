@@ -96,10 +96,10 @@ export function ProductForm({
           </option>
         ))}
       </select>
-      <label className={add.picture}>
+      {/* <label className={add.picture}>
         Zdjęcie produktu
         <input type="file" name="picture" required />
-      </label>
+      </label> */}
 
       <label className={add.label}>Cena - PLN</label>
       <input

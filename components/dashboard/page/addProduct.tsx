@@ -12,7 +12,7 @@ import { CorrectProductType } from './../types/type';
 import { ProductForm } from './../ui/productForm';
 
 const initialState: CorrectProductType = {
-  id: Date.now(),
+  id: 0,
   priceEU: '',
   pricePL: '',
   picture: '',
