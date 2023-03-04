@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import style from '../styles/Home.module.css';
-import Intro from './../components/body/intro';
+// import Intro from './../components/body/intro';
 import Commercial from '../components/body/commercial';
 import { CorrectProductType } from './../components/dashboard/types/type';
 

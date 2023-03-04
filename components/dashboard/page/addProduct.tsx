@@ -1,4 +1,3 @@
-import add from './styles/add.module.css';
 import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import type { CorrectProductType } from '../types/type';

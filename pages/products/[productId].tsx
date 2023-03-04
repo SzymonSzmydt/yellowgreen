@@ -1,7 +1,6 @@
 import style from './product.module.css';
 import type { CorrectProductType } from './../../components/dashboard/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
-import { Image } from 'next/image';
 // import { Head } from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -31,7 +30,7 @@ function Product({ product }: ProductProps) {
               <br />
               <h4>Obsługujemy wygodne płatności</h4>
               <p>
-                Za wszystkie produkty zapłacisz wygodnie, BLIK'iem, Kartą
+                Za wszystkie produkty zapłacisz wygodnie, BLIK&apos;iem, Kartą
                 płatniczą, Kartą debetową.
               </p>
             </details>
