@@ -1,14 +1,24 @@
-import style from './style.module.css';
+import style from './styles/nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Hamburger } from './../button/hamburger';
+import { useState } from 'react';
 
 function Navigation() {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   const router = useRouter();
+
   const paths: string[] = router?.asPath.split('/').filter((e) => e);
+  const navBoxBackMove = isClicked ? style.navBoxOn : style.navBox;
   return (
     <>
       <nav className={style.nav}>
-        <div className={style.navBox}>
+        <Hamburger
+          handleClick={() => setIsClicked(!isClicked)}
+          isClicked={isClicked}
+        />
+        <div className={navBoxBackMove}>
+          <span className={style.menuText}>Menu</span>
           <Link href="/furniture" className={style.link}>
             Meble
           </Link>
@@ -26,22 +36,22 @@ function Navigation() {
           </Link>
         </div>
       </nav>
-      <div className={style.smallNav}>
-        <Link key="home" href="/" className={style.smallLink}>
-          Home
-        </Link>
-        {paths
-          ? paths.map((link, index) => (
-              <Link
-                key={link}
-                href={index === 0 ? `/${link}` : link}
-                className={style.smallLink}
-              >
-                {link}
-              </Link>
-            ))
-          : null}
-      </div>
+      {paths.length > 0 ? (
+        <div className={style.smallNav}>
+          <Link href="/" className={style.smallLink}>
+            Home
+          </Link>
+          {paths.map((link, index) => (
+            <Link
+              key={link}
+              href={index === 0 ? `/${link}` : `${link}`}
+              className={style.smallLink}
+            >
+              {link}
+            </Link>
+          ))}
+        </div>
+      ) : null}
     </>
   );
 }

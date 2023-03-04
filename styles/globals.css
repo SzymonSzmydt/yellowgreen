@@ -85,6 +85,7 @@ a {
 .container {
     max-width: 1266px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 ::-webkit-scrollbar {

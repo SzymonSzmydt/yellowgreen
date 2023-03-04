@@ -23,6 +23,8 @@ export default function Home({ products }: HomeProps) {
       {/* <Intro /> */}
       <h1 className={style.center}> Fotele</h1>
       <Commercial products={products} />
+      <Commercial products={products} />
+      <Commercial products={products} />
     </>
   );
 }
