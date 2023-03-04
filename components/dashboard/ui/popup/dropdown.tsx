@@ -14,6 +14,7 @@ export function Dropdown({
   setIsDropdown,
   setIsAddProductClicked,
   productSelectedToEdit,
+  setProductSelectedToEdit,
 }: DropProps) {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
