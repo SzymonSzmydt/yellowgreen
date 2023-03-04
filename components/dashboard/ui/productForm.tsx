@@ -89,7 +89,9 @@ export function ProductForm({
           })
         }
       >
-        <option value="">Wybierz</option>
+        <option value={productData.category ? productData.category : ''}>
+          {productData.category ? productData.category : 'Wybierz'}
+        </option>
         {category.map((e, i) => (
           <option key={i} value={e}>
             {e}

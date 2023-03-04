@@ -19,5 +19,4 @@ export interface Body {
 
 export interface Data {
   message: string;
-  id?: numberl;
 }

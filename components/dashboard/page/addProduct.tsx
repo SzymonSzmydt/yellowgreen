@@ -2,10 +2,6 @@ import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import type { CorrectProductType } from '../types/type';
 import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
-import {
-  deleteProduct,
-  addProduct,
-} from '../../../context/redux/productsSlice';
 import { getCategory } from '../../../context/redux/categorySlice';
 import { Category } from './category';
 import { CorrectProductType } from './../types/type';
@@ -65,23 +61,17 @@ function AddNewProduct({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await fetch('/api/dashboard/postProduct', {
-      method: 'POST',
-      body: JSON.stringify(productData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = response.json();
-    console.log(data);
-
-    if (productData.id > 0) {
-      dispatch(deleteProduct(productSelectedToEdit.id));
+    try {
+      await fetch('/api/dashboard/postProduct', {
+        method: 'POST',
+        body: JSON.stringify(productData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (err) {
+      console.error(err);
     }
-    if (data.id) {
-      setProductData({ ...productData, id: data.id });
-    }
-    dispatch(addProduct(productData));
     setProductData(initialState);
     setIsAddProductClicked(false);
   };

@@ -18,19 +18,10 @@ export const productsSlice = createSlice({
     getProducts: (state, action: PayloadAction<Array<CorrectProductType>>) => {
       state.value = action.payload;
     },
-    deleteProduct(state, action: PayloadAction<number>) {
-      const newProductList = state.value.filter(
-        (product) => product.id !== action.payload
-      );
-      state.value = newProductList;
-    },
-    addProduct(state, action: PayloadAction<CorrectProductType>) {
-      state.value.push(action.payload);
-    },
   },
 });
 
-export const { getProducts, deleteProduct, addProduct } = productsSlice.actions;
+export const { getProducts } = productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products.value;
 export default productsSlice.reducer;

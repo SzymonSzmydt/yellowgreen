@@ -36,7 +36,7 @@ export default async function handler(
     const data: Body = {
       [body.id]: body,
     };
-    res.status(201).json({ id: body.id });
+    res.status(201).send({ message: 'Seccess' });
     return sendProductsToFirebase(data);
   }
   if (body.id > 0) {

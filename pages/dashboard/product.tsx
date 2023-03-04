@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import WindowDashboard from '../../components/window/windowDashboard';
 import WindowDashboardBar from '../../components/window/windowDashboardBar';
 import { Variant } from '../../components/button/Variant';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WindowDashboardBody from '../../components/window/windowDashboardBody';
 import AddNewProduct from '../../components/dashboard/page/addProduct';
 import DashLayout from '../../components/layout/DashLayout';
@@ -25,6 +25,12 @@ function ProductList() {
 
     dispatch(getProducts(data));
   };
+
+  useEffect(() => {
+    if (!isAddProductClicked) {
+      fetchProducts();
+    }
+  }, [isAddProductClicked]);
 
   const backButton = () => {
     if (isAddProductClicked && isCategoryClicked) {
@@ -53,7 +59,6 @@ function ProductList() {
               handleClick={() => setIsAddProductClicked(true)}
             />
           )}
-          <button onClick={fetchProducts}> Refresh </button>
         </WindowDashboardBar>
         <WindowDashboardBody>
           {isAddProductClicked ? (
