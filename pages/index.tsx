@@ -2,7 +2,7 @@ import Head from 'next/head';
 import style from '../styles/Home.module.css';
 // import Intro from './../components/body/intro';
 import Commercial from '../components/body/commercial';
-import { CorrectProductType } from './../components/dashboard/types/type';
+import { CorrectProductType } from './../context/types/type';
 
 type HomeProps = {
   products: CorrectProductType[];
@@ -34,9 +34,10 @@ export async function getStaticProps() {
     'http://localhost:3000/api/products/getProducts'
   );
   const data = await response.json();
+  const result = Object.values(data);
   return {
     props: {
-      products: data,
+      products: result,
     },
   };
 }

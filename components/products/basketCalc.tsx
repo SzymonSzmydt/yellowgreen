@@ -3,7 +3,7 @@ import { useState } from 'react';
 import StandardButton from './../button/Standard';
 import { Minus } from './../button/Minus';
 import { Plus } from './../button/Plus';
-import { CorrectProductType } from './../dashboard/types/type';
+import { CorrectProductType } from './../../context/types/type';
 
 type BasketProps = {
   product: CorrectProductType;

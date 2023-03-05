@@ -1,6 +1,7 @@
 import style from './style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CorrectProductType } from './../../context/types/type';
 
 type CommercialProps = {
   products: CorrectProductType[];

@@ -3,7 +3,7 @@ import { doc, updateDoc, deleteField } from 'firebase/firestore';
 import { Variant } from '../../../button/Variant';
 import { Dispatch, SetStateAction } from 'react';
 import { db } from '../../../../context/Firebase';
-import { CorrectProductType } from './../../types/type';
+import { CorrectProductType } from '../../../../context/types/type';
 
 type ConfirmProps = {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;

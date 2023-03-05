@@ -9,7 +9,7 @@ import DashLayout from '../../components/layout/DashLayout';
 import { ListOfProducts } from './../../components/dashboard/page/products';
 import { useAppDispatch } from '../../context/redux/hooks';
 import { getProducts } from '../../context/redux/productsSlice';
-import { CorrectProductType } from '../../components/dashboard/types/type';
+import { CorrectProductType } from '../../context/types/type';
 
 function ProductList() {
   const dispatch = useAppDispatch();
@@ -30,6 +30,7 @@ function ProductList() {
     if (!isAddProductClicked) {
       fetchProducts();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAddProductClicked]);
 
   const backButton = () => {

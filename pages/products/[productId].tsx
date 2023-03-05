@@ -1,7 +1,8 @@
 import style from './styles/product.module.css';
-import type { CorrectProductType } from './../../components/dashboard/types/type';
+import type { CorrectProductType } from './../../context/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
 import { useRouter } from 'next/router';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -72,7 +73,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     `http://localhost:3000/api/products/getProducts/`
   );
   const data = await response.json();
-  const products = data.map((product) => {
+  const products: CorrectProductType[] = data.map((product) => {
     return {
       params: { productId: `${product.id}` },
     };

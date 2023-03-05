@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { Data } from './../../../components/dashboard/types/type';
+import type { Data } from '../../../context/types/type';
 import { db } from '../../../context/Firebase';
 import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
 
@@ -11,10 +11,10 @@ export default async function handler(
 
   const sendProductsToFirebase = async () => {
     try {
-      const categoryData = await updateDoc(doc(db, 'dashboard', 'category'), {
+      await updateDoc(doc(db, 'dashboard', 'category'), {
         category: arrayUnion(body),
       });
-      res.status(200).send(categoryData);
+      res.status(201).json({ message: 'Seccess' });
     } catch (err) {
       res.status(500).send({ message: 'failed to fetch data' });
     }

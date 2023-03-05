@@ -1,10 +1,10 @@
 import style from './styles/product.module.css';
 import { useState, Dispatch, SetStateAction } from 'react';
-import { CorrectProductType } from '../types/type';
 import { Search } from '../ui/search';
 import { Dropdown } from '../ui/popup/dropdown';
 import { ProductInfo } from '../ui/popup/productInfo';
 import { useAppSelector } from '../../../context/redux/hooks';
+import { CorrectProductType } from './../../../context/types/type';
 
 type ListProps = {
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;

@@ -1,6 +1,6 @@
 import add from './styles/form.module.css';
-import { CorrectProductType } from './../types/type';
 import { Dispatch, SetStateAction } from 'react';
+import { CorrectProductType } from './../../../context/types/type';
 
 type FormProps = {
   productData: CorrectProductType;
