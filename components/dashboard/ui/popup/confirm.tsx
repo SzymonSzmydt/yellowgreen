@@ -3,8 +3,6 @@ import { doc, updateDoc, deleteField } from 'firebase/firestore';
 import { Variant } from '../../../button/Variant';
 import { Dispatch, SetStateAction } from 'react';
 import { db } from '../../../../context/Firebase';
-import { useAppDispatch } from '../../../../context/redux/hooks';
-import { deleteProduct } from '../../../../context/redux/productsSlice';
 import { CorrectProductType } from './../../types/type';
 
 type ConfirmProps = {
@@ -22,14 +20,11 @@ export function Confirm({
   id,
   namePL,
 }: ConfirmProps) {
-  const dispatch = useAppDispatch();
-
   const handleDeleteProduct = async () => {
     const productRef = doc(db, 'dashboard', 'products');
     await updateDoc(productRef, {
       [id]: deleteField(),
     });
-    dispatch(deleteProduct(id));
     setIsDropdown(false);
     setProductSelectedToEdit({} as CorrectProductType);
   };

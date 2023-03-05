@@ -2,7 +2,7 @@ import wind from './window.module.css';
 
 type WindowProps = {
   children: React.ReactNode;
-  strech?: boolean;
+  streach?: boolean;
 };
 
 function WindowDashboardBar({ streach, children }: WindowProps) {

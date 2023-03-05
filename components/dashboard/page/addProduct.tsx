@@ -1,10 +1,9 @@
 import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import type { CorrectProductType } from '../types/type';
+import { CorrectProductType } from '../types/type';
 import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
 import { getCategory } from '../../../context/redux/categorySlice';
 import { Category } from './category';
-import { CorrectProductType } from './../types/type';
 import { ProductForm } from './../ui/productForm';
 
 const initialState: CorrectProductType = {

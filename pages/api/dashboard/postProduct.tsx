@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../context/Firebase';
 import { setDoc, doc } from 'firebase/firestore';
-import type { Body, Data } from '../../../components/dashboard/types/type';
+import type { Body, Data } from '../../../context/types/type';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,12 +11,12 @@ export default async function handler(
 
   const sendProductsToFirebase = async (data: Body) => {
     try {
-      const productData = await setDoc(doc(db, 'dashboard', 'products'), data, {
+      await setDoc(doc(db, 'dashboard', 'products'), data, {
         merge: true,
       });
-      res.status(200).send(productData);
+      res.status(201).json({ message: 'Succsess' });
     } catch (err) {
-      res.status(500).send({ message: 'failed to fetch data' });
+      res.status(500).json({ message: 'failed to fetch data' });
     }
   };
 

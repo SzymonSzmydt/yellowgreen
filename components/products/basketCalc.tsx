@@ -3,6 +3,7 @@ import { useState } from 'react';
 import StandardButton from './../button/Standard';
 import { Minus } from './../button/Minus';
 import { Plus } from './../button/Plus';
+import { CorrectProductType } from './../dashboard/types/type';
 
 type BasketProps = {
   product: CorrectProductType;
@@ -26,11 +27,7 @@ export function BasketCalc({ product }: BasketProps) {
       <article>
         <h1> {product.namePL} </h1>
         <p>
-          <data
-            className={style.price}
-            value={product.pricePL}
-            name={product.namePL}
-          >
+          <data className={style.price} value={product.pricePL}>
             {product.pricePL} zł
             <span className={style.small}>zawiera VAT</span>
           </data>

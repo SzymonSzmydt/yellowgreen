@@ -2,6 +2,7 @@
     color: var(--dark-color);
     font-weight: 500;
     padding: 0.5rem 0 0;
+    margin-bottom: 2rem;
 }
 
 .top {

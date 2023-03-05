@@ -1,7 +1,6 @@
-import style from './product.module.css';
+import style from './styles/product.module.css';
 import type { CorrectProductType } from './../../components/dashboard/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
-// import { Head } from 'next/head';
 import { useRouter } from 'next/router';
 
 type ProductProps = {
@@ -16,11 +15,6 @@ function Product({ product }: ProductProps) {
   }
   return (
     <>
-      {/* <Head>
-        <meta name="description" content={`${product.namePL}`} />
-        <meta name="description" content={`${product.descriptionPL}`} />
-        <title> `${product.namePL}`</title>
-      </Head> */}
       <div className={style.product}>
         <section className={style.box}>
           <div className={style.basket}>

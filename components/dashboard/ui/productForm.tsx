@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 
 type FormProps = {
   productData: CorrectProductType;
-  setPorductData: Dispatch<SetStateAction<CorrectProductType>>;
+  setProductData: Dispatch<SetStateAction<CorrectProductType>>;
   category: string[];
 };
 
