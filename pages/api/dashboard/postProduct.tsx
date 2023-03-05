@@ -9,9 +9,9 @@ export default async function handler(
 ) {
   const body = req.body;
 
-  const sendProductsToFirebase = async (data: Body) => {
+  const sendProductsToFirebase = async (product: Body) => {
     try {
-      await setDoc(doc(db, 'dashboard', 'products'), data, {
+      await setDoc(doc(db, 'dashboard', 'products'), product, {
         merge: true,
       });
       res.status(201).json({ message: 'Succsess' });

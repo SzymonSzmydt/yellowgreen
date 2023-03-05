@@ -18,6 +18,6 @@ export interface Body {
 }
 
 export interface Data {
+  data?: CorrectProductType;
   message?: string;
-  data?: CorrectProductType[];
 }

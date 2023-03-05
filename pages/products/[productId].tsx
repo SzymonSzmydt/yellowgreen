@@ -73,7 +73,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     `http://localhost:3000/api/products/getProducts/`
   );
   const data = await response.json();
-  const products: CorrectProductType[] = data.map((product) => {
+  const result: Array<CorrectProductType> = Object.values(data);
+  const products = result.map((product) => {
     return {
       params: { productId: `${product.id}` },
     };
@@ -86,20 +87,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
-  const { productId } = params;
 
-  const id: number = +productId;
+  if (params && params.productId) {
+    const id: number = +params.productId;
 
-  const response = await fetch(
-    `http://localhost:3000/api/products/getProducts/`
-  );
-  const data = await response.json();
-  const product = data.find((e) => e.id === id);
+    const response = await fetch(
+      `http://localhost:3000/api/products/getProducts/`
+    );
+    const data = await response.json();
+    const result: Array<CorrectProductType> = Object.values(data);
+    const product = result.find((e) => e.id === id);
 
+    return {
+      props: {
+        product: product,
+      },
+      revalidate: 20,
+    };
+  }
   return {
     props: {
-      product: product,
+      product: [],
     },
-    revalidate: 20,
   };
 };

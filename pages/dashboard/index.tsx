@@ -4,8 +4,10 @@ import WindowDashboard from '../../components/window/windowDashboard';
 import DashLayout from '../../components/layout/DashLayout';
 import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
 import { getCategory } from './../../context/redux/categorySlice';
+import { getProducts } from './../../context/redux/productsSlice';
 import WindowDashboardBar from './../../components/window/windowDashboardBar';
 import { Stats } from './../../components/dashboard/ui/stats/stats';
+import { CorrectProductType } from './../../context/types/type';
 
 function Dashboard() {
   const category = useAppSelector((state) => state.category.value);
@@ -17,11 +19,22 @@ function Dashboard() {
     const data = await response.json();
     dispatch(getCategory(data));
   };
+  const fetchProducts = async () => {
+    const response = await fetch('/api/products/getProducts');
+    const data = await response.json();
+    const result: Array<CorrectProductType> = Object.values(data);
+    dispatch(getProducts(result));
+  };
 
   useEffect(() => {
-    fetchCategory();
+    if (category.length < 1) {
+      fetchCategory();
+    }
+    if (products.length === 0) {
+      fetchProducts();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [category, products]);
 
   return (
     <>
