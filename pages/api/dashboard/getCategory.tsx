@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../context/Firebase';
-import { Data } from './../../../context/types/type';
+
+type Data = {
+  category: string[];
+};
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,10 +17,8 @@ export default async function handler(
     if (docSnap.exists()) {
       const data = docSnap.data() as Data;
       res.status(200).json(data);
-    } else {
-      res.status(400).json({ message: 'Coś poszło nie tak!' });
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }

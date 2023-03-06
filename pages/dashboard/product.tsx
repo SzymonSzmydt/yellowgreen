@@ -22,8 +22,7 @@ function ProductList() {
   const fetchProducts = async () => {
     const response = await fetch('/api/products/getProducts');
     const data = await response.json();
-    const result: Array<CorrectProductType> = Object.values(data);
-    dispatch(getProducts(result));
+    dispatch(getProducts(data));
   };
 
   useEffect(() => {

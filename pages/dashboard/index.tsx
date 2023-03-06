@@ -17,7 +17,9 @@ function Dashboard() {
   const fetchCategory = async () => {
     const response = await fetch('/api/dashboard/getCategory');
     const data = await response.json();
-    dispatch(getCategory(data));
+    const result: Array<string> = Object.values(data);
+
+    dispatch(getCategory(result));
   };
   const fetchProducts = async () => {
     const response = await fetch('/api/products/getProducts');

@@ -1,5 +1,5 @@
 import style from './styles/product.module.css';
-import type { CorrectProductType } from './../../context/types/type';
+import { CorrectProductType } from './../../context/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -72,42 +72,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     `http://localhost:3000/api/products/getProducts/`
   );
-  const data = await response.json();
-  const result: Array<CorrectProductType> = Object.values(data);
-  const products = result.map((product) => {
+  const data = (await response.json()) as CorrectProductType[];
+  const products = data.map((product) => {
     return {
       params: { productId: `${product.id}` },
     };
   });
   return {
     paths: products,
-    fallback: true,
+    fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
+  const params = context ? context.params : context.params;
+  const { productId } = params;
+  const id: number = +productId;
 
-  if (params && params.productId) {
-    const id: number = +params.productId;
-
-    const response = await fetch(
-      `http://localhost:3000/api/products/getProducts/`
-    );
-    const data = await response.json();
-    const result: Array<CorrectProductType> = Object.values(data);
-    const product = result.find((e) => e.id === id);
-
-    return {
-      props: {
-        product: product,
-      },
-      revalidate: 20,
-    };
-  }
+  const response = await fetch(
+    `http://localhost:3000/api/products/getProducts/`
+  );
+  const data: CorrectProductType[] = await response.json();
+  const product = data.find((e) => e.id === id);
   return {
     props: {
-      product: [],
+      product: product,
     },
   };
 };
