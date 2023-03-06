@@ -3,6 +3,8 @@ import style from '../styles/Home.module.css';
 // import Intro from './../components/body/intro';
 import Commercial from '../components/body/commercial';
 import { CorrectProductType } from './../context/types/type';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from './../context/Firebase';
 
 type HomeProps = {
   products: CorrectProductType[];
@@ -30,14 +32,12 @@ export default function Home({ products }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    'http://localhost:3000/api/products/getProducts'
-  );
-  const data = await response.json();
-  const result = Object.values(data);
+  const docSnap = await getDoc(doc(db, 'dashboard', 'products'));
+  const data = docSnap.exists() ? Object.values(docSnap.data()) : [];
+
   return {
     props: {
-      products: result,
+      products: data,
     },
   };
 }

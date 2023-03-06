@@ -3,6 +3,8 @@ import { CorrectProductType } from './../../context/types/type';
 import { BasketCalc } from './../../components/products/basketCalc';
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from './../../context/Firebase';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -69,10 +71,9 @@ function Product({ product }: ProductProps) {
 export default Product;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(
-    `http://localhost:3000/api/products/getProducts/`
-  );
-  const data = (await response.json()) as CorrectProductType[];
+  const docSnap = await getDoc(doc(db, 'dashboard', 'products'));
+  const data = docSnap.exists() ? Object.values(docSnap.data()) : [];
+  
   const products = data.map((product) => {
     return {
       params: { productId: `${product.id}` },
@@ -85,15 +86,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const params = context ? context.params : context.params;
-  const { productId } = params;
-  const id: number = +productId;
+  const productId = context.params?.productId;
 
-  const response = await fetch(
-    `http://localhost:3000/api/products/getProducts/`
-  );
-  const data: CorrectProductType[] = await response.json();
-  const product = data.find((e) => e.id === id);
+  const docSnap = await getDoc(doc(db, 'dashboard', 'products'));
+  const data = docSnap.exists() ? Object.values(docSnap.data()) : [];
+
+  const product = data.find((e) => '' + e.id === productId);
   return {
     props: {
       product: product,
