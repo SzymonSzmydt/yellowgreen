@@ -16,3 +16,10 @@ export interface CorrectProductType {
 export interface Body {
   [key: number]: CorrectProductType;
 }
+
+export interface BasketData {
+  id: number;
+  quantity: number;
+  name: string;
+  price: number;
+}

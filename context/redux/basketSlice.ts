@@ -1,13 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../context/redux/store';
-
-interface BasketData {
-  id: number;
-  quantity: number;
-  name: string;
-  price: number;
-}
+import { BasketData } from './../types/type';
 
 interface BasketState {
   value: Array<BasketData>;

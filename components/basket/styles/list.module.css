@@ -1,0 +1,20 @@
+.box {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.image {
+    width: 5rem;
+    height: 6rem;
+    border: 1px solid yellowgreen;
+}
+
+.information {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.information p {
+    margin: 1rem 2rem;
+}

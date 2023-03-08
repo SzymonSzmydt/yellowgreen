@@ -1,5 +1,7 @@
+import { BasketList } from './../components/basket/basket';
+
 function Basket() {
-  return <h1> Basket Page</h1>;
+  return <BasketList />;
 }
 
 export default Basket;
