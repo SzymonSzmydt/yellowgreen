@@ -27,7 +27,7 @@ export function BasketCalc({ product }: BasketProps) {
         id: product.id,
         quantity: quantity,
         name: product.namePL,
-        price: product.pricePL,
+        price: +product.pricePL,
       })
     );
     setQuantity(1);

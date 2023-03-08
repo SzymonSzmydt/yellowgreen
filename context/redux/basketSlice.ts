@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../context/redux/store';
 
 interface BasketData {
-    id: number;
+  id: number;
   quantity: number;
   name: string;
   price: number;
@@ -21,7 +21,7 @@ export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addProductToBasket: (state, action: PayloadAction<BasketData>) => {
+    addProductToBasket(state, action: PayloadAction<BasketData>) {
       state.value.push(action.payload);
     },
   },
@@ -29,5 +29,5 @@ export const basketSlice = createSlice({
 
 export const { addProductToBasket } = basketSlice.actions;
 
-export const selectProducts = (state: RootState) => state.basket.value;
+export const menageBasket = (state: RootState) => state.basket.value;
 export default basketSlice.reducer;

@@ -15,12 +15,6 @@ export default function Home({ products }: HomeProps) {
     <>
       <Head>
         <title>North Shape</title>
-        <meta
-          name="description"
-          content="Meble od projektantów, nietuzinkowe kształty"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       {/* <Intro /> */}
       <h1 className={style.center}> Fotele</h1>
