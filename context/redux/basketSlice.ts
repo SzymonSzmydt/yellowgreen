@@ -11,6 +11,11 @@ const initialState: BasketState = {
   value: [],
 };
 
+type Modyfy = {
+  id: number;
+  newQuantity: number;
+};
+
 export const basketSlice = createSlice({
   name: 'basket',
   initialState,
@@ -18,10 +23,18 @@ export const basketSlice = createSlice({
     addProductToBasket(state, action: PayloadAction<BasketData>) {
       state.value.push(action.payload);
     },
+    modyfyQuantity(state, action: PlayloadAction<Modyfy>) {
+      const product = state.value.find(
+        (product) => product.id === action.payload.id
+      );
+      if (product) {
+        product.quantity = action.payload.newQuantity;
+      }
+    },
   },
 });
 
-export const { addProductToBasket } = basketSlice.actions;
+export const { addProductToBasket, modyfyQuantity } = basketSlice.actions;
 
 export const menageBasket = (state: RootState) => state.basket.value;
 export default basketSlice.reducer;

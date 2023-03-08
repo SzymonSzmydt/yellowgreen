@@ -1,6 +1,8 @@
 .box {
     display: flex;
     margin: 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--semi-color);
 }
 
 .image {
@@ -15,6 +17,49 @@
     justify-content: space-between;
 }
 
-.information p {
-    margin: 1rem 2rem;
+.midle {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.del {
+    cursor: pointer;
+    font-size: 0.85rem;
+    position: relative;
+    padding: 0 0.75rem;
+}
+
+.del::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid var(--semi-color);
+    transform: rotate(45deg);
+}
+
+.del::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid var(--semi-color);
+    transform: rotate(-45deg);
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.select {
+    width: 5rem;
+    box-shadow: 0;
+    margin-right: auto;
 }

@@ -13,7 +13,7 @@ export function BasketList() {
       </WindowDashboardBar>
       <>
         {basket.length > 0
-          ? basket.map((product) => <List {...product} />)
+          ? basket.map((product) => <List key={product.id} {...product} />)
           : null}
       </>
     </div>
