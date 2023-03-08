@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../context/redux/store';
-import { CorrectProductType } from './../types/type';
+
+interface BasketData {
+    id: number;
+  quantity: number;
+  name: string;
+  price: number;
+}
 
 interface BasketState {
-  value: Array<CorrectProductType>;
+  value: Array<BasketData>;
 }
 
 const initialState: BasketState = {
@@ -15,8 +21,8 @@ export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addProductToBasket: (state, action: PayloadAction<CorrectProductType>) => {
-      state.value = action.payload;
+    addProductToBasket: (state, action: PayloadAction<BasketData>) => {
+      state.value.push(action.payload);
     },
   },
 });

@@ -4,24 +4,35 @@ import StandardButton from './../button/Standard';
 import { Minus } from './../button/Minus';
 import { Plus } from './../button/Plus';
 import { CorrectProductType } from './../../context/types/type';
+import { useAppDispatch } from './../../context/redux/hooks';
+import { addProductToBasket } from './../../context/redux/basketSlice';
 
 type BasketProps = {
   product: CorrectProductType;
 };
 
 export function BasketCalc({ product }: BasketProps) {
+  const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState<number>(1);
 
-  const quantityMinusValidation = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
-    else return null;
+  const quantityMinusValidation = () =>
+    quantity > 1 ? setQuantity(quantity - 1) : null;
+
+  const quantityHandleValidation = (e: number) =>
+    e >= 1 ? setQuantity(+e) : null;
+
+  const addToBasket = () => {
+    dispatch(
+      addProductToBasket({
+        id: product.id,
+        quantity: quantity,
+        name: product.namePL,
+        price: product.pricePL,
+      })
+    );
+    setQuantity(1);
   };
 
-  const quantityHandleValidation = (e: number) => {
-    if (e >= 1) {
-      setQuantity(+e);
-    } else return;
-  };
   return (
     <section className={style.box}>
       <article>
@@ -49,7 +60,7 @@ export function BasketCalc({ product }: BasketProps) {
       />
       <StandardButton
         name="DO KOSZYKA"
-        handleClick={() => setQuantity(quantity + 1)}
+        handleClick={addToBasket}
         white={true}
       />
     </section>
