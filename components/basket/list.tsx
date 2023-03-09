@@ -1,10 +1,21 @@
 import style from './styles/list.module.css';
 import { BasketData } from './../../context/types/type';
 import { useAppDispatch } from './../../context/redux/hooks';
-import { modyfyQuantity } from './../../context/redux/basketSlice';
+import {
+  modyfyQuantity,
+  deleteBasketProduct,
+} from './../../context/redux/basketSlice';
 
 export function List({ id, quantity, name, price }: BasketData) {
   const dispatch = useAppDispatch();
+
+  const handleModyfyBasket = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
+    if (e.target.value === '0') {
+      dispatch(deleteBasketProduct(id));
+    }
+    dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }));
+  };
 
   return (
     <div className={style.box}>
@@ -19,7 +30,7 @@ export function List({ id, quantity, name, price }: BasketData) {
             className={style.select}
             value={quantity}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }))
+              handleModyfyBasket(e)
             }
           >
             {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
