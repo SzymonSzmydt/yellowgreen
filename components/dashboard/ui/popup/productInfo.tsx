@@ -9,6 +9,8 @@ export function ProductInfo({ ...product }: CorrectProductType) {
         <ul className={style.text}>
           <li> {product.nameEN} </li>
           <li>&euro; {product.priceEU} </li>
+          <li> {product.shipping}</li>
+          <li> {product.delivery} zł</li>
           <li> {product.category}</li>
         </ul>
       </section>

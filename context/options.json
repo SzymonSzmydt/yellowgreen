@@ -1,0 +1,9 @@
+{
+  "category": ["Garderoba"],
+  "shipping": [
+    "2-5 dni roboczych",
+    "5-10 dni roboczych",
+    "10-21 dni roboczych"
+  ],
+  "delivery": ["25.00", "30.00"]
+}

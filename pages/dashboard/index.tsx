@@ -7,10 +7,10 @@ import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
 import { getProducts } from './../../context/redux/productsSlice';
 import { Stats } from './../../components/dashboard/ui/stats/stats';
 import { CorrectProductType } from './../../context/types/type';
-import categoryJson from '../../context/category.json';
+import options from '../../context/options.json';
 
 function Dashboard() {
-  const { category } = categoryJson;
+  const { category } = options;
   const products = useAppSelector((state) => state.products.value);
   const dispatch = useAppDispatch();
 

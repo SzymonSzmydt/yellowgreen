@@ -1,7 +1,7 @@
 import add from './styles/form.module.css';
 import { Dispatch, SetStateAction } from 'react';
 import { CorrectProductType } from './../../../context/types/type';
-import categoryJson from '../../../context/category.json';
+import options from '../../../context/options.json';
 
 type FormProps = {
   productData: CorrectProductType;
@@ -9,7 +9,7 @@ type FormProps = {
 };
 
 export function ProductForm({ productData, setProductData }: FormProps) {
-  const { category } = categoryJson;
+  const { category, shipping, delivery } = options;
 
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
@@ -96,10 +96,50 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           </option>
         ))}
       </select>
-      {/* <label className={add.picture}>
-        Zdjęcie produktu
-        <input type="file" name="picture" required />
-      </label> */}
+
+      <label className={add.label}>Termin dostawy</label>
+      <select
+        name="shipping"
+        className={add.select}
+        required
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+          setProductData({
+            ...productData,
+            shipping: e.target.value,
+          })
+        }
+      >
+        <option value={productData.shipping ? productData.shipping : ''}>
+          {productData.shipping ? productData.shipping : 'Wybierz'}
+        </option>
+        {shipping.map((e, i) => (
+          <option key={i} value={e}>
+            {e}
+          </option>
+        ))}
+      </select>
+
+      <label className={add.label}>Koszt dostawy</label>
+      <select
+        name="delivery"
+        className={add.select}
+        required
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+          setProductData({
+            ...productData,
+            delivery: e.target.value,
+          })
+        }
+      >
+        <option value={productData.delivery ? productData.delivery : ''}>
+          {productData.delivery ? productData.delivery : 'Wybierz'}
+        </option>
+        {delivery.map((e, i) => (
+          <option key={i} value={e}>
+            {e}
+          </option>
+        ))}
+      </select>
 
       <label className={add.label}>Cena - PLN</label>
       <input

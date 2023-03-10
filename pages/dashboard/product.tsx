@@ -24,9 +24,9 @@ function ProductList() {
   };
 
   useEffect(() => {
-    return () => fetchProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAddProductClicked, productSelectedToEdit]);
+    fetchProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAddProductClicked]);
 
   return (
     <>
