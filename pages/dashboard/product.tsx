@@ -24,9 +24,7 @@ function ProductList() {
   };
 
   useEffect(() => {
-    if (!isAddProductClicked) {
-      return () => fetchProducts();
-    }
+    return () => fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAddProductClicked, productSelectedToEdit]);
 

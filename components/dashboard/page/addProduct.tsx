@@ -16,6 +16,9 @@ const initialState: CorrectProductType = {
   nameEN: '',
   namePL: '',
   sales: 0,
+  image1: '',
+  image2: '',
+  image3: '',
 };
 
 type AddProps = {

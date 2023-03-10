@@ -11,6 +11,9 @@ export interface CorrectProductType {
   nameEN: string;
   namePL: string;
   sales: number;
+  image1: string;
+  image2: string;
+  image3: string;
 }
 
 export interface Body {

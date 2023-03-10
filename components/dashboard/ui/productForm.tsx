@@ -171,6 +171,41 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           })
         }
       />
+      <label className={add.label}>Zdjęcie produktu nr 1</label>
+      <input
+        type="text"
+        name="image1"
+        required
+        minLength={5}
+        className={add.input}
+        value={productData.image1}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChangeInputValue(e)
+        }
+      />
+      <label className={add.label}>Zdjęcie produktu nr 2</label>
+      <input
+        type="text"
+        name="image2"
+        required
+        minLength={5}
+        className={add.input}
+        value={productData.image2}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChangeInputValue(e)
+        }
+      />
+      <label className={add.label}>Zdjęcie produktu nr 3</label>
+      <input
+        type="text"
+        name="image3"
+        minLength={3}
+        className={add.input}
+        value={productData.image3}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChangeInputValue(e)
+        }
+      />
     </>
   );
 }
