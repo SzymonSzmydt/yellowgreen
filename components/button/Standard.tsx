@@ -6,7 +6,7 @@ type StandardProps = {
   white?: boolean;
 };
 
-function StandardButton({ handleClick, name, white }: StandardProps) {
+export function Standard({ handleClick, name, white }: StandardProps) {
   const styles = white ? btn.standardWhite : btn.standard;
   return (
     <button onClick={handleClick} className={styles}>
@@ -14,5 +14,3 @@ function StandardButton({ handleClick, name, white }: StandardProps) {
     </button>
   );
 }
-
-export default StandardButton;

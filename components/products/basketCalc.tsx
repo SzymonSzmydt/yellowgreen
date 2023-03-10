@@ -1,8 +1,8 @@
 import style from './styles/basket.module.css';
 import { useState } from 'react';
-import StandardButton from './../button/Standard';
-import { Minus } from './../button/Minus';
-import { Plus } from './../button/Plus';
+import { Standard } from './../button/standard';
+import { Minus } from './../button/minus';
+import { Plus } from './../button/plus';
 import { CorrectProductType } from './../../context/types/type';
 import { useAppDispatch } from './../../context/redux/hooks';
 import { addProductToBasket } from './../../context/redux/basketSlice';
@@ -54,15 +54,8 @@ export function BasketCalc({ product }: BasketProps) {
         <Plus handleClick={() => setQuantity(quantity + 1)} />
         <Minus handleClick={quantityMinusValidation} />
       </div>
-      <StandardButton
-        name="KUP"
-        handleClick={() => setQuantity(quantity + 1)}
-      />
-      <StandardButton
-        name="DO KOSZYKA"
-        handleClick={addToBasket}
-        white={true}
-      />
+      <Standard name="KUP" handleClick={() => setQuantity(quantity + 1)} />
+      <Standard name="DO KOSZYKA" handleClick={addToBasket} white={true} />
     </section>
   );
 }

@@ -7,3 +7,26 @@
     font-weight: 400;
     margin-left: 1rem;
 }
+
+.empty {
+    composes: container from global;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box h2 {
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+.box p {
+    margin: 1.5rem 0;
+}

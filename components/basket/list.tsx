@@ -6,32 +6,35 @@ import {
   deleteBasketProduct,
   resetBasket,
 } from './../../context/redux/basketSlice';
-import { useRouter } from 'next/router';
 
 export function List({ id, quantity, name, price }: BasketData) {
-  const router = useRouter();
   const basket = useAppSelector((state) => state.basket.value);
   const dispatch = useAppDispatch();
+
+  const deleteProductFromBasket = () => {
+    if (basket.length === 1) {
+      return dispatch(resetBasket());
+    }
+    return dispatch(deleteBasketProduct(id));
+  };
 
   const handleModyfyBasket = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
     if (e.target.value === '0') {
-      if (basket.length === 1) {
-        dispatch(resetBasket());
-        return router.push('/');
-      }
-      return dispatch(deleteBasketProduct(id));
+      deleteProductFromBasket();
     }
     return dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }));
   };
 
   return (
-    <div className={style.box}>
+    <section className={style.box}>
       <div className={style.image} />
       <div className={style.information}>
         <section className={style.midle}>
           <p> {name} </p>
-          <p className={style.del}> Usuń </p>
+          <span className={style.del} onClick={deleteProductFromBasket}>
+            Usuń
+          </span>
         </section>
         <section className={style.total}>
           <select
@@ -48,6 +51,6 @@ export function List({ id, quantity, name, price }: BasketData) {
           {quantity * price} zł
         </section>
       </div>
-    </div>
+    </section>
   );
 }
