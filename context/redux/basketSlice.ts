@@ -23,6 +23,9 @@ export const basketSlice = createSlice({
     addProductToBasket: (state, action: PayloadAction<BasketData>) => {
       state.value.push(action.payload);
     },
+    resetBasket(state, action) {
+      return initialState;
+    },
     deleteBasketProduct(state, action: PayloadAction<number>) {
       const newBasket = state.value.filter(
         (product) => product.id !== action.payload
@@ -40,8 +43,12 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addProductToBasket, modyfyQuantity, deleteBasketProduct } =
-  basketSlice.actions;
+export const {
+  addProductToBasket,
+  modyfyQuantity,
+  deleteBasketProduct,
+  resetBasket,
+} = basketSlice.actions;
 
 export const menageBasket = (state: RootState) => state.basket.value;
 export default basketSlice.reducer;

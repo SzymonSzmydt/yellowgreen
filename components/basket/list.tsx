@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
 import {
   modyfyQuantity,
   deleteBasketProduct,
+  resetBasket,
 } from './../../context/redux/basketSlice';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export function List({ id, quantity, name, price }: BasketData) {
@@ -16,16 +16,14 @@ export function List({ id, quantity, name, price }: BasketData) {
   const handleModyfyBasket = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
     if (e.target.value === '0') {
-      dispatch(deleteBasketProduct(id));
+      if (basket.length === 1) {
+        dispatch(resetBasket());
+        return router.push('/');
+      }
+      return dispatch(deleteBasketProduct(id));
     }
-    dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }));
+    return dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }));
   };
-
-  useEffect(() => {
-    if (basket.length === 0) {
-      router.push('/');
-    }
-  }, [basket, router]);
 
   return (
     <div className={style.box}>
