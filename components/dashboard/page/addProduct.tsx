@@ -44,7 +44,7 @@ function AddNewProduct({
   const fetchCategory = async () => {
     const response = await fetch('/api/dashboard/getCategory');
     const data = await response.json();
-    const result: Array<string> = Object.values(data);
+    const result: Array<string> = data.category;
     dispatch(getCategory(result));
   };
 
