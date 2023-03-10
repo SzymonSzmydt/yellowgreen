@@ -1,12 +1,16 @@
 import style from './styles/list.module.css';
 import { BasketData } from './../../context/types/type';
-import { useAppDispatch } from './../../context/redux/hooks';
+import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
 import {
   modyfyQuantity,
   deleteBasketProduct,
 } from './../../context/redux/basketSlice';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export function List({ id, quantity, name, price }: BasketData) {
+  const router = useRouter();
+  const basket = useAppSelector((state) => state.basket.value);
   const dispatch = useAppDispatch();
 
   const handleModyfyBasket = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -16,6 +20,12 @@ export function List({ id, quantity, name, price }: BasketData) {
     }
     dispatch(modyfyQuantity({ id: id, newQuantity: +e.target.value }));
   };
+
+  useEffect(() => {
+    if (basket.length === 0) {
+      router.push('/');
+    }
+  }, [basket, router]);
 
   return (
     <div className={style.box}>
@@ -33,7 +43,7 @@ export function List({ id, quantity, name, price }: BasketData) {
               handleModyfyBasket(e)
             }
           >
-            {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+            {Array.from({ length: 11 }, (_, i) => i).map((num) => (
               <option key={num}> {num} </option>
             ))}
           </select>
