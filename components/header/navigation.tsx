@@ -36,7 +36,7 @@ function Navigation() {
           </Link>
         </div>
       </nav>
-      {paths.length > 0 ? (
+      {paths.length > 0 && !paths.includes('basket') ? (
         <div className={style.smallNav}>
           <Link href="/" className={style.smallLink}>
             Home
