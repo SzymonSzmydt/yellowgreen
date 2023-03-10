@@ -1,18 +1,16 @@
 import add from './styles/form.module.css';
 import { Dispatch, SetStateAction } from 'react';
 import { CorrectProductType } from './../../../context/types/type';
+import categoryJson from '../../../context/category.json';
 
 type FormProps = {
   productData: CorrectProductType;
   setProductData: Dispatch<SetStateAction<CorrectProductType>>;
-  category: string[];
 };
 
-export function ProductForm({
-  productData,
-  setProductData,
-  category,
-}: FormProps) {
+export function ProductForm({ productData, setProductData }: FormProps) {
+  const { category } = categoryJson;
+
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
   ) => {

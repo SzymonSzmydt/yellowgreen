@@ -1,8 +1,5 @@
 import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../context/redux/hooks';
-import { getCategory } from '../../../context/redux/categorySlice';
-import { Category } from './category';
 import { ProductForm } from './../ui/productForm';
 import { CorrectProductType } from './../../../context/types/type';
 
@@ -25,36 +22,20 @@ type AddProps = {
   productSelectedToEdit: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
-  isCategoryClicked: boolean;
-  setIsCategoryClicked: Dispatch<SetStateAction<boolean>>;
 };
 
 function AddNewProduct({
   productSelectedToEdit,
   setIsAddProductClicked,
   setProductSelectedToEdit,
-  isCategoryClicked,
-  setIsCategoryClicked,
 }: AddProps) {
   const [productData, setProductData] =
     useState<CorrectProductType>(initialState);
-  const dispatch = useAppDispatch();
-  const category = useAppSelector((state) => state.category.value);
-
-  const fetchCategory = async () => {
-    const response = await fetch('/api/dashboard/getCategory');
-    const data = await response.json();
-    const result: Array<string> = data.category;
-    dispatch(getCategory(result));
-  };
 
   useEffect(() => {
     if (productSelectedToEdit.namePL?.length > 2) {
       setProductData(productSelectedToEdit);
       setProductSelectedToEdit({} as CorrectProductType);
-    }
-    if (category.length === 0) {
-      fetchCategory();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSelectedToEdit]);
@@ -76,9 +57,7 @@ function AddNewProduct({
     setIsAddProductClicked(false);
   };
 
-  return isCategoryClicked ? (
-    <Category setIsCategoryClicked={setIsCategoryClicked} />
-  ) : (
+  return (
     <>
       <h2> Informacje o produkcie</h2>
       <br />
@@ -86,7 +65,6 @@ function AddNewProduct({
         <ProductForm
           productData={productData}
           setProductData={setProductData}
-          category={category}
         />
         <Variant name={'Zapisz'} />
       </form>

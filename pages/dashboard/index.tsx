@@ -1,26 +1,19 @@
 import type { ReactElement } from 'react';
 import { useEffect } from 'react';
-import WindowDashboard from '../../components/window/windowDashboard';
 import DashLayout from '../../components/layout/DashLayout';
-import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
-import { getCategory } from './../../context/redux/categorySlice';
-import { getProducts } from './../../context/redux/productsSlice';
+import WindowDashboard from '../../components/window/windowDashboard';
 import WindowDashboardBar from './../../components/window/windowDashboardBar';
+import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
+import { getProducts } from './../../context/redux/productsSlice';
 import { Stats } from './../../components/dashboard/ui/stats/stats';
 import { CorrectProductType } from './../../context/types/type';
+import categoryJson from '../../context/category.json';
 
 function Dashboard() {
-  const category = useAppSelector((state) => state.category.value);
+  const { category } = categoryJson;
   const products = useAppSelector((state) => state.products.value);
   const dispatch = useAppDispatch();
 
-  const fetchCategory = async () => {
-    const response = await fetch('/api/dashboard/getCategory');
-    const data = await response.json();
-    const result: Array<string> = Object.values(data);
-
-    dispatch(getCategory(result));
-  };
   const fetchProducts = async () => {
     const response = await fetch('/api/products/getProducts');
     const data = await response.json();
@@ -29,14 +22,11 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    if (category.length < 1) {
-      fetchCategory();
-    }
     if (products.length === 0) {
       fetchProducts();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, products]);
+  }, [products]);
 
   return (
     <>

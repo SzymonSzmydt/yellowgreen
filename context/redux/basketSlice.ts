@@ -23,7 +23,7 @@ export const basketSlice = createSlice({
     addProductToBasket: (state, action: PayloadAction<BasketData>) => {
       state.value.push(action.payload);
     },
-    resetBasket(state, action) {
+    resetBasket() {
       return initialState;
     },
     deleteBasketProduct(state, action: PayloadAction<number>) {
