@@ -15,7 +15,7 @@ export default function Home({ products }: HomeProps) {
       <Head>
         <title>North Shape</title>
       </Head>
-      <Intro />
+      <Intro products={products} />
       <Exposition products={products} />
     </>
   );
