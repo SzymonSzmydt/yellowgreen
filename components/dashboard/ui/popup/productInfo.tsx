@@ -10,8 +10,8 @@ export function ProductInfo({ ...product }: CorrectProductType) {
           <li> {product.nameEN} </li>
           <li>&euro; {product.priceEU} </li>
           <li> {product.shipping}</li>
-          <li> {product.delivery} zł</li>
-          <li> {product.category}</li>
+          <li> Koszt przesyłki: {product.delivery} zł</li>
+          <li> Kategoria {product.category}</li>
         </ul>
       </section>
     </div>

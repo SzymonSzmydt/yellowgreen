@@ -46,17 +46,13 @@ function AddNewProduct({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await fetch('/api/dashboard/postProduct', {
-        method: 'POST',
-        body: JSON.stringify(productData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    await fetch('/api/dashboard/postProduct', {
+      method: 'POST',
+      body: JSON.stringify(productData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     setProductData(initialState);
     setIsAddProductClicked(false);
   };

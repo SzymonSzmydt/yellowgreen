@@ -14,38 +14,23 @@ export default async function handler(
   const body = req.body;
 
   const sendProductsToFirebase = async (product: Body) => {
-    try {
-      await setDoc(doc(db, 'dashboard', 'products'), product, {
-        merge: true,
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    await setDoc(doc(db, 'dashboard', 'products'), product, {
+      merge: true,
+    });
   };
 
-  if (
-    body.id === 0 &&
-    body.namePL &&
-    body.nameEN &&
-    body.category &&
-    body.colorPL &&
-    body.colorEN &&
-    body.pricePL &&
-    body.priceEU &&
-    body.descriptionPL &&
-    body.descriptionEN
-  ) {
+  if (body.id === 0) {
     body.id = Date.now();
     const data: Body = {
       [body.id]: body,
     };
-    res.status(201).send({ message: 'Seccess' });
-    return sendProductsToFirebase(data);
-  }
-  if (body.id > 0) {
+    sendProductsToFirebase(data);
+    res.status(201).send({ message: 'Dodano do koszyka' });
+  } else if (body.id > 0) {
     const data: Body = {
       [body.id]: body,
     };
-    return sendProductsToFirebase(data);
+    sendProductsToFirebase(data);
+    res.status(200).send({ message: 'Dodano do koszyka' });
   } else res.status(400).json({ message: 'Pola nie uzupełnione' });
 }

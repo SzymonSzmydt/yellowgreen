@@ -1,0 +1,97 @@
+.product {
+    composes: container from global;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.details {
+    padding: 1rem 0;
+    border-top: 1px solid var(--semi-color);
+}
+
+.details:last-child {
+    border-bottom: 1px solid var(--semi-color);
+}
+
+.details>summary {
+    list-style-type: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.details>summary::-webkit-details-marker {
+    display: none;
+}
+
+.details>summary::after {
+    position: absolute;
+    content: '+';
+    right: 1rem;
+}
+
+.details[open]>summary::after {
+    position: absolute;
+    content: '-';
+    right: 1rem;
+}
+
+.details[open]>summary::before {
+    display: none;
+}
+
+.details>p {
+    margin: 1rem 0;
+}
+
+.basket {
+    width: 40%;
+}
+
+.imageBox {
+    width: 60%;
+    height: 32rem;
+    border: 2px solid yellowgreen;
+}
+
+.article {
+    width: 100%;
+    border-top: 1px solid var(--semi-color);
+}
+
+.article h2 {
+    margin: 1rem 0 2rem;
+}
+
+.article h3 {
+    font-weight: 500;
+    margin: 1rem 0 1rem;
+}
+
+.article p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1265px) {
+    .product {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .basket {
+        width: 100%;
+    }
+
+    .imageBox {
+        width: 100%;
+    }
+}

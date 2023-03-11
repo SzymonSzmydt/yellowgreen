@@ -1,0 +1,14 @@
+.main {
+    composes: container from global;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img {
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.img:hover {
+    transform: scale(0.96);
+}

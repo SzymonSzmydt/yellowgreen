@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import style from '../styles/Home.module.css';
-// import Intro from './../components/body/intro';
-import Commercial from '../components/body/commercial';
+import Intro from './../components/body/intro';
+import Exposition from '../components/body/exposition';
 import { CorrectProductType } from './../context/types/type';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../context/Firebase';
@@ -16,11 +15,8 @@ export default function Home({ products }: HomeProps) {
       <Head>
         <title>North Shape</title>
       </Head>
-      {/* <Intro /> */}
-      <h1 className={style.center}> Fotele</h1>
-      <Commercial products={products} />
-      <Commercial products={products} />
-      <Commercial products={products} />
+      <Intro />
+      <Exposition products={products} />
     </>
   );
 }
