@@ -32,9 +32,11 @@ export function ListOfProducts({
           ? searchValue.length > 0
             ? productList
                 .filter((filtr) =>
-                  filtr['namePL']
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase())
+                  /[0-9]{3}/.test(searchValue)
+                    ? filtr['id'].toString().includes(searchValue)
+                    : filtr['namePL']
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())
                 )
                 .map((product) => (
                   <ProductDetailsBody

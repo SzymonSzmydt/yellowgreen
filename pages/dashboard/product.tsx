@@ -6,29 +6,29 @@ import WindowDashboardBody from '../../components/window/windowDashboardBody';
 import AddNewProduct from '../../components/dashboard/page/addProduct';
 import { Variant } from '../../components/button/Variant';
 import { useState, useEffect } from 'react';
-import { useAppDispatch } from '../../context/redux/hooks';
-import { ListOfProducts } from './../../components/dashboard/page/products';
-import { getProducts } from '../../context/redux/productsSlice';
+// import { useAppDispatch } from '../../context/redux/hooks';
+// import { getProducts } from '../../context/redux/productsSlice';
+import { ListOfProducts } from './../../components/dashboard/page/listOfProducts';
 import { CorrectProductType } from '../../context/types/type';
 
 function ProductList() {
-  const dispatch = useAppDispatch();
+  //   const dispatch = useAppDispatch();
   const [isAddProductClicked, setIsAddProductClicked] = useState(false);
   const [productSelectedToEdit, setProductSelectedToEdit] =
     useState<CorrectProductType>({} as CorrectProductType);
 
-  const fetchProducts = async () => {
-    const response = await fetch('/api/products/getProducts');
-    const data = await response.json();
-    dispatch(getProducts(data));
-  };
+  //   const fetchProducts = async () => {
+  //     const response = await fetch('/api/products/getProducts');
+  //     const data = await response.json();
+  //     dispatch(getProducts(data));
+  //   };
 
-  useEffect(() => {
-    if (!isAddProductClicked) {
-      fetchProducts();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAddProductClicked]);
+  //   useEffect(() => {
+  //     if (!isAddProductClicked) {
+  //       fetchProducts();
+  //     }
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, [isAddProductClicked]);
 
   return (
     <>
