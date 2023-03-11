@@ -20,6 +20,7 @@ const initialState: CorrectProductType = {
   image1: '',
   image2: '',
   image3: '',
+  weight: '',
 };
 
 type AddProps = {

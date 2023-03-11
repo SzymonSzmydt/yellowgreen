@@ -12,6 +12,7 @@ export function ProductInfo({ ...product }: CorrectProductType) {
           <li> {product.shipping}</li>
           <li> Koszt przesyłki: {product.delivery} zł</li>
           <li> Kategoria {product.category}</li>
+          <li> Waga {product.weight} kg</li>
         </ul>
       </section>
     </div>

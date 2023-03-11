@@ -96,7 +96,6 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           </option>
         ))}
       </select>
-
       <label className={add.label}>Termin dostawy</label>
       <select
         name="shipping"
@@ -118,7 +117,6 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           </option>
         ))}
       </select>
-
       <label className={add.label}>Koszt dostawy</label>
       <select
         name="delivery"
@@ -140,6 +138,26 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           </option>
         ))}
       </select>
+      <label className={add.label}>Waga produktu (kg)</label>
+      <input
+        type="number"
+        name="weight"
+        required
+        minLength={1}
+        step="0.01"
+        min="0.01"
+        max="1000.00"
+        pattern="^\d+(\.\d{1,2})|(?![e])?$"
+        placeholder="np. 5"
+        className={add.priceInput}
+        value={productData.weight}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setProductData({
+            ...productData,
+            weight: e.target.value,
+          })
+        }
+      />
 
       <label className={add.label}>Cena - PLN</label>
       <input

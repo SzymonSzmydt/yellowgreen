@@ -24,8 +24,10 @@ function ProductList() {
   };
 
   useEffect(() => {
-    fetchProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!isAddProductClicked) {
+      fetchProducts();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAddProductClicked]);
 
   return (
