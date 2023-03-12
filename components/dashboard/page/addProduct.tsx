@@ -1,5 +1,7 @@
 import { Variant } from '../../button/Variant';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useAppDispatch } from '../../../context/redux/hooks';
+import { modyfyProductState } from '../../../context/redux/productsSlice';
 import { ProductForm } from './../ui/productForm';
 import { CorrectProductType } from './../../../context/types/type';
 
@@ -34,6 +36,8 @@ function AddNewProduct({
   setIsAddProductClicked,
   setProductSelectedToEdit,
 }: AddProps) {
+  const dispatch = useAppDispatch();
+
   const [productData, setProductData] =
     useState<CorrectProductType>(initialState);
 
@@ -54,6 +58,10 @@ function AddNewProduct({
         'Content-Type': 'application/json',
       },
     });
+    if (productData.id > 0) {
+      dispatch(modyfyProductState({ id: productData.id, new: productData }));
+    }
+
     setProductData(initialState);
     setIsAddProductClicked(false);
   };

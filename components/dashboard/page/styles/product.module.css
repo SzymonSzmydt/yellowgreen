@@ -5,3 +5,8 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.table {
+    width: 100%;
+    font-weight: 500;
+}
