@@ -1,3 +1,37 @@
 .intro {
     composes: container from global;
+    border-top: 1px solid var(--semi-color);
+    border-bottom: 1px solid var(--semi-color);
+}
+
+.title {
+    background-color: var(--glass);
+    border-radius: var(--radius-small);
+    color: var(--box-color);
+    padding: 0.5rem;
+    margin: 1rem 0 0;
+}
+
+.title h2 {
+    font-weight: 500;
+    padding: 0.25rem;
+    border: 1px solid var(--background-color);
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.text {
+    max-width: 30rem;
+    margin: 0 2rem;
+    color: var(--dark-color);
+}
+
+.text h3 {
+    color: var(--dropdown-text-a);
+    margin: 1rem 0;
 }
