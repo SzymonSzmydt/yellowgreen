@@ -59,7 +59,7 @@ function AddNewProduct({
       },
     });
     if (productData.id > 0) {
-      dispatch(modyfyProductState({ id: productData.id, new: productData }));
+      dispatch(modyfyProductState(productData));
     }
 
     setProductData(initialState);
