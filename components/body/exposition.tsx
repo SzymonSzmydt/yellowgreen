@@ -14,7 +14,7 @@ function Exposition({ products }: CommercialProps) {
         ? products
             .filter((filtr) => filtr.category === 'Garderoba')
             .map((product) => (
-              <Link href={`/products/${product.id}`} key={product.id}>
+              <Link href={`/garderoba/${product.id}`} key={product.id}>
                 <Image
                   src={product.image1}
                   alt={`${product.namePL}`}
