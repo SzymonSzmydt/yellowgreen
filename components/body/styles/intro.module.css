@@ -4,20 +4,6 @@
     border-bottom: 1px solid var(--semi-color);
 }
 
-.title {
-    background-color: var(--glass);
-    border-radius: var(--radius-small);
-    color: var(--box-color);
-    padding: 0.5rem;
-    margin: 1rem 0 0;
-}
-
-.title p {
-    font-weight: 500;
-    padding: 0.25rem;
-    border: 1px solid var(--background-color);
-}
-
 .box {
     display: flex;
     flex-wrap: wrap;

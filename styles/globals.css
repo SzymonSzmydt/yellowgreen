@@ -22,9 +22,9 @@
 
     --light-green: rgb(237, 247, 248);
 
-    --shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+    --shadow: 0px 0px 11px -3px rgba(53, 122, 143, 1);
 
-    --radius-small: 2px;
+    --radius-small: 4px;
     --radius-dash: 0.5rem;
 
     --green: rgb(29, 161, 29);

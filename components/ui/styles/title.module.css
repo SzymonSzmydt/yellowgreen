@@ -1,0 +1,13 @@
+.title {
+    display: block;
+    background-color: var(--glass);
+    padding: 0.5rem;
+    border-radius: var(--radius-small);
+    margin-top: 1rem;
+}
+
+.title p {
+    padding: 0.35rem;
+    border: 2px solid var(--background-color);
+    color: var(--box-color);
+}

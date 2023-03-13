@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
+import { TitleAccent } from '../../components/ui/titleAccent';
 
 type CategoryProps = {
   products: CorrectProductType[];
@@ -12,14 +13,14 @@ type CategoryProps = {
 export default function Category({ products }: CategoryProps) {
   return (
     <div className={style.category}>
-      <div className={style.title}>
-        <p>Garderoba</p>
-      </div>
+      <TitleAccent name={'Garderoba'} />
       <section className={style.box}>
         {products.map((product) => (
-          <article className={style.article}>
+          <article key={product.id} className={style.article}>
             <Link href={`/garderoba/${product.id}`}>
-              <Image src={product.image1} width={300} height={300} />
+              <div className={style.img}>
+                <Image src={product.image1} width={227} height={104} />
+              </div>
               <section className={style.description}>
                 <p> {product.namePL} </p>
                 <p className={style.price}>
