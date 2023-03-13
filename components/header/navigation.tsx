@@ -20,7 +20,7 @@ function Navigation() {
         <div className={navBoxBackMove}>
           <span className={style.menuText}>Menu</span>
           <Link href="/garderoba" className={style.link}>
-            Meble
+            Garderoba
           </Link>
           <Link href="/lamps" className={style.link}>
             Lampy
