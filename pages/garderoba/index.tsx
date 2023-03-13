@@ -12,15 +12,24 @@ type CategoryProps = {
 export default function Category({ products }: CategoryProps) {
   return (
     <div className={style.category}>
-      {products.map((product) => (
-        <article>
-          <Image src={product.image1} width={300} height={300} />
-          <Link href={`/garderoba/${product.id}`}>
-            <p> {product.namePL} </p>
-            <p> {product.pricePL} zł</p>
-          </Link>
-        </article>
-      ))}
+      <div className={style.title}>
+        <p>Garderoba</p>
+      </div>
+      <section className={style.box}>
+        {products.map((product) => (
+          <article className={style.article}>
+            <Link href={`/garderoba/${product.id}`}>
+              <Image src={product.image1} width={300} height={300} />
+              <section className={style.description}>
+                <p> {product.namePL} </p>
+                <p className={style.price}>
+                  <data value={product.pricePL}>{product.pricePL} zł</data>
+                </p>
+              </section>
+            </Link>
+          </article>
+        ))}
+      </section>
     </div>
   );
 }

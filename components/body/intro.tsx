@@ -11,7 +11,7 @@ function Intro({ products }: IntroProps) {
   return (
     <section className={style.intro}>
       <div className={style.title}>
-        <h2>{product.category}</h2>
+        <p> Subtelność</p>
       </div>
       <div className={style.box}>
         <Link href="/garderoba">
