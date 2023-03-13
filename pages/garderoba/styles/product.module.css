@@ -56,9 +56,11 @@
 }
 
 .imageBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
     height: 32rem;
-    border: 2px solid yellowgreen;
 }
 
 .article {

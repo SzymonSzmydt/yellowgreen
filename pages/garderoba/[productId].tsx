@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
+import Image from 'next/image';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -49,7 +50,7 @@ function Product({ product }: ProductProps) {
             </details>
           </div>
           <div className={style.imageBox}>
-            <em>Zdjęcie produktu</em>
+            <Image src={product.image1} width={520} height={265} />
           </div>
         </section>
         <article className={style.article}>
