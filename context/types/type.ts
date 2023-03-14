@@ -15,7 +15,7 @@ export interface CorrectProductType {
   image1: string;
   image2: string;
   image3: string;
-  weight: number;
+  weight: string;
 }
 
 export interface Body {

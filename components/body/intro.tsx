@@ -2,6 +2,7 @@ import style from './styles/intro.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TitleAccent } from '../ui/titleAccent';
+import { CorrectProductType } from '../../context/types/type';
 
 type IntroProps = {
   products: CorrectProductType[];
@@ -9,7 +10,7 @@ type IntroProps = {
 
 function Intro({ products }: IntroProps) {
   const product = products.find((product) => product.id === 1678469036739);
-  return (
+  return product ? (
     <section className={style.intro}>
       <TitleAccent name={'Shop The Look'} />
       <div className={style.box}>
@@ -32,7 +33,7 @@ function Intro({ products }: IntroProps) {
         </div>
       </div>
     </section>
-  );
+  ) : null;
 }
 
 export default Intro;

@@ -2,7 +2,6 @@ import { CorrectProductType } from './../types/type';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../context/redux/store';
-import { CorrectProductType } from '../../context/types/type';
 
 interface ProductsState {
   value: Array<CorrectProductType>;

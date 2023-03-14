@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
 import { TitleAccent } from '../../components/ui/titleAccent';
+import { CorrectProductType } from '../../context/types/type';
 
 type CategoryProps = {
   products: CorrectProductType[];
