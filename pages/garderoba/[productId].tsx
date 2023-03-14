@@ -52,7 +52,13 @@ function Product({ product }: ProductProps) {
             </details>
           </div>
           <div className={style.imageBox}>
-            <Image src={image} alt={product.namePL} height={520} width={520} className={style.image}/>
+            <Image
+              src={image}
+              alt={product.namePL}
+              height={520}
+              width={520}
+              className={style.image}
+            />
             <div className={style.dots}>
               <span
                 className={
@@ -60,12 +66,22 @@ function Product({ product }: ProductProps) {
                 }
                 onClick={() => setImage(product.image1)}
               />
-              <span
-                className={
-                  image === product.image2 ? style.colordot : style.dot
-                }
-                onClick={() => setImage(product.image2)}
-              />
+              {product.image2.length > 0 ? (
+                <span
+                  className={
+                    image === product.image2 ? style.colordot : style.dot
+                  }
+                  onClick={() => setImage(product.image2)}
+                />
+              ) : null}
+              {product.image3.length > 0 ? (
+                <span
+                  className={
+                    image === product.image3 ? style.colordot : style.dot
+                  }
+                  onClick={() => setImage(product.image3)}
+                />
+              ) : null}
             </div>
           </div>
         </section>
