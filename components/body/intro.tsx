@@ -11,7 +11,7 @@ function Intro({ products }: IntroProps) {
   const product = products.find((product) => product.id === 1678469036739);
   return (
     <section className={style.intro}>
-      <TitleAccent name={'Subtelność'} />
+      <TitleAccent name={'Shop The Look'} />
       <div className={style.box}>
         <Link href="/garderoba">
           <Image
