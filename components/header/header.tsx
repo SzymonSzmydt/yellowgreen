@@ -23,27 +23,29 @@ function Header() {
       </Head>
       <header className={style.header}>
         <div className={style.top}>
-          <Link href="/delivery" className={style.delivery}>
-            <em>Darmowa dostawa już od 300 zł</em>
-          </Link>
-          <section className={style.basketBox}>
-            <Link href="login">
-              <div className={style.user} />
+          <section className={style.container}>
+            <Link href="/delivery" className={style.delivery}>
+              <em>Darmowa dostawa już od 300 zł</em>
             </Link>
-            <Link href="/basket">
-              <div className={style.basket} />
-              <span
-                className={
-                  basket.length > 0
-                    ? style.basketQuantityOn
-                    : style.basketQuantityOff
-                }
-              >
-                {basket.length < 1
-                  ? 0
-                  : basket.reduce((a, b) => a + b.quantity, 0)}
-              </span>
-            </Link>
+            <section className={style.basketBox}>
+              <Link href="login">
+                <div className={style.user} />
+              </Link>
+              <Link href="/basket">
+                <div className={style.basket} />
+                <span
+                  className={
+                    basket.length > 0
+                      ? style.basketQuantityOn
+                      : style.basketQuantityOff
+                  }
+                >
+                  {basket.length < 1
+                    ? 0
+                    : basket.reduce((a, b) => a + b.quantity, 0)}
+                </span>
+              </Link>
+            </section>
           </section>
         </div>
         <div className={style.logo}>

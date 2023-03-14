@@ -3,6 +3,7 @@
     --accent-color: #8ecaff;
 
     --third-color: #83b4b0;
+    --top: #f1d9af;
 
     --box-color: #357a8f;
     --background-color: #fff;
@@ -15,7 +16,7 @@
     --dropdown-text-a: #82b7fd;
     --dropdown-text-b: #1ed6d8;
 
-    --accent-text-color: #bda5ab;
+    --accent-text-color: #e4436b;
     --glass: #5194dc28;
 
     --product: #eaf7fa;
@@ -41,7 +42,7 @@ html,
 body {
     max-width: 100vw;
     overflow-x: hidden;
-    overflow-y: scroll;
+
     scroll-behavior: smooth;
     background-color: var(--background-color);
 }
