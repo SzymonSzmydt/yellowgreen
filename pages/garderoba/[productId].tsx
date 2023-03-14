@@ -52,13 +52,15 @@ function Product({ product }: ProductProps) {
             </details>
           </div>
           <div className={style.imageBox}>
-            <Image
-              src={image}
-              alt={product.namePL}
-              height={520}
-              width={520}
-              className={style.image}
-            />
+            <figcaption className={style.figcaption}>
+              <Image
+                src={image}
+                alt={product.namePL}
+                height={520}
+                width={520}
+                className={style.image}
+              />
+            </figcaption>
             <div className={style.dots}>
               <span
                 className={
