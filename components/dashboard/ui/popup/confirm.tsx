@@ -2,6 +2,8 @@ import style from './styles/confirm.module.css';
 import { doc, updateDoc, deleteField } from 'firebase/firestore';
 import { Variant } from '../../../button/Variant';
 import { Dispatch, SetStateAction } from 'react';
+import { useAppDispatch } from '../../../../context/redux/hooks';
+import { deleteProductFromState } from '../../../../context/redux/productsSlice';
 import { db } from '../../../../context/Firebase';
 import { CorrectProductType } from '../../../../context/types/type';
 
@@ -20,11 +22,14 @@ export function Confirm({
   id,
   namePL,
 }: ConfirmProps) {
+  const dispatch = useAppDispatch();
+
   const handleDeleteProduct = async () => {
     const productRef = doc(db, 'dashboard', 'products');
     await updateDoc(productRef, {
       [id]: deleteField(),
     });
+    dispatch(deleteProductFromState(id));
     setIsDropdown(false);
     setProductSelectedToEdit({} as CorrectProductType);
   };

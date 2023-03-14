@@ -19,6 +19,12 @@ export const productsSlice = createSlice({
     getProducts: (state, action: PayloadAction<Array<CorrectProductType>>) => {
       state.value = action.payload;
     },
+    deleteProductFromState(state, action: PayloadAction<number>) {
+      const filteredState = state.value.filter(
+        (products) => products.id !== action.payload
+      );
+      state.value = filteredState;
+    },
     modyfyProductState(state, action: PayloadAction<CorrectProductType>) {
       const modyfyProduct = state.value.find(
         (product) => product.id === action.payload.id
@@ -44,7 +50,8 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { getProducts, modyfyProductState } = productsSlice.actions;
+export const { getProducts, modyfyProductState, deleteProductFromState } =
+  productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products.value;
 export default productsSlice.reducer;
