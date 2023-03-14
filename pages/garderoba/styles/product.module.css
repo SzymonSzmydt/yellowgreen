@@ -58,9 +58,23 @@
 .imageBox {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     width: 60%;
     height: 32rem;
+}
+
+.dots {
+    display: flex;
+}
+
+.dot {
+    cursor: pointer;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 1rem;
+    background-color: var(--semi-color);
+    border-radius: 50%;
 }
 
 .article {

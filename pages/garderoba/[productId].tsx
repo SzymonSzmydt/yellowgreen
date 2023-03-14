@@ -50,7 +50,16 @@ function Product({ product }: ProductProps) {
             </details>
           </div>
           <div className={style.imageBox}>
-            <Image src={product.image1} width={520} height={265} />
+            <Image
+              src={product.image1}
+              width={520}
+              height={265}
+              alt={product.namePL}
+            />
+            <div className={style.dots}>
+              <span className={style.dot} />
+              <span className={style.dot} />
+            </div>
           </div>
         </section>
         <article className={style.article}>
