@@ -9,7 +9,7 @@
 }
 
 .article {
-    max-width: 19rem;
+    max-width: 20rem;
     height: 20rem;
     margin: 1rem;
     border: 1px solid var(--semi-color);

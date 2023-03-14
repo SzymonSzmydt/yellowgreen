@@ -6,6 +6,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
 import Image from 'next/image';
+import { useState } from 'react';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -13,6 +14,7 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   const router = useRouter();
+  const [image, setImage] = useState(product.image1);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -50,15 +52,20 @@ function Product({ product }: ProductProps) {
             </details>
           </div>
           <div className={style.imageBox}>
-            <Image
-              src={product.image1}
-              width={520}
-              height={265}
-              alt={product.namePL}
-            />
+            <Image src={image} alt={product.namePL} height={520} width={520} className={style.image}/>
             <div className={style.dots}>
-              <span className={style.dot} />
-              <span className={style.dot} />
+              <span
+                className={
+                  image === product.image1 ? style.colordot : style.dot
+                }
+                onClick={() => setImage(product.image1)}
+              />
+              <span
+                className={
+                  image === product.image2 ? style.colordot : style.dot
+                }
+                onClick={() => setImage(product.image2)}
+              />
             </div>
           </div>
         </section>
