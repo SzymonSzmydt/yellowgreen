@@ -18,9 +18,14 @@ export default function Category({ products }: CategoryProps) {
         {products.map((product) => (
           <article key={product.id} className={style.article}>
             <Link href={`/garderoba/${product.id}`}>
-              <div className={style.img}>
-                <Image src={product.image1} width={227} height={104} />
-              </div>
+              <figcaption className={style.figcaption}>
+                <Image
+                  src={product.image1}
+                  width={227}
+                  height={227}
+                  alt={product.namePL}
+                />
+              </figcaption>
               <section className={style.description}>
                 <p> {product.namePL} </p>
                 <p className={style.price}>
