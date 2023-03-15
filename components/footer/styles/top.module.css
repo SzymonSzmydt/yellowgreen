@@ -7,14 +7,64 @@
 
 .box {
     width: 8rem;
-    margin: 1rem;
+    margin: 1rem 3rem;
     text-align: center;
 }
 
 .svg {
-    fill: var(--footer-text);
+    margin: 0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.truck {
+    composes: svg;
+    background-image: url('../../../public//icons/truck.svg');
+}
+
+.happy {
+    composes: svg;
+    background-image: url('../../../public//icons/happy.svg');
+}
+
+.phone {
+    composes: svg;
+    background-image: url('../../../public//icons/phone.svg');
 }
 
 .box p {
     margin: 1.5rem 0;
+}
+
+@media screen and (max-width: 800px) {
+    .top {
+        padding: 1.5rem;
+    }
+
+    .box {
+        width: 8rem;
+        margin: 1rem;
+    }
+
+    .box p {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .top {
+        padding: 1rem;
+    }
+
+    .box {
+        width: 8rem;
+        margin: 0.5rem;
+    }
+
+    .box p {
+        font-size: 0.75rem;
+        margin: 1rem 0;
+    }
 }
