@@ -9,12 +9,20 @@
 }
 
 .article {
-    max-width: 16rem;
+    max-width: 14.5rem;
     height: 19rem;
-    margin: 1rem;
+    margin: 1rem 0.5rem;
     border: 1px solid var(--semi-color);
     border-radius: var(--radius-small);
     transition: box-shadow 0.4s;
+}
+
+.article:first-child {
+    margin-left: 0;
+}
+
+.article:last-child {
+    margin-right: 0;
 }
 
 .article:hover {
