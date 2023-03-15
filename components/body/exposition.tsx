@@ -20,7 +20,7 @@ function Exposition({ products }: CommercialProps) {
                   alt={`${product.namePL}`}
                   className={style.img}
                   width="240"
-                  height="320"
+                  height="240"
                 />
               </Link>
             ))

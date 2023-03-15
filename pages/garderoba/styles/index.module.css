@@ -9,8 +9,8 @@
 }
 
 .article {
-    max-width: 20rem;
-    height: 20rem;
+    max-width: 16rem;
+    height: 19rem;
     margin: 1rem;
     border: 1px solid var(--semi-color);
     border-radius: var(--radius-small);
@@ -25,19 +25,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70%;
+    height: 12.5rem;
 }
 
 .description {
-    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 6.5rem;
     background-color: var(--product);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: var(--radius-small);
     font-weight: 400;
     font-size: 0.9rem;
 }
 
 .price {
+    border-top: 1px solid var(--semi-color);
+    padding-top: 0.5rem;
     margin-top: 1rem;
-    font-weight: 500;
+    color: var(--box-color);
 }

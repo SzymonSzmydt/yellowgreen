@@ -22,8 +22,8 @@ export default function Category({ products }: CategoryProps) {
               <figcaption className={style.figcaption}>
                 <Image
                   src={product.image1}
-                  width={227}
-                  height={227}
+                  width={200}
+                  height={200}
                   alt={product.namePL}
                 />
               </figcaption>
