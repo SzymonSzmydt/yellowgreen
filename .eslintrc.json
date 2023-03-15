@@ -1,8 +1,10 @@
 {
   "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "extends": [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier"
   ],
   "rules": {
@@ -13,7 +15,10 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": true,
+    "tsconfigRootDir": "__dirname",
     "ecmaVersion": "latest",
     "sourceType": "module"
-  }
+  },
+  "root": true
 }

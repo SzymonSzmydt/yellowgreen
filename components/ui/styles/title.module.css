@@ -1,6 +1,7 @@
 .title {
     display: block;
     background-color: var(--third-color);
+    color: var(--dropdown-body);
     padding: 0.5rem;
     border-radius: var(--radius-small);
     margin: 1rem 0;

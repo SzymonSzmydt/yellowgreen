@@ -61,7 +61,7 @@ function Product({ product }: ProductProps) {
                 className={style.image}
               />
             </figcaption>
-            <div className={style.dots}>
+            <section className={style.dots}>
               <span
                 className={
                   image === product.image1 ? style.colordot : style.dot
@@ -84,7 +84,7 @@ function Product({ product }: ProductProps) {
                   onClick={() => setImage(product.image3)}
                 />
               ) : null}
-            </div>
+            </section>
           </div>
         </section>
         <article className={style.article}>

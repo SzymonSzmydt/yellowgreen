@@ -51,7 +51,7 @@
 .smallLink {
     text-transform: capitalize;
     font-size: 0.85rem;
-    color: var(--third-color);
+    color: var(--top);
     padding: 0 0.5rem;
     position: relative;
 }

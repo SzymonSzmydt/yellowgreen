@@ -22,12 +22,12 @@
 }
 
 .delivery {
-    color: var(--accent-text-color);
+    color: var(--dropdown-title);
     transition: color 0.2s;
 }
 
 .delivery:hover {
-    color: var(--black-color);
+    color: var(--box-color);
 }
 
 .img {

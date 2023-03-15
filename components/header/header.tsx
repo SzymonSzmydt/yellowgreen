@@ -13,13 +13,13 @@ function Header() {
   return (
     <>
       <Head>
-        <title>North Shape</title>
         <meta
           name="description"
           content="Meble od projektantów, nietuzinkowe kształty"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <title>North Shape</title>
       </Head>
       <header className={style.header}>
         <div className={style.top}>
