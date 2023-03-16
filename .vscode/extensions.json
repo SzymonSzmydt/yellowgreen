@@ -1,3 +1,10 @@
 {
-  "recommendations": ["wallabyjs.console-ninja"]
+  "recommendations": [
+    "wallabyjs.console-ninja",
+    "ms-vscode.vscode-typescript-next",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "sainoba.px-to-rem",
+    "pmneo.tsimporter"
+  ]
 }
