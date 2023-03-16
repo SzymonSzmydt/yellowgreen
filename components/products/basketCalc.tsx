@@ -5,8 +5,12 @@ import { Minus } from './../button/minus';
 import { Plus } from './../button/plus';
 import { CorrectProductType } from './../../context/types/type';
 import { useAppDispatch } from './../../context/redux/hooks';
-import { addProductToBasket } from './../../context/redux/basketSlice';
+import {
+  addProductToBasket,
+  modyfyQuantity,
+} from './../../context/redux/basketSlice';
 import { BasketAddInformation } from './basketAddInformation';
+import { useAppSelector } from '../../context/redux/hooks';
 
 type BasketProps = {
   product: CorrectProductType;
@@ -14,6 +18,7 @@ type BasketProps = {
 
 export function BasketCalc({ product }: BasketProps) {
   const dispatch = useAppDispatch();
+  const basket = useAppSelector((state) => state.basket.value);
   const [quantity, setQuantity] = useState<number>(1);
   const [isAddedToBasket, setIsAddedToBasket] = useState(false);
 
@@ -24,21 +29,44 @@ export function BasketCalc({ product }: BasketProps) {
     e >= 1 ? setQuantity(+e) : null;
 
   const addToBasket = () => {
-    dispatch(
-      addProductToBasket({
-        id: product.id,
-        quantity: quantity,
-        name: product.namePL,
-        price: +product.pricePL,
-      })
+    const wasProductInBasketEariel = basket.find(
+      (item) => item.id === product.id
     );
-    setQuantity(1);
+    if (!wasProductInBasketEariel) {
+      dispatch(
+        addProductToBasket({
+          id: product.id,
+          quantity: quantity,
+          name: product.namePL,
+          price: +product.pricePL,
+        })
+      );
+    }
+    if (wasProductInBasketEariel) {
+      dispatch(
+        modyfyQuantity({
+          id: product.id,
+          newQuantity: +wasProductInBasketEariel.quantity + quantity,
+        })
+      );
+    }
     setIsAddedToBasket(true);
+  };
+
+  const handleContiniue = () => {
+    setQuantity(1);
+    setIsAddedToBasket(false);
   };
 
   return (
     <>
-      <BasketAddInformation name={product.namePL} quantity={quantity} />
+      {isAddedToBasket ? (
+        <BasketAddInformation
+          name={product.namePL}
+          quantity={quantity}
+          handleClick={handleContiniue}
+        />
+      ) : null}
       <section className={style.box}>
         <article>
           <h1> {product.namePL} </h1>
