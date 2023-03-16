@@ -1,4 +1,5 @@
 import style from './styles/index.module.css';
+import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
@@ -16,7 +17,9 @@ export default function Category({ products }: CategoryProps) {
       <TitleAccent name={'Garderoba'} />
       <section className={style.box}>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <Link href={`/garderoba/${product.id}`}>
+            <ProductCard key={product.id} product={product} />
+          </Link>
         ))}
       </section>
     </div>
