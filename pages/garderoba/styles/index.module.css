@@ -8,3 +8,14 @@
     justify-content: center;
 }
 
+.link {
+    margin: 1rem 0.5rem;
+}
+
+.link:first-child {
+    margin-left: 0;
+}
+
+.link:last-child {
+    margin-right: 0;
+}
