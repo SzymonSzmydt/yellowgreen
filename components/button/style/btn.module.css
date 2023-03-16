@@ -15,11 +15,12 @@
 .standardWhite {
     composes: standard;
     background-color: var(--background-color);
-    color: var(--top);
+    color: var(--box-color);
 }
 
 .standard:hover {
     background-color: var(--accent-color);
+    color: var(--dropdown-title);
 }
 
 .plus,
