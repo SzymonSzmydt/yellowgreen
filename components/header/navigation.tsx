@@ -36,22 +36,24 @@ function Navigation() {
           </Link>
         </div>
       </nav>
-      {paths.length > 0 && !paths.includes('basket') ? (
-        <div className={style.smallNav}>
-          <Link href="/" className={style.smallLink}>
-            Home
-          </Link>
-          {paths.map((link, index) => (
-            <Link
-              key={link}
-              href={index === 0 ? `/${link}` : `${link}`}
-              className={style.smallLink}
-            >
-              {link}
+      <div className={style.smallNav}>
+        {paths.length > 0 && !paths.includes('basket') ? (
+          <>
+            <Link href="/" className={style.smallLink}>
+              Home
             </Link>
-          ))}
-        </div>
-      ) : null}
+            {paths.map((link, index) => (
+              <Link
+                key={link}
+                href={index === 0 ? `/${link}` : `${link}`}
+                className={style.smallLink}
+              >
+                {link}
+              </Link>
+            ))}
+          </>
+        ) : null}
+      </div>
     </>
   );
 }

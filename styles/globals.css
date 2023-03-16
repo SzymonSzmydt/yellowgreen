@@ -8,7 +8,7 @@
     --footer-text: #95B1AE;
 
     --box-color: #357a8f;
-    --background-color: #fff;
+    --background-color: rgb(245, 245, 245);
 
     --dark-color: #4b4a54;
     --semi-color: #a8b1bb71;
@@ -43,9 +43,9 @@
 
 html,
 body {
-    max-width: 100vw;
+    width: 100vw;
     overflow-x: hidden;
-
+    overflow-y: visible;
     scroll-behavior: smooth;
     background-color: var(--background-color);
 }
