@@ -1,11 +1,10 @@
 import style from './styles/index.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
 import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from './../../context/Firebase';
 import { TitleAccent } from '../../components/ui/titleAccent';
 import { CorrectProductType } from '../../context/types/type';
+import { ProductCard } from 'components/products/productCard';
 
 type CategoryProps = {
   products: CorrectProductType[];
@@ -17,24 +16,7 @@ export default function Category({ products }: CategoryProps) {
       <TitleAccent name={'Garderoba'} />
       <section className={style.box}>
         {products.map((product) => (
-          <article key={product.id} className={style.article}>
-            <Link href={`/garderoba/${product.id}`}>
-              <figcaption className={style.figcaption}>
-                <Image
-                  src={product.image1}
-                  width={200}
-                  height={200}
-                  alt={product.namePL}
-                />
-              </figcaption>
-              <section className={style.description}>
-                <p> {product.namePL} </p>
-                <p className={style.price}>
-                  <data value={product.pricePL}>{product.pricePL} zł</data>
-                </p>
-              </section>
-            </Link>
-          </article>
+          <ProductCard key={product.id} product={product} />
         ))}
       </section>
     </div>
