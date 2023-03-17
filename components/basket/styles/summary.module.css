@@ -1,0 +1,18 @@
+.summary {
+    width: max-content;
+    padding: 1rem;
+    background-color: var(--footer);
+    border-radius: var(--radius-small);
+}
+
+.summary h2 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.summary div,
+.summary strong {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+}

@@ -40,6 +40,8 @@ export function BasketCalc({ product }: BasketProps) {
           name: product.namePL,
           price: +product.pricePL,
           image: product.image1,
+          weight: +product.weight,
+          delivery: +product.delivery,
         })
       );
     }

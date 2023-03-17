@@ -28,4 +28,6 @@ export interface BasketData {
   name: string;
   price: number;
   image: string;
+  weight: number;
+  delivery: number;
 }

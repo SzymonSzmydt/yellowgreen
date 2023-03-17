@@ -1,14 +1,16 @@
 import style from './styles/basket.module.css';
-import { useAppSelector } from './../../context/redux/hooks';
 import WindowDashboardBar from './../window/windowDashboardBar';
 import { List } from './list';
 import { Standard } from '../button/standard';
 import { useRouter } from 'next/router';
+import type { BasketData } from 'context/types/type';
 
-export function BasketList() {
+type BasketProps = {
+  basket: BasketData[];
+};
+
+export function BasketList({ basket }: BasketProps) {
   const router = useRouter();
-
-  const basket = useAppSelector((state) => state.basket.value);
   return basket.length > 0 ? (
     <div className={style.basket}>
       <WindowDashboardBar>
