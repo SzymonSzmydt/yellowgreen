@@ -20,6 +20,8 @@ const options = {
   delivery: ['9.99', '16.00', '25.00', '30.00', '150.0'],
 };
 
+const category = ['garderoba'];
+
 export function ProductForm({ productData, setProductData }: FormProps) {
   const { shipping, delivery } = options;
 

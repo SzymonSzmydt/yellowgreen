@@ -7,10 +7,8 @@ import { useAppDispatch, useAppSelector } from './../../context/redux/hooks';
 import { getProducts } from './../../context/redux/productsSlice';
 import { Stats } from './../../components/dashboard/ui/stats/stats';
 import { CorrectProductType } from './../../context/types/type';
-import options from '../../context/options.json';
 
 function Dashboard() {
-  const { category } = options;
   const products = useAppSelector((state) => state.products.value);
   const dispatch = useAppDispatch();
 
@@ -33,7 +31,6 @@ function Dashboard() {
       <WindowDashboard>
         <WindowDashboardBar streach={true}>
           <Stats title={'Produkty'} stats={products.length} />
-          <Stats title={'Kategorie'} stats={category.length} />
           <Stats title={'Zam. oczekujące'} stats={0} />
           <Stats title={'Zam. zrealiz.'} stats={0} />
         </WindowDashboardBar>

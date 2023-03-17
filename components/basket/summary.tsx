@@ -15,7 +15,7 @@ export function Summary({ basket }: SummaryProps) {
   const deliveryPrice = basket
     .map((product) =>
       product.quantity * product.weight <= 30
-        ? 1
+        ? product.delivery
         : ((product.quantity * product.weight) / 30) * product.delivery
     )
     .reduce((a, b) => a + b, 0);

@@ -21,7 +21,7 @@
     margin: 0 2rem 3rem;
     padding: 2rem 0 1rem;
 
-    color: var(--primary-color);
+    color: var(--box-color);
 
     border-bottom: 1px solid var(--semi-color);
 }
@@ -35,14 +35,13 @@
     font-weight: 600;
     font-size: 0.75rem;
     letter-spacing: 0.09rem;
-    color: var(--third-color);
+    color: var(--box-color);
 }
 
 .panelIcon {
     width: 1.5rem;
     height: 1.5rem;
     margin-right: 0.25rem;
-    filter: invert(56%) sepia(51%) saturate(652%) hue-rotate(176deg) brightness(89%) contrast(92%);
 }
 
 .category {
