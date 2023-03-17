@@ -1,5 +1,6 @@
 .basket {
     composes: container from global;
+    width: 70%;
 }
 
 .small {

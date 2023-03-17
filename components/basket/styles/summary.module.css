@@ -1,8 +1,9 @@
 .summary {
-    width: max-content;
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-    background-color: var(--footer);
-    border-radius: var(--radius-small);
+    margin-left: 2rem;
+    width: calc(30% - 2rem);
 }
 
 .summary h2 {
