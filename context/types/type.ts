@@ -27,4 +27,5 @@ export interface BasketData {
   quantity: number;
   name: string;
   price: number;
+  image: string;
 }

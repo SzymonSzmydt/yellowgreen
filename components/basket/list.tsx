@@ -6,8 +6,9 @@ import {
   deleteBasketProduct,
   resetBasket,
 } from './../../context/redux/basketSlice';
+import Image from 'next/image';
 
-export function List({ id, quantity, name, price }: BasketData) {
+export function List({ id, quantity, name, price, image }: BasketData) {
   const basket = useAppSelector((state) => state.basket.value);
   const dispatch = useAppDispatch();
 
@@ -28,9 +29,9 @@ export function List({ id, quantity, name, price }: BasketData) {
 
   return (
     <section className={style.box}>
-      <div className={style.image} />
+      <Image src={image} width={96} height={96} alt={name} />
       <div className={style.information}>
-        <section className={style.midle}>
+        <section className={style.middle}>
           <p> {name} </p>
           <span className={style.del} onClick={deleteProductFromBasket}>
             Usuń

@@ -39,6 +39,7 @@ export function BasketCalc({ product }: BasketProps) {
           quantity: quantity,
           name: product.namePL,
           price: +product.pricePL,
+          image: product.image1,
         })
       );
     }
