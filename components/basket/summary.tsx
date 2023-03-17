@@ -13,9 +13,14 @@ export function Summary({ basket }: SummaryProps) {
   const totalProductPrice: number = parseFloat(totalProductValue.toFixed(2));
 
   const deliveryPrice = basket
-    .map((product) => product.quantity * product.delivery)
+    .map((product) =>
+      product.quantity * product.weight <= 30
+        ? 1
+        : ((product.quantity * product.weight) / 30) * product.delivery
+    )
     .reduce((a, b) => a + b, 0);
-  const totalDeliceryPrice: number = parseFloat(deliveryPrice.toFixed(2));
+
+  const totalDeliveryPrice: number = parseFloat(deliveryPrice.toFixed(2));
 
   return (
     <section className={style.summary}>
@@ -26,11 +31,11 @@ export function Summary({ basket }: SummaryProps) {
       </div>
       <div>
         <span>Opłaty za wysyłkę</span>
-        {totalDeliceryPrice} zł
+        {totalDeliveryPrice} zł
       </div>
       <strong>
         <span>Do zapłaty</span>
-        {totalProductPrice + totalDeliceryPrice} zł
+        {totalProductPrice + totalDeliveryPrice} zł
       </strong>
       <Standard name={'Do kasy'} handleClick={() => ''} />
     </section>

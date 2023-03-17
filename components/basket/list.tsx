@@ -49,7 +49,7 @@ export function List({ id, quantity, name, price, image }: BasketData) {
               <option key={num}> {num} </option>
             ))}
           </select>
-          {quantity * price} zł
+          {(quantity * price).toFixed(2)} zł
         </section>
       </div>
     </section>

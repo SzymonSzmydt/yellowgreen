@@ -17,3 +17,7 @@
     justify-content: space-between;
     padding: 0.25rem 0;
 }
+
+.summary strong {
+    margin-bottom: 1rem;
+}
