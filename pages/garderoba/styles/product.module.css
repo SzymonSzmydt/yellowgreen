@@ -68,6 +68,7 @@
     width: 32.5rem;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 
 .image {
@@ -81,6 +82,27 @@
 
 .image:hover {
     transform: scale(1.3);
+}
+
+.arrowL,
+.arrowR {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: '';
+    width: 15%;
+    z-index: 1;
+
+    transition: all 0.4s;
+}
+
+.arrowL {
+    left: 0;
+}
+
+.arrowR {
+    right: 0;
 }
 
 .dots {

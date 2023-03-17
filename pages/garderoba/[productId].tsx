@@ -19,6 +19,19 @@ function Product({ product }: ProductProps) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+
+  const handleChangeImageFoward = () => {
+    if (image === product.image1) setImage(product.image2);
+    if (image === product.image2) setImage(product.image3);
+    if (image === product.image3) setImage(product.image1);
+  };
+
+  const handleChangeImageBackward = () => {
+    if (image === product.image1) setImage(product.image3);
+    if (image === product.image2) setImage(product.image1);
+    if (image === product.image3) setImage(product.image2);
+  };
+
   return (
     <>
       <div className={style.product}>
@@ -53,6 +66,10 @@ function Product({ product }: ProductProps) {
           </div>
           <div className={style.imageBox}>
             <figcaption className={style.figcaption}>
+              <div
+                className={style.arrowL}
+                onClick={handleChangeImageBackward}
+              />
               <Image
                 src={image}
                 alt={product.namePL}
@@ -60,6 +77,7 @@ function Product({ product }: ProductProps) {
                 width={520}
                 className={style.image}
               />
+              <div className={style.arrowR} onClick={handleChangeImageFoward} />
             </figcaption>
             <section className={style.dots}>
               <span
