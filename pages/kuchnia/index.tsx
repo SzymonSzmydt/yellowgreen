@@ -14,7 +14,7 @@ type CategoryProps = {
 export default function Kitchen({ products }: CategoryProps) {
   return (
     <>
-      <TitleAccent name={'Garderoba'} />
+      <TitleAccent name={'Kuchnia'} />
       <section className={style.box}>
         {products.map((product) => (
           <Link
