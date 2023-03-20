@@ -45,10 +45,7 @@ export function ProductDetailsBody({
           setProductSelectedToEdit={setProductSelectedToEdit}
         />
       ) : null}
-      <div className={style.id}>
-        <strong>#</strong>
-        {product.id}
-      </div>
+      <div className={style.id}>{product.id}</div>
       <div className={style.name}> {product?.namePL} </div>
       <div
         className={style.price}
