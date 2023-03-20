@@ -3,3 +3,8 @@
     max-width: 1920px;
     margin: 0 auto;
 }
+
+.layout {
+    composes: container from global;
+    min-height: 60vh;
+}

@@ -1,5 +1,4 @@
 .intro {
-    composes: container from global;
     border-top: 1px solid var(--semi-color);
     border-bottom: 1px solid var(--semi-color);
 }

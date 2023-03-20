@@ -1,3 +1,4 @@
+import style from './layout.module.css';
 import Header from '../header/header';
 import Head from 'next/head';
 import { Footer } from '../footer/footer';
@@ -19,7 +20,7 @@ function Layout({ children }: Props) {
         <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       <Header />
-      {children}
+      <section className={style.layout}>{children}</section>
       <Footer />
     </>
   );

@@ -1,5 +1,4 @@
 .basket {
-    composes: container from global;
     width: 70%;
 }
 
@@ -10,7 +9,6 @@
 }
 
 .empty {
-    composes: container from global;
     width: 100%;
     display: flex;
     justify-content: center;

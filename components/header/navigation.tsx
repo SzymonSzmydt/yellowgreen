@@ -22,8 +22,8 @@ function Navigation() {
           <Link href="/garderoba" className={style.link}>
             Garderoba
           </Link>
-          <Link href="/lamps" className={style.link}>
-            Lampy
+          <Link href="/kuchnia" className={style.link}>
+            Kuchnia
           </Link>
           <Link href="/accesories" className={style.link}>
             Akcesoria

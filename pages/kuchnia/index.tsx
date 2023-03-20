@@ -11,7 +11,7 @@ type CategoryProps = {
   products: CorrectProductType[];
 };
 
-export default function Wardrobe({ products }: CategoryProps) {
+export default function Kitchen({ products }: CategoryProps) {
   return (
     <>
       <TitleAccent name={'Garderoba'} />
@@ -33,7 +33,7 @@ export default function Wardrobe({ products }: CategoryProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const docSnap = await getDoc(doc(db, 'dashboard', 'products'));
   const data = docSnap.exists() ? Object.values(docSnap.data()) : [];
-  const wardrobe = data.filter((product) => product.category === 'Garderoba');
+  const wardrobe = data.filter((product) => product.category === 'Kuchnia');
   return {
     props: {
       products: wardrobe,
