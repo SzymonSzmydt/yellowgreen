@@ -5,3 +5,23 @@
     justify-content: center;
     align-items: center;
 }
+
+.form {
+    width: 15rem;
+}
+
+
+.form label,
+.input {
+    width: 100%;
+}
+
+.btn {
+    display: grid;
+}
+
+@media screen and (max-width: 260px) {
+    .form {
+        width: calc(100% - 2rem);
+    }
+}

@@ -13,6 +13,7 @@ export default function Login() {
   return (
     <div className={style.login}>
       <form onSubmit={handleSubmit} className={style.form}>
+        <label>Login</label>
         <input
           type="text"
           name="login"
@@ -24,6 +25,7 @@ export default function Login() {
             setUser({ ...user, login: e.target.value })
           }
         />
+        <label>Hasło</label>
         <input
           type="password"
           name="password"
@@ -35,7 +37,9 @@ export default function Login() {
             setUser({ ...user, password: e.target.value })
           }
         />
-        <Standard name="Zaloguj" handleClick={() => null} />
+        <div className={style.btn}>
+          <Standard name="Zaloguj" handleClick={() => null} />
+        </div>
       </form>
     </div>
   );
