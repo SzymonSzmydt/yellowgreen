@@ -4,7 +4,7 @@ import { BasketCalc } from './../../components/products/basketCalc';
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
-import { db } from './../../context/Firebase';
+import { db } from '../../context/firebase/Firebase';
 import Image from 'next/image';
 import { useState } from 'react';
 

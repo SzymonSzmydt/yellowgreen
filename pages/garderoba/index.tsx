@@ -2,7 +2,7 @@ import style from './styles/index.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
-import { db } from './../../context/Firebase';
+import { db } from '../../context/firebase/Firebase';
 import { TitleAccent } from '../../components/ui/titleAccent';
 import { CorrectProductType } from '../../context/types/type';
 import { ProductCard } from 'components/products/productCard';

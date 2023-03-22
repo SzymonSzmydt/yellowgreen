@@ -1,3 +1,4 @@
+'use client';
 import { Standard } from 'components/button/standard';
 import style from './styles/login.module.css';
 import { useState } from 'react';
@@ -30,7 +31,7 @@ export default function Login() {
           className={style.input}
           autoComplete="on"
           required
-          min={4}
+          minLength={4}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setUser({ ...user, login: e.target.value })
           }
@@ -43,7 +44,7 @@ export default function Login() {
             className={style.input}
             autoComplete="on"
             required
-            min={4}
+            minLength={4}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setUser({ ...user, password: e.target.value })
             }

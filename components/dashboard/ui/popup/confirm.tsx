@@ -4,7 +4,7 @@ import { Variant } from '../../../button/Variant';
 import { Dispatch, SetStateAction } from 'react';
 import { useAppDispatch } from '../../../../context/redux/hooks';
 import { deleteProductFromState } from '../../../../context/redux/productsSlice';
-import { db } from '../../../../context/Firebase';
+import { db } from '../../../../context/firebase/Firebase';
 import { CorrectProductType } from '../../../../context/types/type';
 
 type ConfirmProps = {

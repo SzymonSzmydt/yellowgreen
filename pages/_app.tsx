@@ -6,6 +6,7 @@ import { Arimo } from '@next/font/google';
 import Layout from '../components//layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from '../context/redux/store';
+import { AuthProvider } from 'context/firebase/AuthProvider';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -22,7 +23,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     Component.getLayout ??
     ((page) => (
       <Provider store={store}>
-        <Layout> {page} </Layout>
+        <AuthProvider>
+          <Layout> {page} </Layout>
+        </AuthProvider>
       </Provider>
     ));
 
@@ -34,7 +37,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         }
       `}</style>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       </Provider>
     </>
   );

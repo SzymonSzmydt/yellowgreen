@@ -3,7 +3,7 @@ import Intro from './../components/body/intro';
 import Exposition from '../components/body/exposition';
 import { CorrectProductType } from './../context/types/type';
 import { getDoc, doc } from 'firebase/firestore';
-import { db } from './../context/Firebase';
+import { db } from '../context/firebase/Firebase';
 
 type HomeProps = {
   products: CorrectProductType[];

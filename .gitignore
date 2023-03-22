@@ -33,6 +33,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
-context/Firebase.ts
 TODO.txt
+context/firebase/userAuthContext.ts
+context/firebase/Firebase.ts
