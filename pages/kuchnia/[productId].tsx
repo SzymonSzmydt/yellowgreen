@@ -14,22 +14,23 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   const router = useRouter();
-  const [image, setImage] = useState(product.image1);
+  const [image, setImage] = useState(1);
+  const imagesPaths = [product.image1, product.image2, product.image3].filter(
+    (e) => e
+  );
 
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
   const handleChangeImageFoward = () => {
-    if (image === product.image1) setImage(product.image2);
-    if (image === product.image2) setImage(product.image3);
-    if (image === product.image3) setImage(product.image1);
+    if (image < imagesPaths.length - 1) setImage((state) => state + 1);
+    else setImage(0);
   };
 
   const handleChangeImageBackward = () => {
-    if (image === product.image1) setImage(product.image3);
-    if (image === product.image2) setImage(product.image1);
-    if (image === product.image3) setImage(product.image2);
+    if (image > 0) setImage((state) => state - 1);
+    else setImage(imagesPaths.length - 1);
   };
 
   return (
@@ -71,7 +72,7 @@ function Product({ product }: ProductProps) {
                 onClick={handleChangeImageBackward}
               />
               <Image
-                src={image}
+                src={imagesPaths[image]}
                 alt={product.namePL}
                 height={520}
                 width={520}
@@ -80,28 +81,17 @@ function Product({ product }: ProductProps) {
               <div className={style.arrowR} onClick={handleChangeImageFoward} />
             </figcaption>
             <section className={style.dots}>
-              <span
-                className={
-                  image === product.image1 ? style.colordot : style.dot
-                }
-                onClick={() => setImage(product.image1)}
-              />
-              {product.image2.length > 0 ? (
-                <span
-                  className={
-                    image === product.image2 ? style.colordot : style.dot
-                  }
-                  onClick={() => setImage(product.image2)}
-                />
-              ) : null}
-              {product.image3.length > 0 ? (
-                <span
-                  className={
-                    image === product.image3 ? style.colordot : style.dot
-                  }
-                  onClick={() => setImage(product.image3)}
-                />
-              ) : null}
+              {imagesPaths.length > 0
+                ? imagesPaths.map((elem, index) => (
+                    <span
+                      key={elem}
+                      className={image === index ? style.dot : style.colordot}
+                      onClick={() =>
+                        setImage((state) => (state !== index ? index : state))
+                      }
+                    />
+                  ))
+                : null}
             </section>
           </div>
         </section>
