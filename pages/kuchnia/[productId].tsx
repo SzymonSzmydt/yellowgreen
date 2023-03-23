@@ -14,7 +14,7 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   const router = useRouter();
-  const [image, setImage] = useState(1);
+  const [image, setImage] = useState(0);
   const imagesPaths = [product.image1, product.image2, product.image3].filter(
     (e) => e
   );
