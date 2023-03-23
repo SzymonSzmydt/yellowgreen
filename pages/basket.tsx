@@ -6,10 +6,10 @@ import { useAppSelector } from 'context/redux/hooks';
 function Basket() {
   const basket = useAppSelector((state) => state.basket.value);
   return (
-    <main className={style.wrapper}>
+    <div className={style.wrapper}>
       <BasketList basket={basket} />
       {basket.length > 0 ? <Summary basket={basket} /> : null}
-    </main>
+    </div>
   );
 }
 
