@@ -6,34 +6,38 @@ import type { ReactElement } from 'react';
 import eyeIconOn from '../../public/icons/pass/visibility_on.svg';
 import eyeIconOff from '../../public/icons/pass/visibility_off.svg';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 type LoginProps = {
-  login: string;
+  email: string;
   password: string;
 };
 
 export default function Login() {
-  const [user, setUser] = useState<LoginProps>({ login: '', password: '' });
+  const [user, setUser] = useState<LoginProps>({ email: '', password: '' });
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    return router.push('/dashboard');
   };
 
   return (
     <div className={style.login}>
       <h2>Wymagana autoryzacja</h2>
       <form onSubmit={handleSubmit} className={style.form}>
-        <label>Login</label>
+        <label>Emial</label>
         <input
           type="text"
-          name="login"
+          name="email"
           className={style.input}
           autoComplete="on"
           required
           minLength={4}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setUser({ ...user, login: e.target.value })
+            setUser({ ...user, email: e.target.value })
           }
         />
         <label>Hasło</label>

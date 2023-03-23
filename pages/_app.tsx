@@ -1,3 +1,4 @@
+'use client';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
@@ -6,7 +7,7 @@ import { Arimo } from '@next/font/google';
 import Layout from '../components//layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from '../context/redux/store';
-import { AuthProvider } from 'context/firebase/AuthProvider';
+import { SessionProvider } from 'next-auth/react';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -18,14 +19,17 @@ type AppPropsWithLayout = AppProps & {
 
 const inter = Arimo({ subsets: ['latin'] });
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
   const getLayout =
     Component.getLayout ??
     ((page) => (
       <Provider store={store}>
-        <AuthProvider>
+        <SessionProvider session={session}>
           <Layout> {page} </Layout>
-        </AuthProvider>
+        </SessionProvider>
       </Provider>
     ));
 
@@ -37,9 +41,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         }
       `}</style>
       <Provider store={store}>
-        <AuthProvider>
+        <SessionProvider session={session}>
           <Component {...pageProps} />
-        </AuthProvider>
+        </SessionProvider>
       </Provider>
     </>
   );
