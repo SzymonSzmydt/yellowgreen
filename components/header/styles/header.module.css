@@ -8,6 +8,7 @@
     padding: 0.5rem 0;
     background-color: var(--top);
     margin-right: -5px;
+    box-shadow: var(--shadow);
 }
 
 .container {
