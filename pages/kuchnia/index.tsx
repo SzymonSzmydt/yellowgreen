@@ -1,33 +1,15 @@
-import style from './styles/index.module.css';
-import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../context/firebase/Firebase';
-import { TitleAccent } from '../../components/ui/titleAccent';
 import { CorrectProductType } from '../../context/types/type';
 import { ProductCard } from 'components/products/productCard';
 
-type CategoryProps = {
+interface KitchenProps {
   products: CorrectProductType[];
-};
+}
 
-export default function Kitchen({ products }: CategoryProps) {
-  return (
-    <>
-      <TitleAccent name={'Kuchnia'} />
-      <section>
-        {products.map((product) => (
-          <Link
-            href={`/kuchnia/${product.id}`}
-            key={product.id}
-            className={style.link}
-          >
-            <ProductCard product={product} />
-          </Link>
-        ))}
-      </section>
-    </>
-  );
+export default function Kitchen({ products }: KitchenProps) {
+  return <ProductCard category="Kitchen" products={products} />;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
