@@ -1,6 +1,6 @@
 :root {
     --primary-color: #89b0ae;
-    --accent-color: #9ad39d;
+    --accent-color: #c1dfc3;
 
     --top: #89b0ae;
     --third-color: #F3EADA;
@@ -9,12 +9,12 @@
 
     --box-color: #357a8f;
     --background-color: #ffffff;
-    --button: #609966;
+    --button: #a8c5ab;
 
     --dark-color: #4b4a54;
     --semi-color: #a8b1bb71;
 
-    --gradient: linear-gradient(to right, #fafcfa, #fafdfc, #fcfefe, #fefeff, #ffffff);
+    --gradient: linear-gradient(to right, #f6fafa, #f8fbfc, #fbfcfd, #fdfefe, #ffffff);
     --accent-text-color: #e4436b;
 
     --light-green: rgb(237, 247, 248);

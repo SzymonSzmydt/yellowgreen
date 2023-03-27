@@ -12,8 +12,8 @@ export function Card({ product }: CardProps) {
       <figcaption className={style.figcaption}>
         <Image
           src={product.image1}
-          width={250}
-          height={250}
+          width={280}
+          height={280}
           alt={product.namePL}
           className={style.image}
         />
