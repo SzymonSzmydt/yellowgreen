@@ -1,6 +1,7 @@
 .article {
-    max-width: 14.5rem;
-    height: 19rem;
+    display: flex;
+    max-width: 50rem;
+    margin: aut;
     border: 1px solid var(--semi-color);
     border-radius: var(--radius-small);
     transition: box-shadow 0.4s;

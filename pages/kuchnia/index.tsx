@@ -15,7 +15,7 @@ export default function Kitchen({ products }: CategoryProps) {
   return (
     <>
       <TitleAccent name={'Kuchnia'} />
-      <section className={style.box}>
+      <section>
         {products.map((product) => (
           <Link
             href={`/kuchnia/${product.id}`}
