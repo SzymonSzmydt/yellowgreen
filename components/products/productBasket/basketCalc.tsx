@@ -1,16 +1,16 @@
 import style from './styles/basket.module.css';
 import { useState } from 'react';
-import { Standard } from './../button/standard';
-import { Minus } from './../button/minus';
-import { Plus } from './../button/plus';
-import { CorrectProductType } from './../../context/types/type';
-import { useAppDispatch } from './../../context/redux/hooks';
+import { Standard } from '../../button/standard';
+import { Minus } from '../../button/minus';
+import { Plus } from '../../button/plus';
+import { CorrectProductType } from '../../../context/types/type';
+import { useAppDispatch } from '../../../context/redux/hooks';
 import {
   addProductToBasket,
   modyfyQuantity,
-} from './../../context/redux/basketSlice';
+} from '../../../context/redux/basketSlice';
 import { BasketAddInformation } from './basketAddInformation';
-import { useAppSelector } from '../../context/redux/hooks';
+import { useAppSelector } from '../../../context/redux/hooks';
 
 type BasketProps = {
   product: CorrectProductType;

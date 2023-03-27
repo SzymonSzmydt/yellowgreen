@@ -1,7 +1,7 @@
 import style from './styles/card.module.css';
 import Link from 'next/link';
 import { TitleAccent } from 'components/ui/titleAccent';
-import { CorrectProductType } from '../../context/types/type';
+import { CorrectProductType } from '../../../context/types/type';
 import { Card } from './Card';
 
 interface ProductCardProps {

@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../context/firebase/Firebase';
 import { CorrectProductType } from '../../context/types/type';
-import { ProductCard } from 'components/products/productCard';
+import { ProductCard } from 'components/products/productCard/productCard';
 
 interface KitchenProps {
   products: CorrectProductType[];

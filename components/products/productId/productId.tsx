@@ -2,7 +2,7 @@ import { CorrectProductType } from 'context/types/type';
 import style from './styles/product.module.css';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { BasketCalc } from '../basketCalc';
+import { BasketCalc } from '../productBasket/basketCalc';
 import Image from 'next/image';
 import { PorductDescription } from './productDescription';
 import { ProductDetaillist } from './productDetailist';
