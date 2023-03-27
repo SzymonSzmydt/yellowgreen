@@ -4,6 +4,7 @@ import Exposition from '../components/body/exposition';
 import { CorrectProductType } from './../context/types/type';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../context/firebase/Firebase';
+import { Spinner } from 'components/ui/spinner';
 
 type HomeProps = {
   products: CorrectProductType[];
@@ -15,8 +16,14 @@ export default function Home({ products }: HomeProps) {
       <Head>
         <title>North Shape</title>
       </Head>
-      <Intro products={products} />
-      <Exposition products={products} />
+      {products ? (
+        <>
+          <Intro products={products} />
+          <Exposition products={products} />
+        </>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 }

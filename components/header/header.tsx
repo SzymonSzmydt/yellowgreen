@@ -4,13 +4,11 @@ import { Orbitron } from '@next/font/google';
 import Navigation from './navigation';
 import Link from 'next/link';
 import { useAppSelector } from './../../context/redux/hooks';
-import { useSession, signIn, signOut } from 'next-auth/react';
 
 const orbitron = Orbitron({ subsets: ['latin'] });
 
 function Header() {
   const basket = useAppSelector((state) => state.basket.value);
-  const { data: session } = useSession();
 
   return (
     <>
