@@ -1,5 +1,6 @@
 .article {
     display: flex;
+    flex-wrap: wrap;
     max-width: 50rem;
     margin: 3rem auto;
     border-bottom: 1px solid var(--semi-color);
@@ -29,6 +30,10 @@
     font-size: 0.9rem;
 }
 
+.description h3 {
+    font-weight: 600;
+}
+
 .price {
     display: flex;
     justify-content: space-between;
@@ -40,4 +45,24 @@
 
 .icon {
     width: 1.25rem;
+}
+
+@media screen and (max-width: 750px) {
+
+    .figcaption {
+        width: 100%;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .description div {
+        display: none;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+    }
 }

@@ -19,7 +19,7 @@ export function Card({ product }: CardProps) {
         />
       </figcaption>
       <section className={style.description}>
-        <strong> {product.namePL} </strong>
+        <h3> {product.namePL} </h3>
         <div>
           {product.descriptionPL.split('-').map((e) => (
             <p key={e}> {e} </p>
