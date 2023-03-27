@@ -12,9 +12,10 @@ type ProductProps = {
 export function ProductId({ product }: ProductProps) {
   const router = useRouter();
   const [image, setImage] = useState(0);
-  const imagesPaths = [product.image1, product.image2, product.image3].filter(
-    (e) => e
-  );
+
+  const imagesPaths = Object.values(product)
+    .filter((f) => /picture/g.test(f))
+    .sort((a, b) => a.length - b.length);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -79,13 +80,15 @@ export function ProductId({ product }: ProductProps) {
             </figcaption>
             <section className={style.dots}>
               {imagesPaths.length > 0
-                ? imagesPaths.map((elem, index) => (
-                    <span
-                      key={elem}
-                      className={image === index ? style.dot : style.colordot}
-                      onClick={() =>
-                        setImage((state) => (state !== index ? index : state))
-                      }
+                ? imagesPaths.map((img, index) => (
+                    <Image
+                      key={img}
+                      src={img}
+                      width={80}
+                      height={80}
+                      alt={img}
+                      className={style.smallImage}
+                      onClick={() => setImage(index)}
                     />
                   ))
                 : null}
