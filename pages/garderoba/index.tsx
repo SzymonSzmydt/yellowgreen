@@ -9,13 +9,14 @@ type WardrobeProps = {
 };
 
 export default function Wardrobe({ products }: WardrobeProps) {
-  return <ProductCard category="Garderoba" products={products} />;
+  return <ProductCard category="garderoba" products={products} />;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const docSnap = await getDoc(doc(db, 'dashboard', 'products'));
   const data = docSnap.exists() ? Object.values(docSnap.data()) : [];
   const wardrobe = data.filter((product) => product.category === 'Garderoba');
+
   return {
     props: {
       products: wardrobe,

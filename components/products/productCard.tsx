@@ -16,7 +16,7 @@ export function ProductCard({ products, category }: ProductCardProps) {
       <>
         {products.map((product) => (
           <Link
-            href={`/kuchnia/${product.id}`}
+            href={`/${category}/${product.id}`}
             key={product.id}
             className={style.link}
           >
