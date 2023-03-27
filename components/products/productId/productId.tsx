@@ -2,8 +2,9 @@ import { CorrectProductType } from 'context/types/type';
 import style from './styles/product.module.css';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { BasketCalc } from './basketCalc';
+import { BasketCalc } from '../basketCalc';
 import Image from 'next/image';
+import { PorductDescription } from './productDescription';
 
 type ProductProps = {
   product: CorrectProductType;
@@ -95,17 +96,7 @@ export function ProductId({ product }: ProductProps) {
             </section>
           </div>
         </section>
-        <article className={style.article}>
-          <h2> Informacje o produkcie </h2>
-          <h3> Opis produktu </h3>
-          <p> {product.descriptionPL} </p>
-          <h3> Kolor </h3>
-          <p> {product.colorPL} </p>
-          <h3> Kategoria </h3>
-          <p> {product.category} </p>
-          <h3> Numer produktu </h3>
-          <p> {product.id} </p>
-        </article>
+        <PorductDescription product={product} />
       </div>
     </>
   );

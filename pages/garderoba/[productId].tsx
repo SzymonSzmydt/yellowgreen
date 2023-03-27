@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../context/firebase/Firebase';
-import { ProductId } from 'components/products/productId';
+import { ProductId } from 'components/products/productId/productId';
 
 type ProductProps = {
   product: CorrectProductType;
