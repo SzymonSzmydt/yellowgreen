@@ -1,5 +1,4 @@
 import style from './styles/card.module.css';
-
 import Image from 'next/image';
 import { CorrectProductType } from 'context/types/type';
 
@@ -9,19 +8,26 @@ type CardProps = {
 
 export function Card({ product }: CardProps) {
   return (
-    <article key={product.id} className={style.article}>
+    <article className={style.article}>
       <figcaption className={style.figcaption}>
         <Image
           src={product.image1}
-          width={200}
-          height={200}
+          width={250}
+          height={250}
           alt={product.namePL}
+          className={style.image}
         />
       </figcaption>
       <section className={style.description}>
-        <p> {product.namePL} </p>
+        <strong> {product.namePL} </strong>
+        <div>
+          {product.descriptionPL.split('-').map((e) => (
+            <p key={e}> {e} </p>
+          ))}
+        </div>
+
         <p className={style.price}>
-          <data value={product.pricePL}>{product.pricePL} zł</data>
+          <data value={product.pricePL}>{product.pricePL} zł </data>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"

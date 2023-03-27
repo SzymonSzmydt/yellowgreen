@@ -3,27 +3,19 @@
     --accent-color: #9ad39d;
 
     --top: #89b0ae;
-    --third-color: #BDCDD6;
+    --third-color: #F3EADA;
     --footer: #cfdbd5;
     --footer-text: #95B1AE;
 
     --box-color: #357a8f;
-    --background-color: rgb(248, 248, 248);
+    --background-color: #ffffff;
     --button: #609966;
 
     --dark-color: #4b4a54;
     --semi-color: #a8b1bb71;
 
-    --dropdown-title: #37406c;
-    --dropdown-body: #262f5a;
-    --dropdown-text-a: #82b7fd;
-    --dropdown-text-b: #1ed6d8;
-
+    --gradient: linear-gradient(to right, #fafcfa, #fafdfc, #fcfefe, #fefeff, #ffffff);
     --accent-text-color: #e4436b;
-    --glass: #5194dc28;
-
-    --product: #fffffe;
-    --product-t: #f7f3e9;
 
     --light-green: rgb(237, 247, 248);
 
