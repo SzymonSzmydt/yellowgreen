@@ -19,19 +19,39 @@ function Navigation() {
         />
         <div className={navBoxBackMove}>
           <span className={style.menuText}>Menu</span>
-          <Link href="/garderoba" className={style.link}>
+          <Link
+            href="/garderoba"
+            className={style.link}
+            onClick={() => setIsClicked(false)}
+          >
             Garderoba
           </Link>
-          <Link href="/kuchnia" className={style.link}>
+          <Link
+            href="/kuchnia"
+            className={style.link}
+            onClick={() => setIsClicked(false)}
+          >
             Kuchnia
           </Link>
-          <Link href="/accesories" className={style.link}>
+          <Link
+            href="/accesories"
+            className={style.link}
+            onClick={() => setIsClicked(false)}
+          >
             Akcesoria
           </Link>
-          <Link href="/promotions" className={style.link}>
+          <Link
+            href="/promotions"
+            className={style.link}
+            onClick={() => setIsClicked(false)}
+          >
             Promocje
           </Link>
-          <Link href="/contact" className={style.link}>
+          <Link
+            href="/contact"
+            className={style.link}
+            onClick={() => setIsClicked(false)}
+          >
             Kontakt
           </Link>
         </div>
