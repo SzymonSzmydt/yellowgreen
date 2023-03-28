@@ -34,11 +34,11 @@ function Navigation() {
             Kuchnia
           </Link>
           <Link
-            href="/accesories"
+            href="/pokoj"
             className={style.link}
             onClick={() => setIsClicked(false)}
           >
-            Akcesoria
+            Pokój
           </Link>
           <Link
             href="/promotions"
