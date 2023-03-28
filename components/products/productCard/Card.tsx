@@ -21,9 +21,16 @@ export function Card({ product }: CardProps) {
       <section className={style.description}>
         <h3> {product.namePL} </h3>
         <div>
-          {product.descriptionPL.split('-').map((e) => (
-            <p key={e}> {e} </p>
-          ))}
+          {product.descriptionPL.startsWith('-') ? (
+            product.descriptionPL.split('-').map((e) => <p key={e}> {e} </p>)
+          ) : (
+            <p>
+              {product.descriptionPL.slice(
+                0,
+                product.descriptionPL.indexOf('.')
+              )}
+            </p>
+          )}
         </div>
 
         <p className={style.price}>
