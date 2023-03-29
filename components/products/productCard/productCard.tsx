@@ -5,18 +5,18 @@ import { CorrectProductType } from '../../../context/types/type';
 import { Card } from './Card';
 
 interface ProductCardProps {
-  category: string;
+  categoryUrlPathName: string;
   products: CorrectProductType[];
 }
 
-export function ProductCard({ products, category }: ProductCardProps) {
+export function ProductCard({ products, categoryUrlPathName }: ProductCardProps) {
   return (
     <>
-      <TitleAccent name={category} />
+      <TitleAccent name={products[0].category} />
       <>
         {products.map((product) => (
           <Link
-            href={`/${category}/${product.id}`}
+            href={`/${categoryUrlPathName}/${product.id}`}
             key={product.id}
             className={style.link}
           >

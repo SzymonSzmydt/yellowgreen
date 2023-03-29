@@ -3,4 +3,5 @@
     width: 100vw;
     background-color: var(--footer);
     color: var(--footer-text);
+    box-shadow: var(--shadow);
 }

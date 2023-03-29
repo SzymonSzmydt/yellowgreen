@@ -1,16 +1,15 @@
 .title {
     display: block;
-    background-color: var(--third-color);
+    text-transform: capitalize;
     color: var(--title-text);
     font-weight: 500;
     padding: 0.5rem;
-    border-radius: var(--radius-small);
     margin: 1rem 0;
-    text-transform: capitalize;
+    border-radius: var(--radius-small);
+    background-image: linear-gradient(to right, #919fd3, #b0b5de, #cccde8, #e6e5f3, #ffffff);
 }
 
 .title p {
     padding: 0.35rem;
-    border: 1px solid var(--background-color);
-    border-radius: var(--radius-small);
+    border-left: 2px solid var(--background-color);
 }

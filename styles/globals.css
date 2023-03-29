@@ -3,7 +3,7 @@
     --accent-color: #E7EFFF;
 
     --top: #566595;
-    --third-color: #A7AABC;
+    --third-color: #919FD3;
     --footer: #566595;
     --footer-text: #dffbff;
 
@@ -15,6 +15,8 @@
     --semi-color: #A7AABC;
 
     --title-text: #ffffff;
+    --title-background: #919FD3;
+    --accent-text: #B0BDF3;
 
     --gradient: linear-gradient(to right, #f6fafa, #f8fbfc, #fbfcfd, #fdfefe, #ffffff);
 

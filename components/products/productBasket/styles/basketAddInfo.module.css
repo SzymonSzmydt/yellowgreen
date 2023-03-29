@@ -16,14 +16,18 @@
     padding: 1rem;
     border: 2px solid var(--box-color);
     border-radius: var(--radius-small);
-    background-color: var(--footer);
+    background-color: var(--primary-color);
     box-shadow: var(--shadow);
     z-index: 2;
 }
 
+.wrapper h4 {
+    color: var(--dark-color);
+}
+
 .wrapper p {
     margin-top: 1rem;
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
     padding: 0.5rem;
     border-radius: var(--radius-small);
 }

@@ -9,6 +9,10 @@
     background-color: var(--top);
     margin-right: -5px;
     box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .container {
@@ -19,17 +23,18 @@
 }
 
 .logo {
+    margin-top: 3rem;
     text-align: center;
     padding: 2.25rem 0;
 }
 
 .delivery {
-    color: var(--dropdown-title);
+    color: var(--accent-text);
     transition: color 0.2s;
 }
 
 .delivery:hover {
-    color: var(--box-color);
+    color: var(--accent-color);
 }
 
 .img {
@@ -42,8 +47,8 @@
 
 .img:hover {
     transform: scale(1.1);
-    background-color: rgb(214, 229, 243);
-    box-shadow: 1px 1px 5px 4px rgb(214, 229, 243);
+    background-color: rgb(24, 67, 107);
+    box-shadow: 1px 1px 5px 4px rgb(24, 67, 107);
 }
 
 .user {
@@ -68,13 +73,13 @@
     position: absolute;
     right: 0;
     bottom: -0.5rem;
-    color: var(--semi-dark-color);
-    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 0.7rem;
 }
 
 .basketQuantityOn {
     composes: basketQuantityOff;
-    background-color: var(--accent-color);
+    background-color: var(--dark-color);
     padding: 0 0.25rem;
     border-radius: var(--radius-dash)
 }

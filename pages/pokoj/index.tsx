@@ -9,7 +9,7 @@ interface KitchenProps {
 }
 
 export default function Kitchen({ products }: KitchenProps) {
-  return <ProductCard category="pokoj" products={products} />;
+  return <ProductCard categoryUrlPathName="pokoj" products={products} />;
 }
 
 export const getStaticProps: GetStaticProps = async () => {

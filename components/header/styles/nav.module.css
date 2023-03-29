@@ -5,7 +5,7 @@
     border-top: 1px solid var(--semi-color);
     border-bottom: 1px solid var(--semi-color);
     height: 2.75rem;
-    position: relative;
+    box-shadow: var(--shadow);
 }
 
 .menuText {
