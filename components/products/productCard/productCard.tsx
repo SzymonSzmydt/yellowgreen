@@ -9,7 +9,10 @@ interface ProductCardProps {
   products: CorrectProductType[];
 }
 
-export function ProductCard({ products, categoryUrlPathName }: ProductCardProps) {
+export function ProductCard({
+  products,
+  categoryUrlPathName,
+}: ProductCardProps) {
   return (
     <>
       <TitleAccent name={products[0].category} />

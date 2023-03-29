@@ -9,7 +9,7 @@ type WardrobeProps = {
 };
 
 export default function Wardrobe({ products }: WardrobeProps) {
-  return <ProductCard category="garderoba" products={products} />;
+  return <ProductCard categoryUrlPathName="garderoba" products={products} />;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
