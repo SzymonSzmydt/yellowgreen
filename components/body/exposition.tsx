@@ -10,24 +10,28 @@ type CommercialProps = {
 
 function Exposition({ category, products }: CommercialProps) {
   return (
-    <>
-      <h3>Producty z tej samej kategorii</h3>
-      <section className={style.main}>
+    <div className={style.wrapper}>
+      <h3>Produkty z tej samej kategorii</h3>
+      <section className={style.productBox}>
         {products
           ? products.map((product) => (
-              <Link href={`/${category}/${product.id}`} key={product.id}>
+              <Link
+                href={`/${category}/${product.id}`}
+                key={product.id}
+                className={style.linkBox}
+              >
                 <Image
                   src={product.image1}
                   alt={`${product.namePL}`}
                   className={style.img}
-                  width="240"
-                  height="240"
+                  width="200"
+                  height="200"
                 />
               </Link>
             ))
           : null}
       </section>
-    </>
+    </div>
   );
 }
 

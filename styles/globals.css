@@ -21,6 +21,7 @@
     --gradient: linear-gradient(to right, #f6fafa, #f8fbfc, #fbfcfd, #fdfefe, #ffffff);
 
     --shadow: 0px 0px 11px -3px rgb(47, 99, 116);
+    --shadow-small: 0px 0px 6px -3px rgb(47, 99, 116);
 
     --radius-small: 4px;
     --radius-dash: 0.5rem;

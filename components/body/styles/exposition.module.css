@@ -1,13 +1,24 @@
-.main {
+.wrapper {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.productBox {
     display: flex;
     justify-content: space-between;
 }
 
-.img {
-    object-fit: cover;
-    transition: transform 0.3s;
+.linkBox {
+    margin: 1rem 0.5rem;
+    box-shadow: var(--shadow-small);
+    border-radius: var(--radius-dash);
+    transition: all 0.3s;
 }
 
-.img:hover {
-    transform: scale(0.96);
+.img {
+    object-fit: cover;
+}
+
+.linkBox:hover {
+    box-shadow: var(--shadow);
 }
