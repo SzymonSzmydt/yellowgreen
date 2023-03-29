@@ -2,5 +2,5 @@
     margin-top: 2rem;
     width: 100vw;
     background-color: var(--footer);
-    color: var(--dark-color);
+    color: var(--footer-text);
 }
