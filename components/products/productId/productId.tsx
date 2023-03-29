@@ -6,22 +6,21 @@ import { BasketCalc } from '../productBasket/basketCalc';
 import Image from 'next/image';
 import { PorductDescription } from './productDescription';
 import { ProductDetaillist } from './productDetailist';
+import Exposition from 'components/body/exposition';
+import { Spinner } from 'components/ui/spinner';
 
 type ProductProps = {
   product: CorrectProductType;
+  products: CorrectProductType[];
 };
 
-export function ProductId({ product }: ProductProps) {
+export function ProductId({ product, products }: ProductProps) {
   const router = useRouter();
   const [image, setImage] = useState(0);
 
   const imagesPaths = Object.values(product)
     .filter((f) => /picture/g.test(f))
     .sort((a, b) => a.length - b.length);
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
 
   const handleChangeImageFoward = () => {
     if (image < imagesPaths.length - 1) setImage((state) => state + 1);
@@ -33,7 +32,13 @@ export function ProductId({ product }: ProductProps) {
     else setImage(imagesPaths.length - 1);
   };
 
-  return (
+  const selectedExpositionProducts = products.filter(
+    (item) => item.category === product.category && item.id !== product.id
+  );
+
+  return router.isFallback ? (
+    <Spinner />
+  ) : (
     <>
       <div className={style.product}>
         <section className={style.box}>
@@ -74,6 +79,10 @@ export function ProductId({ product }: ProductProps) {
           </div>
         </section>
         <PorductDescription product={product} />
+        <Exposition
+          category={product.category}
+          products={selectedExpositionProducts}
+        />
       </div>
     </>
   );
