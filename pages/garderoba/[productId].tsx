@@ -4,18 +4,20 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../context/firebase/Firebase';
 import { ProductId } from 'components/products/productId/productId';
+import { Spinner } from '../../components/ui/spinner';
 
 type ProductProps = {
   product: CorrectProductType;
+  products: CorrectProductType[];
 };
 
-function Wardrobe({ product }: ProductProps) {
+function Wardrobe({ product, products }: ProductProps) {
   const router = useRouter();
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-  return <ProductId product={product} />;
+  return router.isFallback ? (
+    <Spinner />
+  ) : (
+    <ProductId product={product} products={products} />
+  );
 }
 
 export default Wardrobe;
@@ -47,6 +49,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       product: product,
+      products: data,
     },
   };
 };
