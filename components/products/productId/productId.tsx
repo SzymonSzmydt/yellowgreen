@@ -80,7 +80,10 @@ export function ProductId({ product, products }: ProductProps) {
         </section>
         <PorductDescription product={product} />
         <Exposition
-          category={product.category}
+          categoryUrlPathName={router.asPath.slice(
+            1,
+            router.asPath.indexOf('/', 2)
+          )}
           products={selectedExpositionProducts}
         />
       </div>

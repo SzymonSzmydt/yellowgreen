@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { CorrectProductType } from '../../context/types/type';
 
 type CommercialProps = {
-  category: string;
+  categoryUrlPathName: string;
   products: CorrectProductType[];
 };
 
-function Exposition({ category, products }: CommercialProps) {
+function Exposition({ categoryUrlPathName, products }: CommercialProps) {
   return (
     <div className={style.wrapper}>
       <h3>Produkty z tej samej kategorii</h3>
@@ -16,7 +16,7 @@ function Exposition({ category, products }: CommercialProps) {
         {products
           ? products.map((product) => (
               <Link
-                href={`/${category}/${product.id}`}
+                href={`/${categoryUrlPathName}/${product.id}`}
                 key={product.id}
                 className={style.linkBox}
               >
