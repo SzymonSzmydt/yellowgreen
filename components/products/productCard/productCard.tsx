@@ -1,4 +1,3 @@
-import style from './styles/card.module.css';
 import Link from 'next/link';
 import { TitleAccent } from 'components/ui/titleAccent';
 import { CorrectProductType } from '../../../context/types/type';
@@ -18,11 +17,7 @@ export function ProductCard({
       <TitleAccent name={products[0].category} />
       <>
         {products.map((product) => (
-          <Link
-            href={`/${categoryUrlPathName}/${product.id}`}
-            key={product.id}
-            className={style.link}
-          >
+          <Link href={`/${categoryUrlPathName}/${product.id}`} key={product.id}>
             <Card product={product} />
           </Link>
         ))}

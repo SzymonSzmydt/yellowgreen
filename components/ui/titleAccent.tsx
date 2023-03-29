@@ -7,7 +7,8 @@ type TitleProps = {
 export function TitleAccent({ name }: TitleProps) {
   return (
     <section className={style.title}>
-      <p> {name} </p>
+      <span className={style.startLine} />
+      <span className={style.name}> {name} </span>
     </section>
   );
 }

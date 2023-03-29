@@ -131,3 +131,17 @@ a {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--box-color);
 }
+
+@keyframes slowShowOn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animation {
+    animation: slowShowOn 1s ease-in-out;
+}

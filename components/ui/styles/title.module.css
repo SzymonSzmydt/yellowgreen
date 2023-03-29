@@ -1,15 +1,20 @@
 .title {
-    display: block;
-    text-transform: capitalize;
+    composes: animation from global;
     color: var(--title-text);
-    font-weight: 500;
     padding: 0.5rem;
     margin: 1rem 0;
+    padding: 0.5rem;
     border-radius: var(--radius-small);
     background-image: linear-gradient(to right, #919fd3, #b0b5de, #cccde8, #e6e5f3, #ffffff);
 }
 
-.title p {
-    padding: 0.35rem 0.75rem;
-    border-left: 3px solid var(--accent-color);
+.startLine {
+    border-left: 4px solid var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.name {
+    animation: slowShowOn 1s ease-in-out;
+    font-weight: 400;
+    text-transform: capitalize;
 }

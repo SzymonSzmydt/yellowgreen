@@ -1,10 +1,11 @@
 .article {
+    composes: animation from global;
     display: flex;
     flex-wrap: wrap;
     max-width: 50rem;
     margin: 3rem auto;
     border-bottom: 1px solid var(--semi-color);
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-dash);
     transition: box-shadow 0.4s;
 }
 
@@ -17,6 +18,7 @@
     justify-content: center;
     width: 40%;
     background-image: var(--gradient);
+    border-radius: var(--radius-dash);
 }
 
 .description {
