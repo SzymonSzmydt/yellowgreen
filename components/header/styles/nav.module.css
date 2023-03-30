@@ -46,6 +46,7 @@
 .smallNav {
     composes: container from global;
     margin-top: 1rem;
+    padding: 0 1rem;
 }
 
 .smallLink {

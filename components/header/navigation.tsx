@@ -12,7 +12,7 @@ function Navigation() {
   const navBoxBackMove = isClicked ? style.navBoxOn : style.navBox;
   return (
     <>
-      <nav className={style.nav} id="nav">
+      <nav className={style.nav}>
         <Hamburger
           handleClick={() => setIsClicked(!isClicked)}
           isClicked={isClicked}
