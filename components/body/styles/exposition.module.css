@@ -1,24 +1,56 @@
 .wrapper {
     width: 100%;
+    height: 18rem;
     padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .productBox {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.left,
+.right {
+    cursor: pointer;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-top: 2px solid var(--dark-color);
+    border-left: 2px solid var(--dark-color);
+}
+
+.left {
+    transform: rotate(-45deg);
+}
+
+.right {
+    transform: rotate(135deg);
 }
 
 .linkBox {
+    composes: animation from global;
     margin: 1rem 0.5rem;
+    padding: 0.5rem;
     box-shadow: var(--shadow-small);
     border-radius: var(--radius-dash);
-    transition: all 0.3s;
-}
-
-.img {
-    object-fit: cover;
+    transition: all 0.6s ease-in-out;
 }
 
 .linkBox:hover {
     box-shadow: var(--shadow);
+}
+
+@media screen and (max-width: 800px) {
+
+    .linkBox img {
+        width: 6.25rem;
+        height: 6.25rem;
+    }
 }
