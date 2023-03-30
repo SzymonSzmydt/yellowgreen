@@ -4,10 +4,13 @@ import { Orbitron } from '@next/font/google';
 import Navigation from './navigation';
 import Link from 'next/link';
 import { useAppSelector } from './../../context/redux/hooks';
+import { Hamburger } from 'components/button/hamburger';
+import { useState } from 'react';
 
 const orbitron = Orbitron({ subsets: ['latin'] });
 
 function Header() {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   const basket = useAppSelector((state) => state.basket.value);
 
   return (
@@ -24,6 +27,10 @@ function Header() {
       <header className={style.header}>
         <div className={style.top}>
           <section className={style.container}>
+            <Hamburger
+              handleClick={() => setIsClicked(!isClicked)}
+              isClicked={isClicked}
+            />
             <Link href="/delivery" className={style.delivery}>
               <em>Darmowa dostawa już od 300 zł</em>
             </Link>
@@ -53,7 +60,7 @@ function Header() {
             <h1 className={orbitron.className}> North Shape </h1>
           </Link>
         </div>
-        <Navigation />
+        <Navigation isClicked={isClicked} setIsClicked={setIsClicked} />
       </header>
     </>
   );

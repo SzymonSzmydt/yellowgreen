@@ -23,6 +23,7 @@
     justify-content: space-between;
     font-size: 0.85rem;
     padding: 0 1rem;
+    position: relative;
 }
 
 .logo {
@@ -90,6 +91,12 @@
 @media screen and (max-width: 1266px) {
     .top {
         padding: 0.5rem 0.75rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .delivery em {
+        display: none;
     }
 }
 

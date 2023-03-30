@@ -1,11 +1,14 @@
 import style from './styles/nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Hamburger } from './../button/hamburger';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-function Navigation() {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+interface NavigationProps {
+  isClicked: boolean;
+  setIsClicked: Dispatch<SetStateAction<boolean>>;
+}
+
+function Navigation({ isClicked, setIsClicked }: NavigationProps) {
   const router = useRouter();
 
   const paths: string[] = router?.asPath.split('/').filter((e) => e);
@@ -13,10 +16,6 @@ function Navigation() {
   return (
     <>
       <nav className={style.nav}>
-        <Hamburger
-          handleClick={() => setIsClicked(!isClicked)}
-          isClicked={isClicked}
-        />
         <div className={navBoxBackMove}>
           <span className={style.menuText}>Menu</span>
           <Link
