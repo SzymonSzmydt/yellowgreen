@@ -1,0 +1,49 @@
+.h1 {
+    text-align: center;
+    color: var(--dark-color);
+    font-weight: 400;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--primary-color);
+    padding: 2rem 0;
+}
+
+.form input {
+    height: 2.5rem;
+    text-align: left;
+    padding: 0 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.name {
+    display: inline;
+    width: 13rem;
+}
+
+.name:first-child {
+    margin-right: 1rem;
+}
+
+.email {
+    width: 27rem;
+}
+
+.form textarea {
+    width: 27rem;
+    height: 10rem;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 470px) {
+    .form input,
+    .form textarea {
+        width: 100%;
+    }
+}
