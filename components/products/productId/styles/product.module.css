@@ -76,12 +76,6 @@
     border-radius: var(--radius-dash);
 }
 
-@media screen and (max-width: 1265px) {
-    .product {
-        padding: 1rem;
-    }
-}
-
 @media screen and (max-width: 860px) {
     .basket {
         width: 100%;
