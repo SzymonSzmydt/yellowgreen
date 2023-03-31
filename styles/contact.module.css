@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     padding: 2rem 0;
 }
 
@@ -41,9 +42,38 @@
     font-size: 1rem;
 }
 
+.btn {
+    width: 27rem;
+    display: grid;
+}
+
+.wrapper {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.box {
+    max-width: 27rem;
+    padding: 2rem;
+    background-color: var(--top);
+    border-radius: var(--radius-dash);
+    box-shadow: var(--shadow);
+    color: var(--accent-color);
+}
+
+.box section {
+    display: grid;
+}
+
 @media screen and (max-width: 470px) {
+
     .form input,
-    .form textarea {
+    .form textarea,
+    .btn {
         width: 100%;
     }
 }

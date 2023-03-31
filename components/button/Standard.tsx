@@ -1,7 +1,7 @@
 import btn from './style/btn.module.css';
 
 type StandardProps = {
-  handleClick: () => void;
+  handleClick?: () => void;
   name: string;
   white?: boolean;
 };
