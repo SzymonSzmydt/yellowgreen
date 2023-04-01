@@ -65,9 +65,10 @@
     right: 0;
 }
 
-.dots {
+.iconImage {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .smallImage {
@@ -86,10 +87,16 @@
         width: 100%;
     }
 
+    .smallImage {
+        width: 3.75rem;
+        height: 3.75rem;
+        margin: 0.5rem 0.25rem;
+    }
+
     @media screen and (max-width: 370px) {
         .smallImage {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
         }
     }
 }

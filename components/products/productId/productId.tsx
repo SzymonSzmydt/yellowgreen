@@ -64,7 +64,7 @@ export function ProductId({ product, products }: ProductProps) {
               />
               <div className={style.arrowR} onClick={handleChangeImageFoward} />
             </figcaption>
-            <section className={style.dots}>
+            <section className={style.iconImage}>
               {imagesPaths.length > 0
                 ? imagesPaths.map((img, index) => (
                     <Image
