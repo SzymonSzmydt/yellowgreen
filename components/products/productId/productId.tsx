@@ -1,13 +1,16 @@
 import { CorrectProductType } from 'context/types/type';
 import style from './styles/product.module.css';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { BasketCalc } from '../productBasket/basketCalc';
 import Image from 'next/image';
 import { PorductDescription } from './productDescription';
 import { ProductDetaillist } from './productDetailist';
-import Exposition from 'components/body/exposition';
 import { Spinner } from 'components/ui/spinner';
+
+const ExpositionWithProduct = React.lazy(
+  () => import('components/body/exposition')
+);
 
 type ProductProps = {
   product: CorrectProductType;
@@ -79,13 +82,15 @@ export function ProductId({ product, products }: ProductProps) {
           </div>
         </section>
         <PorductDescription product={product} />
-        <Exposition
-          categoryUrlPathName={router.asPath.slice(
-            1,
-            router.asPath.indexOf('/', 2)
-          )}
-          products={selectedExpositionProducts}
-        />
+        <Suspense fallback={<Spinner />}>
+          <ExpositionWithProduct
+            categoryUrlPathName={router.asPath.slice(
+              1,
+              router.asPath.indexOf('/', 2)
+            )}
+            products={selectedExpositionProducts}
+          />
+        </Suspense>
       </div>
     </>
   );

@@ -12,14 +12,14 @@ type CommercialProps = {
 function Exposition({ categoryUrlPathName, products }: CommercialProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
+  const handleLeft = () => {
     if (currentIndex === products.length - 1) {
       return setCurrentIndex(0);
     }
     return setCurrentIndex((state) => state + 1);
   };
 
-  const handlePrev = () => {
+  const handleRight = () => {
     if (currentIndex === 0) {
       return setCurrentIndex(products.length - 1);
     }
@@ -41,7 +41,6 @@ function Exposition({ categoryUrlPathName, products }: CommercialProps) {
                 <Image
                   src={product.image1}
                   alt={`${product.namePL}`}
-                  className={style.img}
                   width="200"
                   height="200"
                 />
@@ -49,10 +48,12 @@ function Exposition({ categoryUrlPathName, products }: CommercialProps) {
             ))
           : null}
       </section>
-      <section className={style.arrows}>
-        <div className={style.left} onClick={handleNext} />
-        <div className={style.right} onClick={handlePrev} />
-      </section>
+      {products.length > 3 ? (
+        <section className={style.arrows}>
+          <div className={style.left} onClick={handleLeft} />
+          <div className={style.right} onClick={handleRight} />
+        </section>
+      ) : null}
     </div>
   );
 }
