@@ -20,6 +20,7 @@ function Contact() {
       order: data.get('order') as string,
       message: data.get('message') as string,
     };
+
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE as string,

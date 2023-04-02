@@ -1,3 +1,4 @@
+import { useAppSelector } from 'context/redux/hooks';
 import style from './styles/nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -10,8 +11,13 @@ interface NavigationProps {
 
 function Navigation({ isClicked, setIsClicked }: NavigationProps) {
   const router = useRouter();
+  const products = useAppSelector((state) => state.products.value);
 
   const paths: string[] = router?.asPath.split('/').filter((e) => e);
+  const productNameAsLink = products.find(
+    (product) => product.id === parseFloat(paths[paths.length - 1])
+  );
+
   const navBoxBackMove = isClicked ? style.navBoxOn : style.navBox;
   return (
     <>
@@ -67,7 +73,9 @@ function Navigation({ isClicked, setIsClicked }: NavigationProps) {
                 href={index === 0 ? `/${link}` : `${link}`}
                 className={style.smallLink}
               >
-                {link}
+                {productNameAsLink && index === paths.length - 1
+                  ? productNameAsLink.namePL
+                  : link}
               </Link>
             ))}
           </>
