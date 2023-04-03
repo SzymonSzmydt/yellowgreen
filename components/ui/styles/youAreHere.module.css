@@ -1,0 +1,33 @@
+.smallNav {
+    margin-bottom: 2rem;
+}
+
+.smallLink {
+    text-transform: capitalize;
+    font-size: 0.85rem;
+    color: var(--top);
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.smallLink:first-child {
+    padding-left: 0;
+}
+
+.smallLink::after {
+    position: absolute;
+    content: "/";
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.smallLink:last-child::after {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .smallLink {
+        font-size: 0.75rem;
+    }
+}

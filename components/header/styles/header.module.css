@@ -1,7 +1,7 @@
 .header {
     color: var(--dark-color);
     font-weight: 500;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     user-select: none;
 }
 

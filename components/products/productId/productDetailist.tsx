@@ -1,6 +1,10 @@
 import style from './styles/detaillist.module.css';
 
-export function ProductDetaillist() {
+interface DetaillistProps {
+  shipping: string;
+}
+
+export function ProductDetaillist({ shipping }: DetaillistProps) {
   return (
     <>
       <details className={style.details}>
@@ -14,7 +18,7 @@ export function ProductDetaillist() {
       </details>
       <details className={style.details}>
         <summary>Wysyłka i Zwrot</summary>
-        <p>Czas dostawy: 3 - 5 dni roboczych</p>
+        <p>Czas dostawy: {shipping}</p>
         <h4>Wysyłka</h4>
         <p>
           Wszystkie artykuły zostaną dostarczone&nbsp;do Twojego domu lub

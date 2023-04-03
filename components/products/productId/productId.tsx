@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { PorductDescription } from './productDescription';
 import { ProductDetaillist } from './productDetailist';
 import { Spinner } from 'components/ui/spinner';
+import { YouAreHereLinks } from 'components/ui/youAreHereLinks';
 
 const ExpositionWithProduct = React.lazy(
   () => import('components/body/exposition')
@@ -43,11 +44,12 @@ export function ProductId({ product, products }: ProductProps) {
     <Spinner />
   ) : (
     <>
+      <YouAreHereLinks {...product} />
       <div className={style.product}>
         <section className={style.box}>
           <div className={style.basket}>
             <BasketCalc product={product} />
-            <ProductDetaillist />
+            <ProductDetaillist shipping={product.shipping} />
           </div>
           <div className={style.imageBox}>
             <figcaption className={style.figcaption}>

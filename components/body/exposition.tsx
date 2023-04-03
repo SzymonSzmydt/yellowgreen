@@ -13,17 +13,11 @@ function Exposition({ categoryUrlPathName, products }: CommercialProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleLeft = () => {
-    if (currentIndex === products.length - 1) {
-      return setCurrentIndex(0);
-    }
-    return setCurrentIndex((state) => state + 1);
+    setCurrentIndex((state) => (state + 1) % products.length);
   };
 
   const handleRight = () => {
-    if (currentIndex === 0) {
-      return setCurrentIndex(products.length - 1);
-    }
-    return setCurrentIndex((state) => state - 1);
+    setCurrentIndex((state) => (state - 1 + products.length) % products.length);
   };
 
   return (
@@ -36,7 +30,9 @@ function Exposition({ categoryUrlPathName, products }: CommercialProps) {
                 href={`/${categoryUrlPathName}/${product.id}`}
                 key={product.id}
                 className={style.linkBox}
-                style={{ transform: `translate(-${currentIndex * 100}%)` }}
+                style={{
+                  transform: `translate(-${currentIndex * 120}%)`,
+                }}
               >
                 <Image
                   src={product.image1}

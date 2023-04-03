@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { TitleAccent } from 'components/ui/titleAccent';
 import { CorrectProductType } from '../../../context/types/type';
 import { Card } from './Card';
+import { YouAreHereLinks } from 'components/ui/youAreHereLinks';
 
 interface ProductCardProps {
   categoryUrlPathName: string;
@@ -14,6 +15,7 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <>
+      <YouAreHereLinks />
       <TitleAccent name={products[0].category} />
       <>
         {products.map((product) => (
