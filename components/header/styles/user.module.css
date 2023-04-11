@@ -1,0 +1,16 @@
+.userWrapper {
+    display: inline;
+    cursor: pointer;
+    position: relative;
+}
+
+.user {
+    margin: 0 1.5rem;
+    width: 1rem;
+}
+
+.user:hover {
+    transform: scale(1.1);
+    background-color: rgb(24, 67, 107);
+    box-shadow: 1px 1px 5px 4px rgb(24, 67, 107);
+}

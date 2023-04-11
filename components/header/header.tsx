@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useAppSelector } from './../../context/redux/hooks';
 import { Hamburger } from 'components/button/hamburger';
 import { useState } from 'react';
+import { UserIcon } from './userIcon';
 
 const orbitron = Orbitron({ subsets: ['latin'] });
 
@@ -35,9 +36,7 @@ function Header() {
               <em>Darmowa dostawa już od 300 zł</em>
             </Link>
             <section className={style.basketBox}>
-              <Link href="login">
-                <div className={style.user} />
-              </Link>
+              <UserIcon />
               <Link href="/basket">
                 <div className={style.basket} />
                 <span

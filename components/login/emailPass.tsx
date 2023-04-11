@@ -11,11 +11,7 @@ type LoginProps = {
   password: string;
 };
 
-type ComponentProps = {
-  path: string;
-};
-
-export function EmailPass({ path }: ComponentProps) {
+export function EmailPass() {
   const [user, setUser] = useState<LoginProps>({ email: '', password: '' });
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
@@ -23,7 +19,7 @@ export function EmailPass({ path }: ComponentProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    return router.push(path);
+    return router.push('/');
   };
 
   return (
